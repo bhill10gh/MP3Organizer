@@ -85,17 +85,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BCHControls\BCHControls.csproj">
-      <Project>{9158217c-03d5-4139-a109-010f23895c84}</Project>
-      <Name>BCHControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\BCHFramework\BCHFramework.csproj">
+    <ProjectReference Include="..\..\BCHFramework\BCHFramework\BCHFramework.csproj">
       <Project>{71e3ac7a-b5ca-4fb5-a6ea-036f27ecedba}</Project>
       <Name>BCHFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\BCHUtilitiesWinformApps\BCHUtilitiesWinformApps.csproj">
-      <Project>{cbf569c4-f6e5-4c2a-b29d-f5200a4da8a2}</Project>
-      <Name>BCHUtilitiesWinformApps</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ID3Class\ID3.csproj">
       <Project>{5D66099A-A8C5-47AB-B230-C9B60DFC1B40}</Project>

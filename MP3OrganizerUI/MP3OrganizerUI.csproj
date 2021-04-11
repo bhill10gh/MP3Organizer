@@ -252,15 +252,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BCHControls\BCHControls.csproj">
-      <Project>{9158217C-03D5-4139-A109-010F23895C84}</Project>
+    <ProjectReference Include="..\..\BCHFramework\BCHControls\BCHControls.csproj">
+      <Project>{9158217c-03d5-4139-a109-010f23895c84}</Project>
       <Name>BCHControls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BCHFramework\BCHFramework.csproj">
+    <ProjectReference Include="..\..\BCHFramework\BCHFramework\BCHFramework.csproj">
       <Project>{71e3ac7a-b5ca-4fb5-a6ea-036f27ecedba}</Project>
       <Name>BCHFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BCHUtilitiesWinformApps\BCHUtilitiesWinformApps.csproj">
+    <ProjectReference Include="..\..\BCHFramework\BCHUtilitiesWinformApps\BCHUtilitiesWinformApps.csproj">
       <Project>{cbf569c4-f6e5-4c2a-b29d-f5200a4da8a2}</Project>
       <Name>BCHUtilitiesWinformApps</Name>
     </ProjectReference>

@@ -75,11 +75,7 @@
     <Compile Include="SqlScripts.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BCHControls\BCHControls.csproj">
-      <Project>{9158217c-03d5-4139-a109-010f23895c84}</Project>
-      <Name>BCHControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\BCHFramework\BCHFramework.csproj">
+    <ProjectReference Include="..\..\BCHFramework\BCHFramework\BCHFramework.csproj">
       <Project>{71e3ac7a-b5ca-4fb5-a6ea-036f27ecedba}</Project>
       <Name>BCHFramework</Name>
     </ProjectReference>
