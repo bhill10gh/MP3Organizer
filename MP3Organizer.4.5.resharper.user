@@ -1,0 +1,1016 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">False</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="using" priority="21" />
+      <Item value="MP3ID3V2ReadWriter" priority="0" />
+      <Item value="clsID3V230Reader" priority="5" />
+      <Item value="clsID3V230Writer" priority="4" />
+      <Item value="prop" priority="19" />
+      <Item value="MP3RdWr" priority="0" />
+      <Item value="this" priority="54" />
+      <Item value="return" priority="54" />
+      <Item value="new" priority="78" />
+      <Item value="value" priority="3" />
+      <Item value="MP3ID3V2ReadWriterManager" priority="1" />
+      <Item value="mrw" priority="0" />
+      <Item value="fileName" priority="6" />
+      <Item value="false" priority="31" />
+      <Item value="openFileDialog1" priority="4" />
+      <Item value="MP3ReadWriter" priority="0" />
+      <Item value="ctor" priority="1" />
+      <Item value="ID3" priority="2" />
+      <Item value="private" priority="27" />
+      <Item value="void" priority="28" />
+      <Item value="string" priority="182" />
+      <Item value="ID3v2" priority="1" />
+      <Item value="id3V2" priority="2" />
+      <Item value="bool" priority="19" />
+      <Item value="textBox1" priority="7" />
+      <Item value="ID3Info" priority="1" />
+      <Item value="id3Info" priority="5" />
+      <Item value="public" priority="54" />
+      <Item value="List" priority="45" />
+      <Item value="abstract" priority="1" />
+      <Item value="virtual" priority="0" />
+      <Item value="static" priority="5" />
+      <Item value="protected" priority="0" />
+      <Item value="AbstractMP3Info" priority="1" />
+      <Item value="fileNameAndPath" priority="6" />
+      <Item value="int" priority="26" />
+      <Item value="System" priority="13" />
+      <Item value="IO" priority="8" />
+      <Item value="FileInfo" priority="8" />
+      <Item value="mp3FileInfo" priority="0" />
+      <Item value="Path" priority="12" />
+      <Item value="path" priority="1" />
+      <Item value="while" priority="0" />
+      <Item value="i" priority="16" />
+      <Item value="mp3Len" priority="0" />
+      <Item value="if" priority="69" />
+      <Item value="oCount" priority="0" />
+      <Item value="List&lt;string&gt;" priority="18" />
+      <Item value="tempStr" priority="7" />
+      <Item value="FileNameNoExt" priority="0" />
+      <Item value="s" priority="3" />
+      <Item value="out" priority="0" />
+      <Item value="trk" priority="2" />
+      <Item value="else" priority="10" />
+      <Item value="Track" priority="5" />
+      <Item value="Array" priority="0" />
+      <Item value="Artists" priority="1" />
+      <Item value="lev" priority="3" />
+      <Item value="SongTitle" priority="2" />
+      <Item value="textBox2" priority="5" />
+      <Item value="strLst" priority="1" />
+      <Item value="str" priority="11" />
+      <Item value="Comments" priority="0" />
+      <Item value="MP3InfoBCHFrmt" priority="1" />
+      <Item value="mp3Info" priority="5" />
+      <Item value="foreach" priority="17" />
+      <Item value="allArtist" priority="0" />
+      <Item value="allArtists" priority="4" />
+      <Item value="strAt" priority="1" />
+      <Item value="strAti" priority="0" />
+      <Item value="ex" priority="3" />
+      <Item value="folderBrowserDialog1" priority="5" />
+      <Item value="const" priority="0" />
+      <Item value="fixed" priority="0" />
+      <Item value="Files" priority="0" />
+      <Item value="Directory" priority="4" />
+      <Item value="StartDir" priority="1" />
+      <Item value="DirSearch" priority="0" />
+      <Item value="f" priority="6" />
+      <Item value="FileSearch" priority="4" />
+      <Item value="fs" priority="15" />
+      <Item value="listBox1" priority="1" />
+      <Item value="DateTime" priority="3" />
+      <Item value="true" priority="30" />
+      <Item value="BeforeCreatedDate" priority="2" />
+      <Item value="null" priority="20" />
+      <Item value="fi" priority="0" />
+      <Item value="File" priority="4" />
+      <Item value="AfterCreatedDate" priority="0" />
+      <Item value="AfterModifiedDate" priority="0" />
+      <Item value="FileFilters" priority="0" />
+      <Item value="dddDrive" priority="0" />
+      <Item value="dlbDir" priority="5" />
+      <Item value="lbDirList" priority="8" />
+      <Item value="for" priority="6" />
+      <Item value="lbFileList" priority="4" />
+      <Item value="flbFilesInDir" priority="1" />
+      <Item value="var" priority="0" />
+      <Item value="item" priority="6" />
+      <Item value="dList" priority="1" />
+      <Item value="MDIMain" priority="0" />
+      <Item value="Form1" priority="3" />
+      <Item value="f1" priority="1" />
+      <Item value="dirList" priority="6" />
+      <Item value="ToList" priority="2" />
+      <Item value="char" priority="2" />
+      <Item value="ToString" priority="0" />
+      <Item value="Text" priority="0" />
+      <Item value="StringBuilder" priority="5" />
+      <Item value="dirPathList" priority="0" />
+      <Item value="TextBox" priority="0" />
+      <Item value="DirPathUtilities" priority="0" />
+      <Item value="strList" priority="0" />
+      <Item value="AllowDupes" priority="3" />
+      <Item value="tbText" priority="5" />
+      <Item value="lbList" priority="8" />
+      <Item value="object" priority="9" />
+      <Item value="lblTitle" priority="1" />
+      <Item value="in" priority="2" />
+      <Item value="list" priority="20" />
+      <Item value="class" priority="6" />
+      <Item value="IComparer" priority="1" />
+      <Item value="Collections" priority="0" />
+      <Item value="x" priority="3" />
+      <Item value="BCHFramwork" priority="0" />
+      <Item value="MethodInvoker" priority="0" />
+      <Item value="newItem" priority="3" />
+      <Item value="CaseSensitive" priority="0" />
+      <Item value="CmprStrCaseSensitive" priority="2" />
+      <Item value="CmprStrIgnoreCase" priority="1" />
+      <Item value="cmpric" priority="0" />
+      <Item value="LBlist" priority="1" />
+      <Item value="CheckToAdd" priority="1" />
+      <Item value="SearchString" priority="0" />
+      <Item value="_searchString" priority="1" />
+      <Item value="_noDupes" priority="1" />
+      <Item value="allowDupes" priority="0" />
+      <Item value="_noDupesSet" priority="1" />
+      <Item value="lbFrom" priority="6" />
+      <Item value="lbTo" priority="6" />
+      <Item value="ListBox" priority="2" />
+      <Item value="isFromTo" priority="1" />
+      <Item value="GetStyle" priority="0" />
+      <Item value="AddItems" priority="2" />
+      <Item value="toList" priority="1" />
+      <Item value="_CaseSensitiveSet" priority="0" />
+      <Item value="_caseSensitive" priority="0" />
+      <Item value="lb" priority="2" />
+      <Item value="newItems" priority="0" />
+      <Item value="GetStrList" priority="1" />
+      <Item value="Region" priority="0" />
+      <Item value="FromTo" priority="0" />
+      <Item value="delItem" priority="1" />
+      <Item value="DeleteItem" priority="0" />
+      <Item value="from" priority="0" />
+      <Item value="property" priority="2" />
+      <Item value="struct" priority="4" />
+      <Item value="MP3FileDataType" priority="7" />
+      <Item value="BCHMP3Utilities" priority="5" />
+      <Item value="OperationResult" priority="35" />
+      <Item value="mscRtDir" priority="1" />
+      <Item value="TreeNodeMouseClickEventHandler" priority="1" />
+      <Item value="ref" priority="28" />
+      <Item value="BCHUtilities" priority="10" />
+      <Item value="Dictionary" priority="7" />
+      <Item value="T" priority="4" />
+      <Item value="Type" priority="3" />
+      <Item value="propName" priority="0" />
+      <Item value="KeyValuePair" priority="5" />
+      <Item value="KeyValuePair&lt;string,string&gt;" priority="2" />
+      <Item value="name" priority="0" />
+      <Item value="propInfo" priority="0" />
+      <Item value="op" priority="44" />
+      <Item value="Dictionary&lt;string,string&gt;" priority="1" />
+      <Item value="PropertyInfo" priority="3" />
+      <Item value="dict" priority="3" />
+      <Item value="pi" priority="0" />
+      <Item value="t" priority="1" />
+      <Item value="propNameVal1" priority="0" />
+      <Item value="propNameVal2" priority="0" />
+      <Item value="kvp" priority="1" />
+      <Item value="dictionary" priority="0" />
+      <Item value="GetObjectProperitesNameList" priority="0" />
+      <Item value="pro" priority="0" />
+      <Item value="mp3" priority="16" />
+      <Item value="key" priority="0" />
+      <Item value="dataGridView1" priority="4" />
+      <Item value="tbMusicRootDir" priority="2" />
+      <Item value="tbMP3File" priority="1" />
+      <Item value="fileNamePath" priority="0" />
+      <Item value="ckbUseDirForInfo" priority="0" />
+      <Item value="IOrderedQueryable" priority="0" />
+      <Item value="me" priority="0" />
+      <Item value="genre" priority="1" />
+      <Item value="StringComparer" priority="2" />
+      <Item value="tbTrack3v1" priority="0" />
+      <Item value="tbRootDir" priority="0" />
+      <Item value="tbCalcTrack" priority="0" />
+      <Item value="tbCalcTitle" priority="0" />
+      <Item value="tbCalcArtists" priority="0" />
+      <Item value="tbCalcAlbum" priority="0" />
+      <Item value="tbcalcComment" priority="0" />
+      <Item value="tbCalcGenre" priority="0" />
+      <Item value="ucftddf" priority="0" />
+      <Item value="UCFromToEnum" priority="0" />
+      <Item value="pnlMoveBtns" priority="0" />
+      <Item value="passedFirst" priority="1" />
+      <Item value="hadSel" priority="0" />
+      <Item value="break" priority="6" />
+      <Item value="items" priority="1" />
+      <Item value="maxIndx" priority="1" />
+      <Item value="newPos" priority="0" />
+      <Item value="delegate" priority="0" />
+      <Item value="event" priority="0" />
+      <Item value="ProgressUpdate" priority="1" />
+      <Item value="mp3Files" priority="0" />
+      <Item value="SongNumeration" priority="1" />
+      <Item value="byte" priority="0" />
+      <Item value="StringComparison" priority="1" />
+      <Item value="GenreList" priority="0" />
+      <Item value="genreIndx" priority="0" />
+      <Item value="SaveMp3IdInfo" priority="1" />
+      <Item value="mp3File" priority="0" />
+      <Item value="useFileInfo" priority="0" />
+      <Item value="tbMP3RootDir" priority="2" />
+      <Item value="lbMP3Files" priority="2" />
+      <Item value="MessageBox" priority="2" />
+      <Item value="MessageBoxButtons" priority="2" />
+      <Item value="MessageBoxIcon" priority="7" />
+      <Item value="MP3OrganizerBusinessLogic" priority="1" />
+      <Item value="BatchMP3EditorManager" priority="1" />
+      <Item value="BCHWinFormUtilities" priority="1" />
+      <Item value="mp3Cnt" priority="1" />
+      <Item value="UpdateProgressBar" priority="0" />
+      <Item value="progressBar1" priority="0" />
+      <Item value="indx" priority="0" />
+      <Item value="bmem" priority="0" />
+      <Item value="mp3List" priority="0" />
+      <Item value="ckbUseFolderInfo" priority="0" />
+      <Item value="TimeSpan" priority="1" />
+      <Item value="ts" priority="3" />
+      <Item value="startTime" priority="1" />
+      <Item value="msg" priority="0" />
+      <Item value="track" priority="2" />
+      <Item value="title" priority="3" />
+      <Item value="artists" priority="1" />
+      <Item value="album" priority="0" />
+      <Item value="comments" priority="0" />
+      <Item value="str2" priority="2" />
+      <Item value="strLen" priority="1" />
+      <Item value="maxLen" priority="2" />
+      <Item value="GetMaxLen" priority="1" />
+      <Item value="badMp3ListStr" priority="1" />
+      <Item value="lbErrors" priority="0" />
+      <Item value="tbBadFiles" priority="0" />
+      <Item value="badFiles" priority="0" />
+      <Item value="tbErrors" priority="0" />
+      <Item value="ASCIIEncoding" priority="1" />
+      <Item value="badMp3List" priority="0" />
+      <Item value="lbBadMp3Filse" priority="0" />
+      <Item value="_op" priority="0" />
+      <Item value="mp3RtDir" priority="1" />
+      <Item value="where" priority="0" />
+      <Item value="select" priority="0" />
+      <Item value="FileInfoType" priority="2" />
+      <Item value="List&lt;FileInfoType&gt;" priority="0" />
+      <Item value="fList" priority="1" />
+      <Item value="float" priority="0" />
+      <Item value="FrmBCHUnformatedMp3Files" priority="1" />
+      <Item value="fileMenu" priority="0" />
+      <Item value="uf" priority="1" />
+      <Item value="DataGridViewTextBoxColumn" priority="1" />
+      <Item value="fileNameOrigCol" priority="3" />
+      <Item value="fileNameNewCol" priority="0" />
+      <Item value="fileNamePathCol" priority="0" />
+      <Item value="filePathCol" priority="0" />
+      <Item value="e" priority="1" />
+      <Item value="dgvr" priority="0" />
+      <Item value="BadMp3List" priority="4" />
+      <Item value="row" priority="3" />
+      <Item value="LoadGrid" priority="0" />
+      <Item value="tbBadFileCount" priority="0" />
+      <Item value="cnt" priority="4" />
+      <Item value="UMFileInfoType" priority="0" />
+      <Item value="DataGridViewRow" priority="1" />
+      <Item value="DataGridViewCell" priority="1" />
+      <Item value="Errors" priority="1" />
+      <Item value="msgs" priority="0" />
+      <Item value="GetAllExceptionsAndMessages" priority="0" />
+      <Item value="enum" priority="1" />
+      <Item value="SqlCreatorType" priority="0" />
+      <Item value="DalSchemaSqls" priority="0" />
+      <Item value="SchemaName" priority="0" />
+      <Item value="schemaName" priority="0" />
+      <Item value="dss" priority="0" />
+      <Item value="Dictionary&lt;string,DalSqlType&gt;" priority="0" />
+      <Item value="dbFileAndPath" priority="1" />
+      <Item value="sql" priority="1" />
+      <Item value="result" priority="2" />
+      <Item value="script" priority="1" />
+      <Item value="typeof" priority="0" />
+      <Item value="sm" priority="0" />
+      <Item value="type" priority="1" />
+      <Item value="param" priority="0" />
+      <Item value="SqlScriptParameter" priority="2" />
+      <Item value="ssp" priority="4" />
+      <Item value="pName" priority="0" />
+      <Item value="pType" priority="5" />
+      <Item value="pValue" priority="0" />
+      <Item value="SqlScriptParameterType" priority="0" />
+      <Item value="SqlScriptParameterEnum" priority="5" />
+      <Item value="SqlScripts" priority="6" />
+      <Item value="appSettings" priority="3" />
+      <Item value="SqlScriptsXml2" priority="0" />
+      <Item value="SqlScriptsXml1" priority="0" />
+      <Item value="ssFile" priority="1" />
+      <Item value="try" priority="1" />
+      <Item value="ss" priority="0" />
+      <Item value="Exception" priority="1" />
+      <Item value="appSetting" priority="1" />
+      <Item value="sqlScriptsXmls" priority="0" />
+      <Item value="xmlFile" priority="0" />
+      <Item value="DAL" priority="6" />
+      <Item value="DataStore" priority="5" />
+      <Item value="appKey" priority="2" />
+      <Item value="finished" priority="1" />
+      <Item value="BCHControls" priority="1" />
+      <Item value="BCHFramework" priority="3" />
+      <Item value="MP3DBFileName" priority="1" />
+      <Item value="IsSqlScriptsSet" priority="0" />
+      <Item value="dal" priority="2" />
+      <Item value="saveFileDialog1" priority="2" />
+      <Item value="ssObj" priority="1" />
+      <Item value="ssXML" priority="0" />
+      <Item value="SqlScriptMembers" priority="0" />
+      <Item value="BCHFileIO" priority="0" />
+      <Item value="ssEnum" priority="1" />
+      <Item value="MDIBCHUtilities" priority="0" />
+      <Item value="FrmBCHDALUtilities" priority="1" />
+      <Item value="du" priority="1" />
+      <Item value="ds" priority="3" />
+      <Item value="SqlScriptEnum" priority="0" />
+      <Item value="sqlParamList" priority="0" />
+      <Item value="p" priority="0" />
+      <Item value="sspEnum" priority="1" />
+      <Item value="parms" priority="1" />
+      <Item value="Data" priority="0" />
+      <Item value="DataTable" priority="2" />
+      <Item value="dt" priority="4" />
+      <Item value="MP3DBManager" priority="3" />
+      <Item value="mdbmng" priority="0" />
+      <Item value="LoadDB" priority="0" />
+      <Item value="tbMP3DBFile" priority="1" />
+      <Item value="mp3DbFile" priority="0" />
+      <Item value="conn" priority="1" />
+      <Item value="cmd" priority="1" />
+      <Item value="OleDbDataAdapter" priority="1" />
+      <Item value="DBNull" priority="0" />
+      <Item value="double" priority="1" />
+      <Item value="mdbmgr" priority="0" />
+      <Item value="DialogResult" priority="0" />
+      <Item value="DeleteAllMp3s" priority="0" />
+      <Item value="artist" priority="0" />
+      <Item value="lblMP3Count" priority="0" />
+      <Item value="lbMP3s" priority="3" />
+      <Item value="ssh" priority="2" />
+      <Item value="RetrieveVirtualItemEventArgs" priority="0" />
+      <Item value="Activator" priority="0" />
+      <Item value="SaveMessagesToFile" priority="0" />
+      <Item value="rbDoMediaPlayerFormat" priority="2" />
+      <Item value="rbDoArchosM3UFormat" priority="1" />
+      <Item value="Xml" priority="0" />
+      <Item value="XmlDocument" priority="1" />
+      <Item value="wpl" priority="11" />
+      <Item value="XmlNode" priority="8" />
+      <Item value="smil" priority="1" />
+      <Item value="head" priority="1" />
+      <Item value="meta" priority="0" />
+      <Item value="XmlAttribute" priority="1" />
+      <Item value="attribute" priority="1" />
+      <Item value="tbM3UFileName" priority="0" />
+      <Item value="body" priority="0" />
+      <Item value="seq" priority="0" />
+      <Item value="String" priority="0" />
+      <Item value="CmpMP3PathArtistSong" priority="0" />
+      <Item value="uftM3U" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerBusinessLogic.MP3ID3V2ReadWriterManager">
+      <Item value="MP3Reader" priority="1" />
+      <Item value="MP3Writer" priority="0" />
+      <Item value="_mp3Writer" priority="0" />
+      <Item value="_mp3Reader" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3ID3V2ReadWriter.MP3ID3V2ReadWriter.clsID3V230Reader">
+      <Item value="ReadID3V230Tag" priority="0" />
+      <Item value="SongTitle" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3ID3V2ReadWriter.MP3ID3V2ReadWriter.clsID3V230Writer">
+      <Item value="WriteID3V230Tag" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.OpenFileDialog">
+      <Item value="ShowDialog" priority="1" />
+      <Item value="FileName" priority="1" />
+      <Item value="Title" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.TextBox">
+      <Item value="Text" priority="32" />
+      <Item value="EnabledChanged" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ID3.ID3v2">
+      <Item value="Load" priority="0" />
+      <Item value="GetTextFrame" priority="0" />
+      <Item value="SetTextFrame" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ID3.ID3Info">
+      <Item value="ID3v2Info" priority="1" />
+      <Item value="Load" priority="0" />
+      <Item value="ID3v1Info" priority="1" />
+      <Item value="Save" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ID3.ID3v1Frame.ID3v1">
+      <Item value="Title" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Trim" priority="27" />
+      <Item value="Length" priority="8" />
+      <Item value="Substring" priority="5" />
+      <Item value="Contains" priority="1" />
+      <Item value="Split" priority="3" />
+      <Item value="EndsWith" priority="2" />
+      <Item value="Equals" priority="5" />
+      <Item value="ToUpper" priority="5" />
+      <Item value="Replace" priority="3" />
+      <Item value="StartsWith" priority="0" />
+      <Item value="ToLower" priority="2" />
+      <Item value="CompareTo" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.Path">
+      <Item value="GetFullPath" priority="1" />
+      <Item value="GetFileName" priority="1" />
+      <Item value="GetFileNameWithoutExtension" priority="3" />
+      <Item value="GetExtension" priority="2" />
+      <Item value="GetDirectoryName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerBusinessLogic.MP3InfoBCHFrmt">
+      <Item value="Path" priority="0" />
+      <Item value="FileName" priority="0" />
+      <Item value="FileNameNoExt" priority="0" />
+      <Item value="FileExt" priority="0" />
+      <Item value="Artists" priority="0" />
+      <Item value="Track" priority="0" />
+      <Item value="MP3FileData" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Empty" priority="13" />
+      <Item value="IsNullOrEmpty" priority="7" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="Parse" priority="0" />
+      <Item value="TryParse" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add" priority="16" />
+      <Item value="Contains" priority="5" />
+      <Item value="Count" priority="10" />
+      <Item value="BinarySearch" priority="0" />
+      <Item value="FindIndex" priority="0" />
+      <Item value="AddRange" priority="4" />
+      <Item value="ToList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerBusinessLogic.AbstractMP3Info">
+      <Item value="LoadMp3File" priority="0" />
+      <Item value="GetAllArtist" priority="0" />
+      <Item value="SongTitle" priority="0" />
+      <Item value="SongNumeration" priority="0" />
+      <Item value="Comments" priority="0" />
+      <Item value="Track" priority="0" />
+      <Item value="FileName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="Message" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.FolderBrowserDialog">
+      <Item value="ShowDialog" priority="1" />
+      <Item value="SelectedPath" priority="1" />
+      <Item value="Description" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.Directory">
+      <Item value="Exists" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerBusinessLogic.FileSearch">
+      <Item value="FileFilters" priority="0" />
+      <Item value="StartDir" priority="2" />
+      <Item value="Files" priority="1" />
+      <Item value="StartSearch" priority="1" />
+      <Item value="SearchString" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ListBox">
+      <Item value="DataSource" priority="4" />
+      <Item value="Items" priority="36" />
+      <Item value="SetSelected" priority="1" />
+      <Item value="SelectedItems" priority="3" />
+      <Item value="SelectedIndices" priority="1" />
+      <Item value="TabStopChanged" priority="0" />
+      <Item value="SelectedItem" priority="2" />
+      <Item value="SelectedIndex" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="GetCreationTime" priority="0" />
+      <Item value="GetLastWriteTime" priority="0" />
+      <Item value="Exists" priority="3" />
+      <Item value="Move" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.VisualBasic.Compatibility.VB6.DirListBox">
+      <Item value="Path" priority="1" />
+      <Item value="SelectedItem" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Controls.UCDirectoryChooser">
+      <Item value="dddDrive" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.VisualBasic.Compatibility.VB6.DriveListBox">
+      <Item value="Drive" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ListBox+ObjectCollection">
+      <Item value="Contains" priority="2" />
+      <Item value="Add" priority="5" />
+      <Item value="Count" priority="8" />
+      <Item value="RemoveAt" priority="3" />
+      <Item value="Clear" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ListBox+SelectedIndexCollection">
+      <Item value="Contains" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.VisualBasic.Compatibility.VB6.FileListBox">
+      <Item value="Path" priority="0" />
+      <Item value="Items" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Controls.UCFileListChooser">
+      <Item value="flbFilesInDir" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerUI.Form1">
+      <Item value="Show" priority="1" />
+      <Item value="Parent" priority="0" />
+      <Item value="MdiParent" priority="0" />
+      <Item value="listBox1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Text.StringBuilder">
+      <Item value="Append" priority="2" />
+      <Item value="ToString" priority="1" />
+      <Item value="Insert" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@MP3OrganizerBusinessLogic.DirPathUtilities">
+      <Item value="GetDirPathsInPath" priority="0" />
+      <Item value="GetRevDirPathsInPath" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString" priority="12" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.StringComparison">
+      <Item value="OrdinalIgnoreCase" priority="0" />
+      <Item value="CurrentCultureIgnoreCase" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Controls.UCAddToListBox">
+      <Item value="StringList" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ListBox+SelectedObjectCollection">
+      <Item value="Count" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Reflection.PropertyInfo">
+      <Item value="Name" priority="3" />
+      <Item value="Attributes" priority="0" />
+      <Item value="ToString" priority="1" />
+      <Item value="GetValue" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@BCHFramwork.BCHMP3Utilities">
+      <Item value="GetMp3InfoByFileAndDir" priority="1" />
+      <Item value="GetGenre" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@BCHFramwork.BCHUtilities">
+      <Item value="ListToString" priority="2" />
+      <Item value="GetObjectProperitesNameList" priority="0" />
+      <Item value="GetObjectNamePropDict" priority="1" />
+      <Item value="IsNumeric" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BCHFramwork.OperationResult">
+      <Item value="AddExceptiion" priority="3" />
+      <Item value="Success" priority="7" />
+      <Item value="GetAllMessages" priority="3" />
+      <Item value="_errors" priority="0" />
+      <Item value="Errors" priority="0" />
+      <Item value="_exceptions" priority="0" />
+      <Item value="Exceptions" priority="0" />
+      <Item value="_informations" priority="0" />
+      <Item value="Informations" priority="1" />
+      <Item value="AddOperationResult" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2">
+      <Item value="Add" priority="4" />
+      <Item value="Values" priority="1" />
+      <Item value="ContainsKey" priority="1" />
+      <Item value="Count" priority="0" />
+      <Item value="Keys" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.KeyValuePair`2">
+      <Item value="Key" priority="3" />
+      <Item value="Value" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2+ValueCollection">
+      <Item value="ToList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.CheckBox">
+      <Item value="Checked" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BCHFramwork.MP3FileDataType">
+      <Item value="Track" priority="2" />
+      <Item value="SongTitle" priority="1" />
+      <Item value="ArtistsStrList" priority="3" />
+      <Item value="Album" priority="3" />
+      <Item value="Comments" priority="3" />
+      <Item value="Genre" priority="3" />
+      <Item value="FilePath" priority="1" />
+      <Item value="SongNumeration" priority="0" />
+      <Item value="SongTitleAndNumeration" priority="1" />
+      <Item value="Artists" priority="0" />
+      <Item value="FileNamePath" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Nullable`1">
+      <Item value="ToString" priority="1" />
+      <Item value="Value" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.StringComparer">
+      <Item value="CurrentCultureIgnoreCase" priority="1" />
+      <Item value="InvariantCultureIgnoreCase" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ID3_Editor.GenreBox">
+      <Item value="Genre" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString" priority="7" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BCHControls.UCFromToDragDropFiles">
+      <Item value="SetListBox" priority="0" />
+      <Item value="GetStrList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@BCHControls.UCFromToEnum">
+      <Item value="From" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Panel">
+      <Item value="Visible" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BCHControls.UCFromTo+IndxPosItemType">
+      <Item value="pos" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Byte">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBox">
+      <Item value="Show" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBoxButtons">
+      <Item value="OK" priority="1" />
+      <Item value="OKCancel" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBoxIcon">
+      <Item value="Error" priority="1" />
+      <Item value="Information" priority="1" />
+      <Item value="Warning" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@BCHFramwork.BCHWinFormUtilities">
+      <Item value="ListBoxToListBox" priority="0" />
+      <Item value="ListBoxToList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ProgressBar">
+      <Item value="Minimum" priority="0" />
+      <Item value="MarginChanged" priority="0" />
+      <Item value="Maximum" priority="0" />
+      <Item value="Value" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerBusinessLogic.BatchMP3EditorManager">
+      <Item value="ProgressUpdate" priority="0" />
+      <Item value="EditMP3Tags" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerUI.FrmBatchMp3TagEditor">
+      <Item value="Width" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="Now" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.TimeSpan">
+      <Item value="Duration" priority="0" />
+      <Item value="Subtract" priority="0" />
+      <Item value="Seconds" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="Subtract" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BCHControls.UCDirFileSearch">
+      <Item value="lbFileList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.FileAttributes">
+      <Item value="Normal" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Char">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BCHFramwork.FileSearch">
+      <Item value="FileFilters" priority="0" />
+      <Item value="SearchString" priority="0" />
+      <Item value="StartDir" priority="0" />
+      <Item value="StartSearch" priority="0" />
+      <Item value="Files" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="ToList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerUI.FileInfoType">
+      <Item value="FileName" priority="0" />
+      <Item value="FileNamePath" priority="0" />
+      <Item value="FilePath" priority="0" />
+      <Item value="FileNameNew" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridView">
+      <Item value="DataSource" priority="0" />
+      <Item value="ColumnHeadersBorderStyleChanged" priority="0" />
+      <Item value="Columns" priority="1" />
+      <Item value="CellBeginEdit" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerUI.FrmBCHUnformatedMp3Files">
+      <Item value="MdiChildren" priority="0" />
+      <Item value="MdiParent" priority="0" />
+      <Item value="ShowInTaskbar" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewTextBoxColumn">
+      <Item value="DataPropertyName" priority="0" />
+      <Item value="ReadOnly" priority="0" />
+      <Item value="HeaderText" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewColumnCollection">
+      <Item value="Add" priority="0" />
+      <Item value="Clear" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewCellCancelEventArgs">
+      <Item value="ColumnIndex" priority="0" />
+      <Item value="Cancel" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewRow">
+      <Item value="Cells" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewCell">
+      <Item value="ToString" priority="0" />
+      <Item value="ReadOnly" priority="0" />
+      <Item value="Value" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerUI.UMFileInfoType">
+      <Item value="FileNameOriginal" priority="1" />
+      <Item value="FileNameNew" priority="0" />
+      <Item value="FileNamePath" priority="0" />
+      <Item value="FilePath" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewCellCollection">
+      <Item value="Add" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BCHFramework.OperationResult">
+      <Item value="AddExceptiion" priority="1" />
+      <Item value="AddError" priority="5" />
+      <Item value="Success" priority="8" />
+      <Item value="AddException" priority="3" />
+      <Item value="AddOperationResult" priority="1" />
+      <Item value="GetAllErrorsAndExceptions" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DAL.DALObject">
+      <Item value="DalSchemaSqls" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DAL.DataStore">
+      <Item value="CommandType" priority="3" />
+      <Item value="ConnectionString" priority="4" />
+      <Item value="SqlScripts" priority="0" />
+      <Item value="IsSqlScriptsSet" priority="0" />
+      <Item value="SetConnectionStringForAccessDB" priority="1" />
+      <Item value="ExecSql" priority="0" />
+      <Item value="ExecuteSql" priority="0" />
+      <Item value="DatabaseName" priority="2" />
+      <Item value="CompactJetDatabase" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.CommandType">
+      <Item value="Text" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DAL.DataSchemaDataTableUtilities">
+      <Item value="ConvertTo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="ToList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.XmlElement">
+      <Item value="SelectSingleNode" priority="0" />
+      <Item value="GetAttribute" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.XmlNode">
+      <Item value="InnerText" priority="0" />
+      <Item value="AppendChild" priority="5" />
+      <Item value="Attributes" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DAL.SqlScriptMembers">
+      <Item value="ToString" priority="0" />
+      <Item value="Type" priority="0" />
+      <Item value="Parameters" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DAL.SqlScriptParameter">
+      <Item value="Name" priority="0" />
+      <Item value="Type" priority="0" />
+      <Item value="Value" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DAL.SqlScriptParameterEnum">
+      <Item value="Decimal" priority="2" />
+      <Item value="Integer" priority="2" />
+      <Item value="String" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DAL.SqlScriptParameterEnum">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DAL.SqlScripts">
+      <Item value="IsSet" priority="1" />
+      <Item value="Load" priority="1" />
+      <Item value="SqlScriptDict" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Specialized.NameValueCollection">
+      <Item value="GetKey" priority="0" />
+      <Item value="AllKeys" priority="1" />
+      <Item value="GetValues" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerUI.FrmLoadMP3DB">
+      <Item value="MP3DBFileName" priority="3" />
+      <Item value="MP3DBExists" priority="2" />
+      <Item value="Op" priority="2" />
+      <Item value="CurrentCount" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.SaveFileDialog">
+      <Item value="Title" priority="0" />
+      <Item value="OpenFile" priority="0" />
+      <Item value="ShowDialog" priority="0" />
+      <Item value="FileName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@BCHFramework.BCHFileIO">
+      <Item value="WriteFullFile" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BCHUtilitiesWinformApps.FrmBCHDALUtilities">
+      <Item value="MdiParent" priority="0" />
+      <Item value="ShowInTaskbar" priority="0" />
+      <Item value="Show" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DAL.SqlScriptEnum">
+      <Item value="CheckFileExists" priority="0" />
+      <Item value="InsertFileInfo" priority="0" />
+      <Item value="DeleteAll" priority="0" />
+      <Item value="GetArtist" priority="0" />
+      <Item value="SelectAllFiles" priority="0" />
+      <Item value="DeleteAllFiles" priority="0" />
+      <Item value="DeleteAllMp3s" priority="0" />
+      <Item value="DeleteAllArtists" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DAL.SqlParamScriptEnum">
+      <Item value="CheckFileExists_File" priority="0" />
+      <Item value="CheckFileExists_Path" priority="0" />
+      <Item value="InsertFileInfo_File" priority="0" />
+      <Item value="InsertFileInfo_Path" priority="0" />
+      <Item value="GetArtist_File" priority="0" />
+      <Item value="GetArtist_Path" priority="0" />
+      <Item value="GetArtist_Artist" priority="0" />
+      <Item value="InsertArtist_Mp3Info_Id" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BCHFramework.MP3FileDataType">
+      <Item value="FileName" priority="0" />
+      <Item value="FileNamePath" priority="4" />
+      <Item value="ArtistsStrList" priority="2" />
+      <Item value="SongTitleAndNumeration" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DAL.SqlParamScriptEnum">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataTable">
+      <Item value="Rows" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataRowCollection">
+      <Item value="Count" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MP3OrganizerBusinessLogic.MP3DBManager">
+      <Item value="InsertMP3IntoDB" priority="0" />
+      <Item value="InsertMP3" priority="0" />
+      <Item value="DeleteallMP3s" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.OleDb.OleDbConnection">
+      <Item value="CreateCommand" priority="0" />
+      <Item value="Open" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.OleDb.OleDbCommand">
+      <Item value="CommandText" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DBNull">
+      <Item value="Value" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@BCHFramework.BCHUtilities">
+      <Item value="IsNumeric" priority="0" />
+      <Item value="IsInteger" priority="0" />
+      <Item value="GetInteger" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DialogResult">
+      <Item value="OK" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DAL.SqlScriptHolder">
+      <Item value="SqlScript" priority="1" />
+      <Item value="SqlPrmNameValueList" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DAL.SqlScriptEnum">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.RadioButton">
+      <Item value="Checked" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.XmlDocument">
+      <Item value="CreateNode" priority="2" />
+      <Item value="CreateElement" priority="5" />
+      <Item value="AppendChild" priority="2" />
+      <Item value="CreateAttribute" priority="0" />
+      <Item value="CreateTextNode" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.XmlAttributeCollection">
+      <Item value="Append" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.XmlAttribute">
+      <Item value="Value" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:Program.cs" caret="480" fromTop="17" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:MDIMain.Designer.cs" caret="491" fromTop="14" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmMp3TagEditor.cs" caret="7913" fromTop="30" />
+      <File id="E8C84A3C-751E-4553-9255-E08CE9F3B2C3/f:BatchMP3EditorManager.cs" caret="2184" fromTop="69" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:OperationResult.cs" caret="1566" fromTop="10" />
+      <File id="27C54325-9DB7-4E73-A15D-FEC2CBADAB7E/f:DataSchemaDataTableUtilities.cs" caret="48" fromTop="1" />
+      <File id="9158217C-03D5-4139-A109-010F23895C84/f:UCAddToListBox.cs" caret="936" fromTop="30" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:Form1.cs" caret="3556" fromTop="15" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:MDIMain.cs" caret="3157" fromTop="14" />
+      <File id="CBF569C4-F6E5-4C2A-B29D-F5200A4DA8A2/f:App.config" caret="0" fromTop="0" />
+      <File id="CBF569C4-F6E5-4C2A-B29D-F5200A4DA8A2/f:MDIBCHUtilities.cs" caret="1996" fromTop="7" />
+      <File id="CBF569C4-F6E5-4C2A-B29D-F5200A4DA8A2/f:Program.cs" caret="497" fromTop="17" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHUtilities.cs" caret="2538" fromTop="13" />
+      <File id="27C54325-9DB7-4E73-A15D-FEC2CBADAB7E/f:SqlRepository.cs" caret="0" fromTop="0" />
+      <File id="CBF569C4-F6E5-4C2A-B29D-F5200A4DA8A2/f:FrmBCHDALUtilities.cs" caret="0" fromTop="0" />
+      <File id="27C54325-9DB7-4E73-A15D-FEC2CBADAB7E/f:SqlScripts.cs" caret="0" fromTop="0" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmBCHUnformatedMp3Files.cs" caret="9980" fromTop="10" />
+      <File id="27C54325-9DB7-4E73-A15D-FEC2CBADAB7E/f:SqlScripts.xml" caret="8730" fromTop="36" />
+      <File id="E8C84A3C-751E-4553-9255-E08CE9F3B2C3/f:M3UEditor.cs" caret="3519" fromTop="84" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHXMLUtilities.cs" caret="940" fromTop="11" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHFileIO.cs" caret="749" fromTop="4" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="836" fromTop="22" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHMP3Utilities.cs" caret="14732" fromTop="22" />
+      <File id="27C54325-9DB7-4E73-A15D-FEC2CBADAB7E/f:App.config" caret="0" fromTop="0" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmMP3DatabaseApp.cs" caret="0" fromTop="0" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmLoadMP3DB.cs" caret="0" fromTop="0" />
+      <File id="27C54325-9DB7-4E73-A15D-FEC2CBADAB7E/f:DataStore.cs" caret="5201" fromTop="16" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:App.config" caret="0" fromTop="0" />
+      <File id="E8C84A3C-751E-4553-9255-E08CE9F3B2C3/f:MP3DBManager.cs" caret="816" fromTop="12" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmBatchMp3TagEditor.cs" caret="0" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="14603" fromTop="11" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="8757" fromTop="19" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="4402" fromTop="16" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="4981" fromTop="4" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="11915" fromTop="56" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="227" fromTop="9" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="11124" fromTop="21" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="10375" fromTop="10" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="10190" fromTop="6" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="10097" fromTop="4" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="10375" fromTop="6" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="11514" fromTop="17" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="11837" fromTop="14" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHMP3Utilities.cs" caret="11957" fromTop="0" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHMP3Utilities.cs" caret="13867" fromTop="13" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHMP3Utilities.cs" caret="13879" fromTop="8" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHMP3Utilities.cs" caret="14739" fromTop="28" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHMP3Utilities.cs" caret="13974" fromTop="15" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHMP3Utilities.cs" caret="14491" fromTop="18" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHMP3Utilities.cs" caret="14617" fromTop="21" />
+      <File id="71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA/f:BCHMP3Utilities.cs" caret="14856" fromTop="25" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="17347" fromTop="476" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="17347" fromTop="473" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="9073" fromTop="24" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="9073" fromTop="14" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="7951" fromTop="20" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="8401" fromTop="28" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="486" fromTop="14" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmM3UEditor.cs" caret="601" fromTop="20" />
+      <File id="56CDC844-9898-4FD5-BAAB-4D189D440214/f:FrmBatchMp3TagEditor.cs" caret="0" fromTop="0" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+</Configuration>

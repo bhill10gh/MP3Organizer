@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.3.3.3\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.3.3.3\build\Costura.Fody.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56CDC844-9898-4FD5-BAAB-4D189D440214}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MP3OrganizerUI</RootNamespace>
+    <AssemblyName>MP3OrganizerUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>MP3OrganizerUI.Program</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Costura, Version=3.3.3.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.3.3.3\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\UCDatabaseFile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCDatabaseFile.Designer.cs">
+      <DependentUpon>UCDatabaseFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="iTunes\FrmCopyiPhoneBackupFIles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="iTunes\FrmCopyiPhoneBackupFIles.Designer.cs">
+      <DependentUpon>FrmCopyiPhoneBackupFIles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="iTunes\FrmiTunesLibraryReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="iTunes\FrmiTunesLibraryReader.Designer.cs">
+      <DependentUpon>FrmiTunesLibraryReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mp3FileUtilities\FrmFileUtils.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mp3FileUtilities\FrmFileUtils.Designer.cs">
+      <DependentUpon>FrmFileUtils.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MP3TagUtilities\FrmBatchMp3TagEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3TagUtilities\FrmBatchMp3TagEditor.Designer.cs">
+      <DependentUpon>FrmBatchMp3TagEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mp3FileUtilities\FrmBCHUnformatedMp3Files.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mp3FileUtilities\FrmBCHUnformatedMp3Files.Designer.cs">
+      <DependentUpon>FrmBCHUnformatedMp3Files.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mp3FileUtilities\FrmCopyFilesToSameFolderStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mp3FileUtilities\FrmCopyFilesToSameFolderStructure.Designer.cs">
+      <DependentUpon>FrmCopyFilesToSameFolderStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mp3FileUtilities\FrmCopyFolderStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mp3FileUtilities\FrmCopyFolderStructure.Designer.cs">
+      <DependentUpon>FrmCopyFolderStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmDbSqlRunner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmDbSqlRunner.Designer.cs">
+      <DependentUpon>FrmDbSqlRunner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmLoadMP3DB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmLoadMP3DB.Designer.cs">
+      <DependentUpon>FrmLoadMP3DB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmMP3DatabaseApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmMP3DatabaseApp.Designer.cs">
+      <DependentUpon>FrmMP3DatabaseApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MP3TagUtilities\FrmMp3TagEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3TagUtilities\FrmMp3TagEditor.Designer.cs">
+      <DependentUpon>FrmMp3TagEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MP3TagUtilities\FrmM3UEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3TagUtilities\FrmM3UEditor.Designer.cs">
+      <DependentUpon>FrmM3UEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIMain.Designer.cs">
+      <DependentUpon>MDIMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIMP3DBApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIMP3DBApp.Designer.cs">
+      <DependentUpon>MDIMP3DBApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\UCDatabaseFile.resx">
+      <DependentUpon>UCDatabaseFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iTunes\FrmCopyiPhoneBackupFIles.resx">
+      <DependentUpon>FrmCopyiPhoneBackupFIles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iTunes\FrmiTunesLibraryReader.resx">
+      <DependentUpon>FrmiTunesLibraryReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mp3FileUtilities\FrmFileUtils.resx">
+      <DependentUpon>FrmFileUtils.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3TagUtilities\FrmBatchMp3TagEditor.resx">
+      <DependentUpon>FrmBatchMp3TagEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mp3FileUtilities\FrmBCHUnformatedMp3Files.resx">
+      <DependentUpon>FrmBCHUnformatedMp3Files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mp3FileUtilities\FrmCopyFilesToSameFolderStructure.resx">
+      <DependentUpon>FrmCopyFilesToSameFolderStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mp3FileUtilities\FrmCopyFolderStructure.resx">
+      <DependentUpon>FrmCopyFolderStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3DbUtilities\FrmDbSqlRunner.resx">
+      <DependentUpon>FrmDbSqlRunner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3DbUtilities\FrmLoadMP3DB.resx">
+      <DependentUpon>FrmLoadMP3DB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3DbUtilities\FrmMP3DatabaseApp.resx">
+      <DependentUpon>FrmMP3DatabaseApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3TagUtilities\FrmMp3TagEditor.resx">
+      <DependentUpon>FrmMp3TagEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3TagUtilities\FrmM3UEditor.resx">
+      <DependentUpon>FrmM3UEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIMain.resx">
+      <DependentUpon>MDIMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIMP3DBApp.resx">
+      <DependentUpon>MDIMP3DBApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\MP3OrganizerBusinessLogic.iTunesSongs.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BCHControls\BCHControls.csproj">
+      <Project>{9158217C-03D5-4139-A109-010F23895C84}</Project>
+      <Name>BCHControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BCHFramework\BCHFramework.csproj">
+      <Project>{71e3ac7a-b5ca-4fb5-a6ea-036f27ecedba}</Project>
+      <Name>BCHFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BCHUtilitiesWinformApps\BCHUtilitiesWinformApps.csproj">
+      <Project>{cbf569c4-f6e5-4c2a-b29d-f5200a4da8a2}</Project>
+      <Name>BCHUtilitiesWinformApps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ID3Class\ID3.csproj">
+      <Project>{5d66099a-a8c5-47ab-b230-c9b60dfc1b40}</Project>
+      <Name>ID3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{27C54325-9DB7-4E73-A15D-FEC2CBADAB7E}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MP3OrganizerBusinessLogic\MP3OrganizerBusinessLogic.csproj">
+      <Project>{E8C84A3C-751E-4553-9255-E08CE9F3B2C3}</Project>
+      <Name>MP3OrganizerBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Schema\Schema.csproj">
+      <Project>{27a50076-105f-4d19-b6b8-00b630c20f31}</Project>
+      <Name>Schema</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down arrow 01.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down double arrow 01.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left arrow 01.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left double arrow 01.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right arrow 01.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right double arrow 01.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up arrow 01.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Up double arrow 01.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="DAO">
+      <Guid>{00025E01-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DFSSHLEXLib">
+      <Guid>{ECCDF535-45CC-11CE-B9BF-0080C87CDBA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <UsingTask TaskName="CosturaCleanup" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" TaskFactory="CodeTaskFactory">
+    <ParameterGroup>
+      <Config Output="false" Required="true" ParameterType="Microsoft.Build.Framework.ITaskItem" />
+      <Files Output="false" Required="true" ParameterType="Microsoft.Build.Framework.ITaskItem[]" />
+    </ParameterGroup>
+    <Task Evaluate="true">
+      <Reference xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Include="System.Xml" />
+      <Reference xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Include="System.Xml.Linq" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System.IO" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System.Xml.Linq" />
+      <Code xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Type="Fragment" Language="cs"><![CDATA[
+var config = XElement.Load(Config.ItemSpec).Elements("Costura").FirstOrDefault();
+
+if (config == null) return true;
+
+var excludedAssemblies = new List<string>();
+var attribute = config.Attribute("ExcludeAssemblies");
+if (attribute != null)
+    foreach (var item in attribute.Value.Split('|').Select(x => x.Trim()).Where(x => x != string.Empty))
+        excludedAssemblies.Add(item);
+var element = config.Element("ExcludeAssemblies");
+if (element != null)
+    foreach (var item in element.Value.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).Where(x => x != string.Empty))
+        excludedAssemblies.Add(item);
+
+var filesToCleanup = Files.Select(f => f.ItemSpec).Where(f => !excludedAssemblies.Contains(Path.GetFileNameWithoutExtension(f), StringComparer.InvariantCultureIgnoreCase));
+
+foreach (var item in filesToCleanup)
+  File.Delete(item);
+]]></Code>
+    </Task>
+  </UsingTask>
+  <Target Name="CleanReferenceCopyLocalPaths" AfterTargets="AfterBuild;NonWinFodyTarget">
+    <CosturaCleanup Config="FodyWeavers.xml" Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
+  </Target>
+  <Import Project="..\packages\Fody.4.2.1\build\Fody.targets" Condition="Exists('..\packages\Fody.4.2.1\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.4.2.1\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.4.2.1\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.3.3.3\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.3.3.3\build\Costura.Fody.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

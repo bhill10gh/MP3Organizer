@@ -1,0 +1,267 @@
+public enum SqlScriptEnum
+{
+	DynamicSQL,
+	CheckFileExists,
+	InsertFileInfo,
+	GetFileInfo,
+	SelectAllFiles,
+	CheckMP3Exists,
+	InsertMP3,
+	GetMP3byFilePath,
+	GetMP3bySongTitle,
+	GetMP3byGenre,
+	SelectMP3s,
+	CheckArtistExists,
+	GetArtist,
+	InsertArtist,
+	SelectAllArtists,
+	GetArtistBySongTitle,
+	GetArtistByGenre,
+	GetMP3FilesByArtists,
+	GetMP3Files_EnterWhereClause,
+	DeleteAllFiles,
+	DeleteAllMp3s,
+	DeleteAllArtists
+}
+public enum SqlParamScriptEnum
+{
+	DynamicSQL_Sql,
+	CheckFileExists_File,
+	CheckFileExists_Path,
+	InsertFileInfo_File,
+	InsertFileInfo_Path,
+	GetFileInfo_File,
+	GetFileInfo_Path,
+	CheckMP3Exists_File,
+	CheckMP3Exists_Path,
+	InsertMP3_FileInfo_Id,
+	InsertMP3_Song_Tile,
+	InsertMP3_Album,
+	InsertMP3_Genre,
+	InsertMP3_Comments,
+	InsertMP3_Track,
+	InsertMP3_Song_Numeraton,
+	GetMP3byFilePath_File,
+	GetMP3byFilePath_Path,
+	GetMP3bySongTitle_SongTitle,
+	GetMP3byGenre_Genre,
+	CheckArtistExists_File,
+	CheckArtistExists_Path,
+	CheckArtistExists_Artist,
+	GetArtist_File,
+	GetArtist_Path,
+	GetArtist_Artist,
+	InsertArtist_Mp3Info_Id,
+	InsertArtist_Artist,
+	GetArtistBySongTitle_SongTitle,
+	GetArtistByGenre_Genre,
+	GetMP3FilesByArtists_Artists_InsertDoubleQouatsComas,
+	GetMP3Files_EnterWhereClause_Where_Clause
+}
+ 
+ 
+private void InitializeSqlScriptParamDict()
+{
+	SqlScriptParamDict = new Dictionary<string, string>();
+	SqlScriptParamDict.Add("DynamicSQL_Sql", "Sql");
+	SqlScriptParamDict.Add("CheckFileExists_File", "File");
+	SqlScriptParamDict.Add("CheckFileExists_Path", "Path");
+	SqlScriptParamDict.Add("InsertFileInfo_File", "File");
+	SqlScriptParamDict.Add("InsertFileInfo_Path", "Path");
+	SqlScriptParamDict.Add("GetFileInfo_File", "File");
+	SqlScriptParamDict.Add("GetFileInfo_Path", "Path");
+	SqlScriptParamDict.Add("CheckMP3Exists_File", "File");
+	SqlScriptParamDict.Add("CheckMP3Exists_Path", "Path");
+	SqlScriptParamDict.Add("InsertMP3_FileInfo_Id", "FileInfo_Id");
+	SqlScriptParamDict.Add("InsertMP3_Song_Tile", "Song_Tile");
+	SqlScriptParamDict.Add("InsertMP3_Album", "Album");
+	SqlScriptParamDict.Add("InsertMP3_Genre", "Genre");
+	SqlScriptParamDict.Add("InsertMP3_Comments", "Comments");
+	SqlScriptParamDict.Add("InsertMP3_Track", "Track");
+	SqlScriptParamDict.Add("InsertMP3_Song_Numeraton", "Song_Numeraton");
+	SqlScriptParamDict.Add("GetMP3byFilePath_File", "File");
+	SqlScriptParamDict.Add("GetMP3byFilePath_Path", "Path");
+	SqlScriptParamDict.Add("GetMP3bySongTitle_SongTitle", "SongTitle");
+	SqlScriptParamDict.Add("GetMP3byGenre_Genre", "Genre");
+	SqlScriptParamDict.Add("CheckArtistExists_File", "File");
+	SqlScriptParamDict.Add("CheckArtistExists_Path", "Path");
+	SqlScriptParamDict.Add("CheckArtistExists_Artist", "Artist");
+	SqlScriptParamDict.Add("GetArtist_File", "File");
+	SqlScriptParamDict.Add("GetArtist_Path", "Path");
+	SqlScriptParamDict.Add("GetArtist_Artist", "Artist");
+	SqlScriptParamDict.Add("InsertArtist_Mp3Info_Id", "Mp3Info_Id");
+	SqlScriptParamDict.Add("InsertArtist_Artist", "Artist");
+	SqlScriptParamDict.Add("GetArtistBySongTitle_SongTitle", "SongTitle");
+	SqlScriptParamDict.Add("GetArtistByGenre_Genre", "Genre");
+	SqlScriptParamDict.Add("GetMP3FilesByArtists_Artists_InsertDoubleQouatsComas", "Artists_InsertDoubleQouatsComas");
+	SqlScriptParamDict.Add("GetMP3Files_EnterWhereClause_Where_Clause", "Where_Clause");
+}
+ 
+ 
+public string GetSqlScriptParam(SqlParamScriptEnum sqse)
+{
+	SqlScriptParamDict = new Dictionary<string, string>();
+	if(sqse == SqlParamScriptEnum.DynamicSQL_Sql)
+	{
+		return "Sql";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.CheckFileExists_File)
+	{
+		return "File";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.CheckFileExists_Path)
+	{
+		return "Path";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertFileInfo_File)
+	{
+		return "File";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertFileInfo_Path)
+	{
+		return "Path";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetFileInfo_File)
+	{
+		return "File";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetFileInfo_Path)
+	{
+		return "Path";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.CheckMP3Exists_File)
+	{
+		return "File";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.CheckMP3Exists_Path)
+	{
+		return "Path";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertMP3_FileInfo_Id)
+	{
+		return "FileInfo_Id";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertMP3_Song_Tile)
+	{
+		return "Song_Tile";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertMP3_Album)
+	{
+		return "Album";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertMP3_Genre)
+	{
+		return "Genre";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertMP3_Comments)
+	{
+		return "Comments";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertMP3_Track)
+	{
+		return "Track";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertMP3_Song_Numeraton)
+	{
+		return "Song_Numeraton";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetMP3byFilePath_File)
+	{
+		return "File";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetMP3byFilePath_Path)
+	{
+		return "Path";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetMP3bySongTitle_SongTitle)
+	{
+		return "SongTitle";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetMP3byGenre_Genre)
+	{
+		return "Genre";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.CheckArtistExists_File)
+	{
+		return "File";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.CheckArtistExists_Path)
+	{
+		return "Path";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.CheckArtistExists_Artist)
+	{
+		return "Artist";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetArtist_File)
+	{
+		return "File";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetArtist_Path)
+	{
+		return "Path";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetArtist_Artist)
+	{
+		return "Artist";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertArtist_Mp3Info_Id)
+	{
+		return "Mp3Info_Id";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.InsertArtist_Artist)
+	{
+		return "Artist";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetArtistBySongTitle_SongTitle)
+	{
+		return "SongTitle";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetArtistByGenre_Genre)
+	{
+		return "Genre";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetMP3FilesByArtists_Artists_InsertDoubleQouatsComas)
+	{
+		return "Artists_InsertDoubleQouatsComas";
+	}
+ 
+	if(sqse == SqlParamScriptEnum.GetMP3Files_EnterWhereClause_Where_Clause)
+	{
+		return "Where_Clause";
+	}
+ 
+	return string.Empty;
+}
+ 
+ 

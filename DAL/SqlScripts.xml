@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SqlScripts>
+  <SqlScript>
+    <Name>
+      DynamicSQL
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+      <Parameter name="Sql" type="string">#sql#</Parameter>
+    </Parameters>
+    <Sql>
+      #sql#
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      CheckFileExists
+    </Name>
+    <Type>
+      int
+    </Type>
+    <Parameters>
+      <Parameter name="File" type="string">#file#</Parameter>
+      <Parameter name="Path" type="string">#path#</Parameter>
+    </Parameters>
+    <Sql>
+      select count(*)
+      from tbFileInfo
+      where Path + File_Name = "#path#" + "#file#"
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      InsertFileInfo
+    </Name>
+    <Type>
+      int
+    </Type>
+    <Parameters>
+      <Parameter name="File" type="string">#file#</Parameter>
+      <Parameter name="Path" type="string">#path#</Parameter>
+    </Parameters>
+    <Sql>
+      INSERT INTO [tbFileInfo]
+      (
+      [File_Name]
+      ,[Path])
+      VALUES
+      (
+      "#file#"
+      ,"#path#"
+      )
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      GetFileInfo
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+      <Parameter name="File" type="string">#file#</Parameter>
+      <Parameter name="Path" type="string">#path#</Parameter>
+    </Parameters>
+    <Sql>
+      select *
+      from tbFileInfo
+      where Path + File_Name = "#path#" + "#file#"
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      SelectAllFiles
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      select count(*)
+      from tbFile
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      CheckMP3Exists
+    </Name>
+    <Type>
+      int
+    </Type>
+    <Parameters>
+      <Parameter name="File" type="string">#file#</Parameter>
+      <Parameter name="Path" type="string">#path#</Parameter>
+    </Parameters>
+    <Sql>
+      select count(*)
+      from tbMp3Info m
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      where f.Path + f.File_Name = "#path#" + "#file#"
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      InsertMP3
+    </Name>
+    <Type>
+      int
+    </Type>
+    <Parameters>
+      <Parameter name="FileInfo_Id" type="string">#fileinfo_Id#</Parameter>
+      <Parameter name="Song_Tile" type="string">#songTitle#</Parameter>
+      <Parameter name="Album" type="string">#album#</Parameter>
+      <Parameter name="Genre" type="string">#genre#</Parameter>
+      <Parameter name="Comments" type="string">#comments#</Parameter>
+      <Parameter name="Track" type="int">#track#</Parameter>
+      <Parameter name="Song_Numeraton" type="string">#song_num#</Parameter>
+    </Parameters>
+    <Sql>
+      INSERT INTO [tbMp3Info]
+      (
+      [FileInfo_Id]
+      ,[Song_Title]
+      ,[Album]
+      ,[Genre]
+      ,[Comments]
+      ,[Track]
+      ,[Song_Numeraton]
+      )
+      VALUES
+      (
+        #fileinfo_Id#
+      ,"#songTitle#"
+      ,"#album#"
+      ,"#genre#"
+      ,"#comments#"
+      ,"#track#"
+      ,"#song_num#"
+      )
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      GetMP3byFilePath
+    </Name>
+    <Type>
+      int
+    </Type>
+    <Parameters>
+      <Parameter name="File" type="string">#file#</Parameter>
+      <Parameter name="Path" type="string">#path#</Parameter>
+    </Parameters>
+    <Sql>
+      select *
+      from tbMp3Info m
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      where f.Path + f.File_Name = "#path#" + "#file#"
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      GetMP3bySongTitle
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+      <Parameter name="SongTitle" type="string">#song#</Parameter>
+    </Parameters>
+    <Sql>
+      select *
+      from tbMp3Info m
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      where m.Song_Title like "%#song#%"
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      GetMP3byGenre
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+      <Parameter name="Genre" type="string">#genre#</Parameter>
+    </Parameters>
+    <Sql>
+      select *
+      from tbMp3Info m
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      where m.Genre like "%#genre#%"
+    </Sql>
+  </SqlScript>  
+  <SqlScript>
+    <Name>
+      SelectMP3s
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      select *
+      from tbMp3Info
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      CheckArtistExists
+    </Name>
+    <Type>
+      int
+    </Type>
+    <Parameters>
+      <Parameter name="File" type="string">#file#</Parameter>
+      <Parameter name="Path" type="string">#path#</Parameter>
+      <Parameter name="Artist">#artist#</Parameter>
+    </Parameters>
+    <Sql>
+      select count(*)
+      from (tbArtist a
+      inner join tbMp3Info m on m.Mp3Info_Id = a.Mp3Info_Id)
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      where f.Path + f.File_Name = "#path#" + "#file#"
+      and a.Artist_Name = "#artist#"
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      GetArtist
+    </Name>
+    <Type>
+      int
+    </Type>
+    <Parameters>
+      <Parameter name="File" type="string">#file#</Parameter>
+      <Parameter name="Path" type="string">#path#</Parameter>
+      <Parameter name="Artist" type="string">#artist#</Parameter>
+    </Parameters>
+    <Sql>
+      select *
+      from (tbArtist a
+      inner join tbMp3Info m on m.Mp3Info_Id = a.Mp3Info_Id)
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      where f.Path + f.File_Name = "#path#" + "#file#"
+      and a.Artist_Name = "#artist#"
+    </Sql>
+  </SqlScript>  
+  <SqlScript>
+    <Name>
+      InsertArtist
+    </Name>
+    <Type>
+      int
+    </Type>
+    <Parameters>
+      <Parameter name="Mp3Info_Id" type="string">#Mp3Info_Id#</Parameter>
+      <Parameter name="Artist">#artist#</Parameter>
+    </Parameters>
+    <Sql>
+      INSERT INTO [tbArtist]
+      (
+      [Mp3Info_Id]
+      ,[Artist_Name])
+      VALUES
+      (
+          #Mp3Info_Id#
+        ,"#artist#"
+      )
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      SelectAllArtists
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      select Distinct Artist_Name
+      from tbArtist
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      SelectAllGenres
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      select Distinct Genre
+      from tbMp3Info
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      SelectAllSongs
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      select Distinct Song_Title
+      from tbMp3Info
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      SelectAllAlbums
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      select Distinct Album
+      from tbMp3Info
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      SelectAllComments
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      select Distinct Comments
+      from tbMp3Info
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      SelectAllFileNames
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      select Distinct File_Name
+      from tbFileInfo
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      GetArtistBySongTitle
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+      <Parameter name="SongTitle" type="string">#song#</Parameter>
+    </Parameters>
+    <Sql>
+      select *
+      from (tbArtist a
+      inner join tbMp3Info m on m.Mp3Info_Id = a.Mp3Info_Id)
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      where m.Song_Title like "%#song#%"
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      GetArtistByGenre
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+      <Parameter name="Genre" type="string">#genre#</Parameter>
+    </Parameters>
+    <Sql>
+      select *
+      from (tbArtist a
+      inner join tbMp3Info m on m.Mp3Info_Id = a.Mp3Info_Id)
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      where m.Song_Title like "%#genre#%"
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      GetMP3FilesByArtists
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+      <Parameter name="Artists_InsertDoubleQouatsComas" type="string">#artists#</Parameter>
+    </Parameters>
+    <Sql>
+      select
+      distinct
+      f.File_Name,
+      f.Path
+      from (tbArtist a
+      inner join tbMp3Info m on m.Mp3Info_Id = a.Mp3Info_Id)
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      where a.Artist_Name in ( #artists# )
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      GetMP3Files_EnterWhereClause
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+      <Parameter name="Where_Clause" type="string">#whereClause#</Parameter>
+    </Parameters>
+    <Sql>
+      select
+      distinct
+      f.File_Name,
+      f.Path
+      from (tbArtist a
+      inner join tbMp3Info m on m.Mp3Info_Id = a.Mp3Info_Id)
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      #whereClause#
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      GetMP3Data_EnterWhereClause
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+      <Parameter name="Where_Clause" type="string">#whereClause#</Parameter>
+    </Parameters>
+    <Sql>
+      select 
+      distinct
+      *
+      from (tbArtist a
+      inner join tbMp3Info m on m.Mp3Info_Id = a.Mp3Info_Id)
+      inner join tbFileInfo f on f.FileInfo_Id = m.FileInfo_Id
+      #whereClause#
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      DeleteAllFiles
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      DELETE FROM [tbFileInfo]
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      DeleteAllMp3s
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      DELETE FROM [tbMp3Info]
+    </Sql>
+  </SqlScript>
+  <SqlScript>
+    <Name>
+      DeleteAllArtists
+    </Name>
+    <Type>
+      DataTable
+    </Type>
+    <Parameters>
+    </Parameters>
+    <Sql>
+      DELETE FROM [tbArtist]
+    </Sql>
+  </SqlScript>
+</SqlScripts>
