@@ -41,8 +41,9 @@ namespace MP3OrganizerUI
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSqlResults = new System.Windows.Forms.DataGridView();
             this.btnExecuteSql = new System.Windows.Forms.Button();
-            this.ucDatabaseFile1 = new MP3OrganizerUI.Controls.UCDatabaseFile();
             this.ucResultDisplay1 = new BCHControls.UCResultDisplay();
+            this.lbFromSnipits = new System.Windows.Forms.ListBox();
+            this.ucDatabaseFile1 = new MP3OrganizerUI.Controls.UCDatabaseFile();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSqlResults)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,15 +101,6 @@ namespace MP3OrganizerUI
             this.btnExecuteSql.UseVisualStyleBackColor = true;
             this.btnExecuteSql.Click += new System.EventHandler(this.btnExecuteSql_Click);
             // 
-            // ucDatabaseFile1
-            // 
-            this.ucDatabaseFile1.Location = new System.Drawing.Point(3, 12);
-            this.ucDatabaseFile1.MP3DBExists = false;
-            this.ucDatabaseFile1.MP3DBFileName = "";
-            this.ucDatabaseFile1.Name = "ucDatabaseFile1";
-            this.ucDatabaseFile1.Size = new System.Drawing.Size(555, 45);
-            this.ucDatabaseFile1.TabIndex = 5;
-            // 
             // ucResultDisplay1
             // 
             this.ucResultDisplay1.DisplayText = "";
@@ -117,11 +109,37 @@ namespace MP3OrganizerUI
             this.ucResultDisplay1.Size = new System.Drawing.Size(191, 102);
             this.ucResultDisplay1.TabIndex = 8;
             // 
+            // lbFromSnipits
+            // 
+            this.lbFromSnipits.FormattingEnabled = true;
+            this.lbFromSnipits.Items.AddRange(new object[] {
+            "From tbMp3Info and tbArtist ",
+            "From tbMp3Info and tbFileInfo",
+            "From tbMp3Info and tbArtist  and tbFileInfo"});
+            this.lbFromSnipits.Location = new System.Drawing.Point(235, 277);
+            this.lbFromSnipits.Name = "lbFromSnipits";
+            this.lbFromSnipits.Size = new System.Drawing.Size(287, 69);
+            this.lbFromSnipits.TabIndex = 9;
+            this.lbFromSnipits.SelectedIndexChanged += new System.EventHandler(this.lbFromSnipits_SelectedIndexChanged);
+            // 
+            // ucDatabaseFile1
+            // 
+            this.ucDatabaseFile1.AllowDrop = true;
+            this.ucDatabaseFile1.Location = new System.Drawing.Point(3, 12);
+            this.ucDatabaseFile1.MP3DBExists = false;
+            this.ucDatabaseFile1.MP3DBFileName = "";
+            this.ucDatabaseFile1.Name = "ucDatabaseFile1";
+            this.ucDatabaseFile1.Size = new System.Drawing.Size(555, 45);
+            this.ucDatabaseFile1.TabIndex = 5;
+            this.ucDatabaseFile1.DragDrop += new System.Windows.Forms.DragEventHandler(this.ucDatabaseFile1_DragDrop);
+            this.ucDatabaseFile1.DragEnter += new System.Windows.Forms.DragEventHandler(this.ucDatabaseFile1_DragEnter);
+            // 
             // FrmDbSqlRunner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 628);
+            this.Controls.Add(this.lbFromSnipits);
             this.Controls.Add(this.ucResultDisplay1);
             this.Controls.Add(this.btnExecuteSql);
             this.Controls.Add(this.dgvSqlResults);
@@ -148,5 +166,6 @@ namespace MP3OrganizerUI
         private System.Windows.Forms.DataGridView dgvSqlResults;
         private System.Windows.Forms.Button btnExecuteSql;
         private UCResultDisplay ucResultDisplay1;
+        private System.Windows.Forms.ListBox lbFromSnipits;
     }
 }

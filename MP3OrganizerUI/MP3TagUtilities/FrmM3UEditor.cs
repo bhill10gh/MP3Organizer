@@ -96,8 +96,6 @@ namespace MP3OrganizerUI
                 MessageBox.Show("You must choose a folder!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            tbM3UDir.Text = folderBrowserDialog1.SelectedPath;
         }
 
         private void saveM3uToolStripMenuItem_Click(object sender, EventArgs e)
@@ -286,7 +284,57 @@ namespace MP3OrganizerUI
         {
             OpenWPL();
         }
-        
+
+        private void tbM3UDir_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                if (Directory.Exists(files[0]))
+                {
+                    this.tbM3UDir.Text = files[0];
+                }
+            }
+        }
+
+        private void tbM3UDir_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void tbArchosMusicRootDir_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                if (Directory.Exists(files[0]))
+                {
+                    this.tbArchosMusicRootDir.Text = files[0];
+                }
+            }
+        }
+
+        private void tbArchosMusicRootDir_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -513,9 +561,12 @@ namespace MP3OrganizerUI
 
         }
 
+
+
+
+
         #endregion
 
         
-
     }
 }

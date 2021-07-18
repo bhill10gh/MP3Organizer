@@ -34,9 +34,10 @@
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mP3ToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mP3TagEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileUtilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.m3UEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mP3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mP3TagEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unformattedMp3FilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mP3DatabaseAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadMP3DBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.fileUtilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +94,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
@@ -102,55 +102,62 @@
             // 
             this.mP3ToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mP3TagEditorToolStripMenuItem,
-            this.fileUtilityToolStripMenuItem,
+            this.copyFolderStructureToolStripMenuItem,
             this.m3UEditorToolStripMenuItem,
+            this.iTunesLibFileReaderToolStripMenuItem,
             this.mP3ToolStripMenuItem,
             this.unformattedMp3FilesToolStripMenuItem,
             this.mP3DatabaseAppToolStripMenuItem,
             this.loadMP3DBToolStripMenuItem,
             this.mP3DatabaseSearchToolStripMenuItem,
+            this.fileUtilityToolStripMenuItem,
             this.sQLRunnerToolStripMenuItem,
-            this.copyFolderStructureToolStripMenuItem,
             this.copyFilesToSameFolderStructureToolStripMenuItem,
             this.testFormToolStripMenuItem,
-            this.iTunesLibFileReaderToolStripMenuItem,
             this.copyIPhoneBackupFilesToolStripMenuItem});
             this.mP3ToolsToolStripMenuItem.Name = "mP3ToolsToolStripMenuItem";
-            this.mP3ToolsToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.mP3ToolsToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.mP3ToolsToolStripMenuItem.Text = "&MP3 Tools";
+            // 
+            // mP3TagEditorToolStripMenuItem
+            // 
+            this.mP3TagEditorToolStripMenuItem.Name = "mP3TagEditorToolStripMenuItem";
+            this.mP3TagEditorToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.mP3TagEditorToolStripMenuItem.Text = "M&P3 &Batch Tag Editor";
+            this.mP3TagEditorToolStripMenuItem.Click += new System.EventHandler(this.mP3TagEditorToolStripMenuItem_Click);
+            // 
+            // fileUtilityToolStripMenuItem
+            // 
+            this.fileUtilityToolStripMenuItem.Name = "fileUtilityToolStripMenuItem";
+            this.fileUtilityToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.fileUtilityToolStripMenuItem.Text = "&File Utility";
+            this.fileUtilityToolStripMenuItem.Click += new System.EventHandler(this.fileUtilityToolStripMenuItem_Click);
             // 
             // m3UEditorToolStripMenuItem
             // 
             this.m3UEditorToolStripMenuItem.Name = "m3UEditorToolStripMenuItem";
-            this.m3UEditorToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.m3UEditorToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.m3UEditorToolStripMenuItem.Text = "&M3U Editor";
             this.m3UEditorToolStripMenuItem.Click += new System.EventHandler(this.m3UEditorToolStripMenuItem_Click);
             // 
             // mP3ToolStripMenuItem
             // 
             this.mP3ToolStripMenuItem.Name = "mP3ToolStripMenuItem";
-            this.mP3ToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.mP3ToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.mP3ToolStripMenuItem.Text = "MP3 &Tag Editor";
             this.mP3ToolStripMenuItem.Click += new System.EventHandler(this.mP3ToolStripMenuItem_Click);
-            // 
-            // mP3TagEditorToolStripMenuItem
-            // 
-            this.mP3TagEditorToolStripMenuItem.Name = "mP3TagEditorToolStripMenuItem";
-            this.mP3TagEditorToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
-            this.mP3TagEditorToolStripMenuItem.Text = "M&P3 &Batch Tag Editor";
-            this.mP3TagEditorToolStripMenuItem.Click += new System.EventHandler(this.mP3TagEditorToolStripMenuItem_Click);
             // 
             // unformattedMp3FilesToolStripMenuItem
             // 
             this.unformattedMp3FilesToolStripMenuItem.Name = "unformattedMp3FilesToolStripMenuItem";
-            this.unformattedMp3FilesToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.unformattedMp3FilesToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.unformattedMp3FilesToolStripMenuItem.Text = "&Unformatted Mp3 Files";
             this.unformattedMp3FilesToolStripMenuItem.Click += new System.EventHandler(this.unformattedMp3FilesToolStripMenuItem_Click);
             // 
             // mP3DatabaseAppToolStripMenuItem
             // 
             this.mP3DatabaseAppToolStripMenuItem.Name = "mP3DatabaseAppToolStripMenuItem";
-            this.mP3DatabaseAppToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.mP3DatabaseAppToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.mP3DatabaseAppToolStripMenuItem.Text = "MP3 &Database App";
             this.mP3DatabaseAppToolStripMenuItem.Visible = false;
             this.mP3DatabaseAppToolStripMenuItem.Click += new System.EventHandler(this.mP3DatabaseAppToolStripMenuItem_Click);
@@ -158,42 +165,42 @@
             // loadMP3DBToolStripMenuItem
             // 
             this.loadMP3DBToolStripMenuItem.Name = "loadMP3DBToolStripMenuItem";
-            this.loadMP3DBToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.loadMP3DBToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.loadMP3DBToolStripMenuItem.Text = "&Load MP3 DB";
             this.loadMP3DBToolStripMenuItem.Click += new System.EventHandler(this.loadMP3DBToolStripMenuItem_Click);
             // 
             // mP3DatabaseSearchToolStripMenuItem
             // 
             this.mP3DatabaseSearchToolStripMenuItem.Name = "mP3DatabaseSearchToolStripMenuItem";
-            this.mP3DatabaseSearchToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.mP3DatabaseSearchToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.mP3DatabaseSearchToolStripMenuItem.Text = "MP3 Database Search";
             this.mP3DatabaseSearchToolStripMenuItem.Click += new System.EventHandler(this.mP3DatabaseSearchToolStripMenuItem_Click);
             // 
             // sQLRunnerToolStripMenuItem
             // 
             this.sQLRunnerToolStripMenuItem.Name = "sQLRunnerToolStripMenuItem";
-            this.sQLRunnerToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.sQLRunnerToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.sQLRunnerToolStripMenuItem.Text = "SQL DB Runner";
             this.sQLRunnerToolStripMenuItem.Click += new System.EventHandler(this.sQLRunnerToolStripMenuItem_Click);
             // 
             // copyFolderStructureToolStripMenuItem
             // 
             this.copyFolderStructureToolStripMenuItem.Name = "copyFolderStructureToolStripMenuItem";
-            this.copyFolderStructureToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.copyFolderStructureToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.copyFolderStructureToolStripMenuItem.Text = "Copy Folder Structure";
             this.copyFolderStructureToolStripMenuItem.Click += new System.EventHandler(this.copyFolderStructureToolStripMenuItem_Click);
             // 
             // copyFilesToSameFolderStructureToolStripMenuItem
             // 
             this.copyFilesToSameFolderStructureToolStripMenuItem.Name = "copyFilesToSameFolderStructureToolStripMenuItem";
-            this.copyFilesToSameFolderStructureToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.copyFilesToSameFolderStructureToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.copyFilesToSameFolderStructureToolStripMenuItem.Text = "Copy Files To Same Folder Structure";
             this.copyFilesToSameFolderStructureToolStripMenuItem.Click += new System.EventHandler(this.copyFilesToSameFolderStructureToolStripMenuItem_Click);
             // 
             // testFormToolStripMenuItem
             // 
             this.testFormToolStripMenuItem.Name = "testFormToolStripMenuItem";
-            this.testFormToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.testFormToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.testFormToolStripMenuItem.Text = "&Test Form";
             this.testFormToolStripMenuItem.Visible = false;
             this.testFormToolStripMenuItem.Click += new System.EventHandler(this.testFormToolStripMenuItem_Click);
@@ -201,14 +208,14 @@
             // iTunesLibFileReaderToolStripMenuItem
             // 
             this.iTunesLibFileReaderToolStripMenuItem.Name = "iTunesLibFileReaderToolStripMenuItem";
-            this.iTunesLibFileReaderToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.iTunesLibFileReaderToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.iTunesLibFileReaderToolStripMenuItem.Text = "iTunes Lib File Reader";
             this.iTunesLibFileReaderToolStripMenuItem.Click += new System.EventHandler(this.iTunesLibFileReaderToolStripMenuItem_Click);
             // 
             // copyIPhoneBackupFilesToolStripMenuItem
             // 
             this.copyIPhoneBackupFilesToolStripMenuItem.Name = "copyIPhoneBackupFilesToolStripMenuItem";
-            this.copyIPhoneBackupFilesToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.copyIPhoneBackupFilesToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.copyIPhoneBackupFilesToolStripMenuItem.Text = "Copy iPhone Backup Files";
             this.copyIPhoneBackupFilesToolStripMenuItem.Click += new System.EventHandler(this.copyIPhoneBackupFilesToolStripMenuItem_Click);
             // 
@@ -228,42 +235,42 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.newWindowToolStripMenuItem.Text = "&New Window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cascadeToolStripMenuItem.Text = "&Cascade";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.tileVerticalToolStripMenuItem.Text = "Tile &Vertical";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.tileHorizontalToolStripMenuItem.Text = "Tile &Horizontal";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.closeAllToolStripMenuItem.Text = "C&lose All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
             // 
             // arrangeIconsToolStripMenuItem
             // 
             this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.arrangeIconsToolStripMenuItem.Text = "&Arrange Icons";
             this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
             // 
@@ -328,13 +335,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // fileUtilityToolStripMenuItem
-            // 
-            this.fileUtilityToolStripMenuItem.Name = "fileUtilityToolStripMenuItem";
-            this.fileUtilityToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
-            this.fileUtilityToolStripMenuItem.Text = "&File Utility";
-            this.fileUtilityToolStripMenuItem.Click += new System.EventHandler(this.fileUtilityToolStripMenuItem_Click);
             // 
             // MDIMain
             // 

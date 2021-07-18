@@ -104,18 +104,38 @@ namespace MP3OrganizerUI
 
         private void lbColumns_DoubleClick(object sender, EventArgs e)
         {
-            rtbSql.Text += "\n" + lbColumns.SelectedItem.ToString();
+            rtbSql.Text += " " + lbColumns.SelectedItem.ToString();
         }
 
         private void lbTables_DoubleClick(object sender, EventArgs e)
         {
-            rtbSql.Text += "\n" + lbTables.SelectedItem.ToString();
+            rtbSql.Text += " " + lbTables.SelectedItem.ToString();
+        }
+
+        private void lbFromSnipits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (lbFromSnipits.SelectedIndex)
+            {
+                case 0:
+                    rtbSql.Text += $"\n{tbMp3InfotbArtist}";
+                    break;
+                case 1:
+                    rtbSql.Text += $"\n{tbMp3InfotbFileInfo}";
+                    break;
+                case 2:
+                    rtbSql.Text += $"\n{allJoin}";
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         private void btnExecuteSql_Click(object sender, EventArgs e)
         {
             OperationResult op = new OperationResult();
 
+            dgvSqlResults.DataSource = null;
             try
             {
                 MP3DBManager mdbmgr = new MP3DBManager();
@@ -150,6 +170,36 @@ namespace MP3OrganizerUI
         private void dgvSqlResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        #region From Clauses
+
+        string tbMp3InfotbArtist = @"
+from tbMp3Info as m
+inner join tbArtist as a on a.Mp3Info_Id = m.Mp3Info_Id";
+
+        string tbMp3InfotbFileInfo = @"
+from tbMp3Info as m
+inner join tbFileInfo as f on f.FileInfo_Id = m.FileInfo_Id";
+
+        string allJoin = @"
+from (tbMp3Info as m
+inner join tbArtist as a on a.Mp3Info_Id = m.Mp3Info_Id)
+inner join  tbFileInfo as f on f.FileInfo_Id = m.FileInfo_Id";
+
+
+        #endregion
+
+        private void ucDatabaseFile1_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) 
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void ucDatabaseFile1_DragEnter(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            ucDatabaseFile1.MP3DBFileName = files[0];
         }
     }
 }

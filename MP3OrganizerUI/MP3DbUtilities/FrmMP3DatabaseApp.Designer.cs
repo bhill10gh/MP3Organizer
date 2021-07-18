@@ -39,7 +39,6 @@
             this.tbMP3DBFile = new System.Windows.Forms.TextBox();
             this.btnGetMP3DBFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.lbResults = new System.Windows.Forms.ListBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.gbAndOr = new System.Windows.Forms.GroupBox();
             this.rbOr = new System.Windows.Forms.RadioButton();
@@ -47,6 +46,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cbxUseLike = new System.Windows.Forms.CheckBox();
             this.btnCreatePdbTableFile = new System.Windows.Forms.Button();
+            this.btnCreateM3U = new System.Windows.Forms.Button();
+            this.rtbMessages = new System.Windows.Forms.RichTextBox();
             this.gbSearch.SuspendLayout();
             this.gbAndOr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -63,7 +64,7 @@
             this.gbSearch.Controls.Add(this.ucatTitle);
             this.gbSearch.Location = new System.Drawing.Point(12, 77);
             this.gbSearch.Name = "gbSearch";
-            this.gbSearch.Size = new System.Drawing.Size(952, 250);
+            this.gbSearch.Size = new System.Drawing.Size(952, 471);
             this.gbSearch.TabIndex = 0;
             this.gbSearch.TabStop = false;
             this.gbSearch.Text = "Search";
@@ -73,9 +74,9 @@
             this.ucatComment.AllowDupes = false;
             this.ucatComment.CaseSensitive = true;
             this.ucatComment.ListBoxSelectionMode = 2;
-            this.ucatComment.Location = new System.Drawing.Point(788, 19);
+            this.ucatComment.Location = new System.Drawing.Point(646, 241);
             this.ucatComment.Name = "ucatComment";
-            this.ucatComment.Size = new System.Drawing.Size(150, 225);
+            this.ucatComment.Size = new System.Drawing.Size(300, 225);
             this.ucatComment.TabIndex = 5;
             this.ucatComment.Title = "Comment Search";
             // 
@@ -84,9 +85,9 @@
             this.ucatAlbum.AllowDupes = false;
             this.ucatAlbum.CaseSensitive = true;
             this.ucatAlbum.ListBoxSelectionMode = 2;
-            this.ucatAlbum.Location = new System.Drawing.Point(476, 19);
+            this.ucatAlbum.Location = new System.Drawing.Point(8, 241);
             this.ucatAlbum.Name = "ucatAlbum";
-            this.ucatAlbum.Size = new System.Drawing.Size(150, 225);
+            this.ucatAlbum.Size = new System.Drawing.Size(300, 225);
             this.ucatAlbum.TabIndex = 4;
             this.ucatAlbum.Title = "Album Search";
             // 
@@ -95,9 +96,9 @@
             this.ucatGenre.AllowDupes = false;
             this.ucatGenre.CaseSensitive = true;
             this.ucatGenre.ListBoxSelectionMode = 2;
-            this.ucatGenre.Location = new System.Drawing.Point(632, 19);
+            this.ucatGenre.Location = new System.Drawing.Point(325, 241);
             this.ucatGenre.Name = "ucatGenre";
-            this.ucatGenre.Size = new System.Drawing.Size(150, 225);
+            this.ucatGenre.Size = new System.Drawing.Size(300, 225);
             this.ucatGenre.TabIndex = 3;
             this.ucatGenre.Title = "Genre Search";
             // 
@@ -106,9 +107,9 @@
             this.ucatFileName.AllowDupes = false;
             this.ucatFileName.CaseSensitive = true;
             this.ucatFileName.ListBoxSelectionMode = 2;
-            this.ucatFileName.Location = new System.Drawing.Point(320, 19);
+            this.ucatFileName.Location = new System.Drawing.Point(646, 19);
             this.ucatFileName.Name = "ucatFileName";
-            this.ucatFileName.Size = new System.Drawing.Size(150, 225);
+            this.ucatFileName.Size = new System.Drawing.Size(300, 225);
             this.ucatFileName.TabIndex = 2;
             this.ucatFileName.Title = "File Name Search";
             // 
@@ -128,9 +129,9 @@
             this.ucatArtists.AllowDupes = false;
             this.ucatArtists.CaseSensitive = true;
             this.ucatArtists.ListBoxSelectionMode = 2;
-            this.ucatArtists.Location = new System.Drawing.Point(164, 19);
+            this.ucatArtists.Location = new System.Drawing.Point(325, 19);
             this.ucatArtists.Name = "ucatArtists";
-            this.ucatArtists.Size = new System.Drawing.Size(150, 225);
+            this.ucatArtists.Size = new System.Drawing.Size(300, 225);
             this.ucatArtists.TabIndex = 1;
             this.ucatArtists.Title = "Artist Search";
             // 
@@ -141,7 +142,7 @@
             this.ucatTitle.ListBoxSelectionMode = 2;
             this.ucatTitle.Location = new System.Drawing.Point(8, 19);
             this.ucatTitle.Name = "ucatTitle";
-            this.ucatTitle.Size = new System.Drawing.Size(150, 225);
+            this.ucatTitle.Size = new System.Drawing.Size(300, 225);
             this.ucatTitle.TabIndex = 0;
             this.ucatTitle.Title = "Title Search";
             // 
@@ -169,17 +170,9 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // lbResults
-            // 
-            this.lbResults.FormattingEnabled = true;
-            this.lbResults.Location = new System.Drawing.Point(12, 383);
-            this.lbResults.Name = "lbResults";
-            this.lbResults.Size = new System.Drawing.Size(828, 160);
-            this.lbResults.TabIndex = 20;
-            // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(20, 333);
+            this.btnSearch.Location = new System.Drawing.Point(20, 608);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(95, 23);
             this.btnSearch.TabIndex = 21;
@@ -191,9 +184,9 @@
             // 
             this.gbAndOr.Controls.Add(this.rbOr);
             this.gbAndOr.Controls.Add(this.rbAnd);
-            this.gbAndOr.Location = new System.Drawing.Point(136, 333);
+            this.gbAndOr.Location = new System.Drawing.Point(143, 597);
             this.gbAndOr.Name = "gbAndOr";
-            this.gbAndOr.Size = new System.Drawing.Size(119, 44);
+            this.gbAndOr.Size = new System.Drawing.Size(177, 44);
             this.gbAndOr.TabIndex = 22;
             this.gbAndOr.TabStop = false;
             this.gbAndOr.Text = "And Or";
@@ -229,15 +222,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 383);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 742);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(933, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(931, 163);
             this.dataGridView1.TabIndex = 23;
             // 
             // cbxUseLike
             // 
             this.cbxUseLike.AutoSize = true;
-            this.cbxUseLike.Location = new System.Drawing.Point(245, 352);
+            this.cbxUseLike.Location = new System.Drawing.Point(252, 616);
             this.cbxUseLike.Name = "cbxUseLike";
             this.cbxUseLike.Size = new System.Drawing.Size(68, 17);
             this.cbxUseLike.TabIndex = 24;
@@ -246,7 +239,7 @@
             // 
             // btnCreatePdbTableFile
             // 
-            this.btnCreatePdbTableFile.Location = new System.Drawing.Point(349, 352);
+            this.btnCreatePdbTableFile.Location = new System.Drawing.Point(489, 608);
             this.btnCreatePdbTableFile.Name = "btnCreatePdbTableFile";
             this.btnCreatePdbTableFile.Size = new System.Drawing.Size(118, 23);
             this.btnCreatePdbTableFile.TabIndex = 25;
@@ -254,17 +247,36 @@
             this.btnCreatePdbTableFile.UseVisualStyleBackColor = true;
             this.btnCreatePdbTableFile.Click += new System.EventHandler(this.btnCreatePdbTableFile_Click);
             // 
+            // btnCreateM3U
+            // 
+            this.btnCreateM3U.Location = new System.Drawing.Point(362, 608);
+            this.btnCreateM3U.Name = "btnCreateM3U";
+            this.btnCreateM3U.Size = new System.Drawing.Size(108, 23);
+            this.btnCreateM3U.TabIndex = 26;
+            this.btnCreateM3U.Text = "Create M3U From Results";
+            this.btnCreateM3U.UseVisualStyleBackColor = true;
+            this.btnCreateM3U.Click += new System.EventHandler(this.btnCreateM3U_Click);
+            // 
+            // rtbMessages
+            // 
+            this.rtbMessages.Location = new System.Drawing.Point(15, 640);
+            this.rtbMessages.Name = "rtbMessages";
+            this.rtbMessages.Size = new System.Drawing.Size(928, 96);
+            this.rtbMessages.TabIndex = 27;
+            this.rtbMessages.Text = "";
+            // 
             // FrmMP3DatabaseApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 583);
+            this.ClientSize = new System.Drawing.Size(972, 917);
+            this.Controls.Add(this.rtbMessages);
+            this.Controls.Add(this.btnCreateM3U);
             this.Controls.Add(this.btnCreatePdbTableFile);
             this.Controls.Add(this.cbxUseLike);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.gbAndOr);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.lbResults);
             this.Controls.Add(this.tbMP3DBFile);
             this.Controls.Add(this.btnGetMP3DBFile);
             this.Controls.Add(this.gbSearch);
@@ -291,7 +303,6 @@
         private System.Windows.Forms.TextBox tbMP3DBFile;
         private System.Windows.Forms.Button btnGetMP3DBFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ListBox lbResults;
         private System.Windows.Forms.Button btnSearch;
         private BCHControls.UCAddToListBox ucAddToListBox1;
         private System.Windows.Forms.GroupBox gbAndOr;
@@ -300,5 +311,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.CheckBox cbxUseLike;
         private System.Windows.Forms.Button btnCreatePdbTableFile;
+        private System.Windows.Forms.Button btnCreateM3U;
+        private System.Windows.Forms.RichTextBox rtbMessages;
     }
 }
