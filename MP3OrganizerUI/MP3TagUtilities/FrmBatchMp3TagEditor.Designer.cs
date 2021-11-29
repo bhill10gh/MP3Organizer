@@ -58,6 +58,7 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.dddtbMp3RootDir = new BCHControls.UCDragDropDirTextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlBatchMp3TagEdit.SuspendLayout();
             this.pnlDirFileSearch.SuspendLayout();
@@ -75,6 +76,9 @@
             // 
             // pnlBatchMp3TagEdit
             // 
+            this.pnlBatchMp3TagEdit.Controls.Add(this.btnGetMP3RootDir);
+            this.pnlBatchMp3TagEdit.Controls.Add(this.dddtbMp3RootDir);
+            this.pnlBatchMp3TagEdit.Controls.Add(this.tbMP3RootDir);
             this.pnlBatchMp3TagEdit.Controls.Add(this.label3);
             this.pnlBatchMp3TagEdit.Controls.Add(this.label2);
             this.pnlBatchMp3TagEdit.Controls.Add(this.lbErrorList);
@@ -87,17 +91,15 @@
             this.pnlBatchMp3TagEdit.Controls.Add(this.textBox1);
             this.pnlBatchMp3TagEdit.Controls.Add(this.lbMP3Files);
             this.pnlBatchMp3TagEdit.Controls.Add(this.label5);
-            this.pnlBatchMp3TagEdit.Controls.Add(this.tbMP3RootDir);
-            this.pnlBatchMp3TagEdit.Controls.Add(this.btnGetMP3RootDir);
             this.pnlBatchMp3TagEdit.Location = new System.Drawing.Point(3, 3);
             this.pnlBatchMp3TagEdit.Name = "pnlBatchMp3TagEdit";
-            this.pnlBatchMp3TagEdit.Size = new System.Drawing.Size(830, 521);
+            this.pnlBatchMp3TagEdit.Size = new System.Drawing.Size(830, 520);
             this.pnlBatchMp3TagEdit.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 407);
+            this.label3.Location = new System.Drawing.Point(10, 389);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 30;
@@ -106,7 +108,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(435, 407);
+            this.label2.Location = new System.Drawing.Point(435, 389);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 29;
@@ -116,14 +118,14 @@
             // 
             this.lbErrorList.FormattingEnabled = true;
             this.lbErrorList.HorizontalScrollbar = true;
-            this.lbErrorList.Location = new System.Drawing.Point(13, 423);
+            this.lbErrorList.Location = new System.Drawing.Point(13, 405);
             this.lbErrorList.Name = "lbErrorList";
             this.lbErrorList.Size = new System.Drawing.Size(392, 95);
             this.lbErrorList.TabIndex = 28;
             // 
             // tbProgress
             // 
-            this.tbProgress.Location = new System.Drawing.Point(473, 374);
+            this.tbProgress.Location = new System.Drawing.Point(473, 356);
             this.tbProgress.Name = "tbProgress";
             this.tbProgress.ReadOnly = true;
             this.tbProgress.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -134,7 +136,7 @@
             // 
             this.lbBadMp3Filse.FormattingEnabled = true;
             this.lbBadMp3Filse.HorizontalScrollbar = true;
-            this.lbBadMp3Filse.Location = new System.Drawing.Point(438, 423);
+            this.lbBadMp3Filse.Location = new System.Drawing.Point(438, 405);
             this.lbBadMp3Filse.Name = "lbBadMp3Filse";
             this.lbBadMp3Filse.Size = new System.Drawing.Size(385, 95);
             this.lbBadMp3Filse.TabIndex = 26;
@@ -142,7 +144,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 371);
+            this.label1.Location = new System.Drawing.Point(18, 353);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 22;
@@ -150,14 +152,14 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(64, 371);
+            this.progressBar1.Location = new System.Drawing.Point(64, 353);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(403, 23);
             this.progressBar1.TabIndex = 21;
             // 
             // tbMP3Count
             // 
-            this.tbMP3Count.Location = new System.Drawing.Point(704, 339);
+            this.tbMP3Count.Location = new System.Drawing.Point(704, 321);
             this.tbMP3Count.Name = "tbMP3Count";
             this.tbMP3Count.ReadOnly = true;
             this.tbMP3Count.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -169,7 +171,7 @@
             this.ckbUseFolderInfo.AutoSize = true;
             this.ckbUseFolderInfo.Checked = true;
             this.ckbUseFolderInfo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbUseFolderInfo.Location = new System.Drawing.Point(18, 335);
+            this.ckbUseFolderInfo.Location = new System.Drawing.Point(18, 317);
             this.ckbUseFolderInfo.Name = "ckbUseFolderInfo";
             this.ckbUseFolderInfo.Size = new System.Drawing.Size(188, 17);
             this.ckbUseFolderInfo.TabIndex = 18;
@@ -178,7 +180,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(156, 66);
+            this.textBox1.Location = new System.Drawing.Point(18, 48);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -191,7 +193,7 @@
             // 
             this.lbMP3Files.FormattingEnabled = true;
             this.lbMP3Files.HorizontalScrollbar = true;
-            this.lbMP3Files.Location = new System.Drawing.Point(18, 92);
+            this.lbMP3Files.Location = new System.Drawing.Point(18, 74);
             this.lbMP3Files.Name = "lbMP3Files";
             this.lbMP3Files.Size = new System.Drawing.Size(796, 238);
             this.lbMP3Files.TabIndex = 15;
@@ -199,7 +201,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(634, 339);
+            this.label5.Location = new System.Drawing.Point(634, 321);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 13);
             this.label5.TabIndex = 14;
@@ -207,23 +209,25 @@
             // 
             // tbMP3RootDir
             // 
-            this.tbMP3RootDir.Location = new System.Drawing.Point(156, 27);
+            this.tbMP3RootDir.Location = new System.Drawing.Point(677, 49);
             this.tbMP3RootDir.Multiline = true;
             this.tbMP3RootDir.Name = "tbMP3RootDir";
             this.tbMP3RootDir.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.tbMP3RootDir.Size = new System.Drawing.Size(658, 33);
             this.tbMP3RootDir.TabIndex = 13;
             this.tbMP3RootDir.Text = "F:\\Barry Hill\\My Music\\Music";
+            this.tbMP3RootDir.Visible = false;
             this.tbMP3RootDir.Click += new System.EventHandler(this.btnGetMP3RootDir_Click);
             // 
             // btnGetMP3RootDir
             // 
-            this.btnGetMP3RootDir.Location = new System.Drawing.Point(18, 25);
+            this.btnGetMP3RootDir.Location = new System.Drawing.Point(702, 59);
             this.btnGetMP3RootDir.Name = "btnGetMP3RootDir";
             this.btnGetMP3RootDir.Size = new System.Drawing.Size(112, 23);
             this.btnGetMP3RootDir.TabIndex = 12;
             this.btnGetMP3RootDir.Text = "Get MP3 Root Dir";
             this.btnGetMP3RootDir.UseVisualStyleBackColor = true;
+            this.btnGetMP3RootDir.Visible = false;
             this.btnGetMP3RootDir.Click += new System.EventHandler(this.btnGetMP3RootDir_Click);
             // 
             // pnlDirFileSearch
@@ -231,7 +235,7 @@
             this.pnlDirFileSearch.Controls.Add(this.btnCancelFileAdd);
             this.pnlDirFileSearch.Controls.Add(this.btnClosePanelAddMP3Files);
             this.pnlDirFileSearch.Controls.Add(this.ucDirFileSearch1);
-            this.pnlDirFileSearch.Location = new System.Drawing.Point(3, 530);
+            this.pnlDirFileSearch.Location = new System.Drawing.Point(3, 529);
             this.pnlDirFileSearch.Name = "pnlDirFileSearch";
             this.pnlDirFileSearch.Size = new System.Drawing.Size(830, 700);
             this.pnlDirFileSearch.TabIndex = 1;
@@ -294,7 +298,7 @@
             this.addMP3FilesMenuItem,
             this.saveM3uToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.fileToolStripMenuItem.Text = "&MP3 Tag Editor";
             // 
             // addMP3FilesMenuItem
@@ -320,6 +324,18 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // dddtbMp3RootDir
+            // 
+            this.dddtbMp3RootDir.ButtonText = "MP3 Root Dir";
+            this.dddtbMp3RootDir.FileDialogTitle = null;
+            this.dddtbMp3RootDir.ItemFilters = null;
+            this.dddtbMp3RootDir.ItemText = "";
+            this.dddtbMp3RootDir.LeftRight = 20;
+            this.dddtbMp3RootDir.Location = new System.Drawing.Point(13, 14);
+            this.dddtbMp3RootDir.Name = "dddtbMp3RootDir";
+            this.dddtbMp3RootDir.Size = new System.Drawing.Size(658, 27);
+            this.dddtbMp3RootDir.TabIndex = 31;
             // 
             // FrmBatchMp3TagEditor
             // 
@@ -370,5 +386,6 @@
         private System.Windows.Forms.ListBox lbErrorList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private BCHControls.UCDragDropDirTextBox dddtbMp3RootDir;
     }
 }

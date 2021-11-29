@@ -189,9 +189,7 @@ namespace MP3OrganizerUI
             List<string> mp3List = BCHWinFormUtilities.ListBoxToList(lbMP3Files);
             int mp3Cnt = mp3List.Count;
 
-
-
-            BadFiles = EditMP3Tags(mp3List, tbMP3RootDir.Text, ckbUseFolderInfo.Checked, ref _op);
+            BadFiles = EditMP3Tags(mp3List, dddtbMp3RootDir.ItemText, ckbUseFolderInfo.Checked, ref _op);
 
             this.Op.AddOperationResult(ref _op);
 
