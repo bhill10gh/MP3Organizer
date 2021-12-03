@@ -15,7 +15,7 @@ using BCHFramework;
 using MP3OrganizerBusinessLogic;
 
 namespace MP3OrganizerUI
-{
+{    
     public partial class FrmM3UEditor : Form
     {
         #region Public Properties
@@ -62,6 +62,8 @@ namespace MP3OrganizerUI
             uftM3U.FileTypes = extList;
 
             this.Height = 450;
+
+            dddtbM3uFile.AfterTextDragEvent += AfterFileTextDrop;
         }
 
         #endregion
@@ -107,7 +109,7 @@ namespace MP3OrganizerUI
 
             string msg = string.Empty;
 
-            if (tbM3UDir.Text.Length < 0)
+            if (dddtbM3uPath.ItemText.Length < 0)
             {
                 msg = "You must have a valid M3U path selected! \n";
             }
@@ -118,7 +120,7 @@ namespace MP3OrganizerUI
                         Path.GetInvalidFileNameChars().ToString();
             }
 
-            if (ckbDoArchosFormat.Checked && string.IsNullOrEmpty(tbArchosMusicRootDir.Text))
+            if (ckbDoArchosFormat.Checked && string.IsNullOrEmpty(dddtbMusicDir.ItemText))
             {
                 msg += "You must have an Archos Directory";
             }
@@ -132,7 +134,7 @@ namespace MP3OrganizerUI
             OperationResult op = new OperationResult();
             M3UEditor me = new M3UEditor();
 
-            string fileName = Path.Combine(tbM3UDir.Text, tbM3UFileName.Text);
+            string fileName = Path.Combine(dddtbM3uPath.ItemText, tbM3UFileName.Text);
 
             me.SetM3U(fileName, uftM3U.GetStrList(BCHControls.UCFromToEnum.To), true, ref op);
 
@@ -189,6 +191,9 @@ namespace MP3OrganizerUI
             }
 
             uftM3U.SetListBox(me.M3USongList, BCHControls.UCFromToEnum.To, true);
+            uftM3U.SetListBox(me.M3USongList, BCHControls.UCFromToEnum.From, true);
+            tbM3UFileName.Text = me.M3UFileName;
+            dddtbM3uPath.ItemText = me.M3UPath;
 
         }
 
@@ -285,65 +290,45 @@ namespace MP3OrganizerUI
             OpenWPL();
         }
 
-        private void tbM3UDir_DragDrop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-                if (Directory.Exists(files[0]))
-                {
-                    this.tbM3UDir.Text = files[0];
-                }
-            }
-        }
-
-        private void tbM3UDir_DragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
-        }
-
-        private void tbArchosMusicRootDir_DragDrop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-                if (Directory.Exists(files[0]))
-                {
-                    this.tbArchosMusicRootDir.Text = files[0];
-                }
-            }
-        }
-
-        private void tbArchosMusicRootDir_DragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
-        }
 
         #endregion
 
         #region Methods
 
+        private void AfterFileTextDrop(string fName)
+        {
+            OperationResult op = new OperationResult();
+            try
+            {
+                dddtbM3uPath.ItemText = Path.GetDirectoryName(fName);
+                tbM3UFileName.Text = Path.GetFileName(fName);
+
+                if(File.Exists(fName))
+                {
+                    var mp3s = BCHFileIO.ReadFullFile(fName, ref op);
+                    if(op.Success)
+                    {
+                        uftM3U.AddItems(mp3s, BCHControls.UCFromToEnum.From, false, true);
+                        uftM3U.AddItems(mp3s, BCHControls.UCFromToEnum.To, false, true);
+                    }
+                    else
+                    {
+                        MessageBox.Show(op.GetAllMessages("\n"), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                op.AddException(ex);
+                MessageBox.Show(op.GetAllMessages("\n"), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void ConvertToArchosFormat(ref M3UEditor me, ref OperationResult op)
         {
             List<string> list = new List<string>();
 
-            string rootMusicDir = tbArchosMusicRootDir.Text;
+            string rootMusicDir = dddtbMusicDir.ItemText;
             int rootPos = -1;
             string archosVer = string.Empty;
 
@@ -406,7 +391,7 @@ namespace MP3OrganizerUI
             XmlNode seq = wpl.CreateElement("seq");
             body.AppendChild(seq);
             
-            string rootMusicDir = tbArchosMusicRootDir.Text;
+            string rootMusicDir = dddtbMusicDir.ItemText;
             
 
 
@@ -471,7 +456,7 @@ namespace MP3OrganizerUI
             List<string> list = uftM3U.GetStrList(BCHControls.UCFromToEnum.To);
             List<string> newList = new List<string>();
 
-            if (tbArchosMusicRootDir.Text.Length < 1)
+            if (dddtbMusicDir.ItemText.Length < 1)
             {
                 MessageBox.Show("A root folder must be entered!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -487,7 +472,7 @@ namespace MP3OrganizerUI
             }
 
             string newDir = folderBrowserDialog1.SelectedPath;
-            string rootDir = tbArchosMusicRootDir.Text.Trim();
+            string rootDir = dddtbMusicDir.ItemText.Trim();
 
             for (int i = 0; i < list.Count; i++)
             {
@@ -565,8 +550,7 @@ namespace MP3OrganizerUI
 
 
 
-        #endregion
 
-        
+        #endregion
     }
 }

@@ -33,17 +33,17 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.tbOutputFilePath = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnExportSongList = new System.Windows.Forms.Button();
             this.btnExportPlayLists = new System.Windows.Forms.Button();
             this.tbMessages = new System.Windows.Forms.RichTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnCrtMu3FrmPlyLst = new System.Windows.Forms.Button();
-            this.ucGetFilePath1 = new BCHControls.UCGetFilePath();
-            this.iTunesSongsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbDriveLetter = new System.Windows.Forms.TextBox();
+            this.tbLibraryMusicPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.iTunesSongsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ddtbITunesLibraryFile = new BCHControls.UCDragDropTextBox();
+            this.dddtbOutputPath = new BCHControls.UCDragDropDirTextBox();
+            this.dddMusicDirPath = new BCHControls.UCDragDropDirTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -52,9 +52,9 @@
             // 
             // btnReadLibraryFile
             // 
-            this.btnReadLibraryFile.Location = new System.Drawing.Point(801, 187);
+            this.btnReadLibraryFile.Location = new System.Drawing.Point(749, 157);
             this.btnReadLibraryFile.Name = "btnReadLibraryFile";
-            this.btnReadLibraryFile.Size = new System.Drawing.Size(111, 23);
+            this.btnReadLibraryFile.Size = new System.Drawing.Size(156, 23);
             this.btnReadLibraryFile.TabIndex = 1;
             this.btnReadLibraryFile.Text = "Read Library File";
             this.btnReadLibraryFile.UseVisualStyleBackColor = true;
@@ -63,7 +63,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 156);
+            this.dataGridView1.Location = new System.Drawing.Point(51, 157);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(677, 150);
             this.dataGridView1.TabIndex = 2;
@@ -71,7 +71,7 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(51, 335);
+            this.dataGridView2.Location = new System.Drawing.Point(51, 336);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(677, 150);
             this.dataGridView2.TabIndex = 3;
@@ -80,34 +80,14 @@
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(51, 511);
+            this.dataGridView3.Location = new System.Drawing.Point(51, 512);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(677, 150);
             this.dataGridView3.TabIndex = 4;
             // 
-            // tbOutputFilePath
-            // 
-            this.tbOutputFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbOutputFilePath.Location = new System.Drawing.Point(129, 67);
-            this.tbOutputFilePath.Multiline = true;
-            this.tbOutputFilePath.Name = "tbOutputFilePath";
-            this.tbOutputFilePath.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbOutputFilePath.Size = new System.Drawing.Size(506, 38);
-            this.tbOutputFilePath.TabIndex = 24;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Output File Path";
-            // 
             // btnExportSongList
             // 
-            this.btnExportSongList.Location = new System.Drawing.Point(801, 227);
+            this.btnExportSongList.Location = new System.Drawing.Point(749, 186);
             this.btnExportSongList.Name = "btnExportSongList";
             this.btnExportSongList.Size = new System.Drawing.Size(156, 23);
             this.btnExportSongList.TabIndex = 26;
@@ -117,7 +97,7 @@
             // 
             // btnExportPlayLists
             // 
-            this.btnExportPlayLists.Location = new System.Drawing.Point(801, 256);
+            this.btnExportPlayLists.Location = new System.Drawing.Point(749, 215);
             this.btnExportPlayLists.Name = "btnExportPlayLists";
             this.btnExportPlayLists.Size = new System.Drawing.Size(156, 23);
             this.btnExportPlayLists.TabIndex = 27;
@@ -129,10 +109,10 @@
             // 
             this.tbMessages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbMessages.Location = new System.Drawing.Point(642, 23);
+            this.tbMessages.Location = new System.Drawing.Point(734, 38);
             this.tbMessages.Name = "tbMessages";
             this.tbMessages.ReadOnly = true;
-            this.tbMessages.Size = new System.Drawing.Size(407, 38);
+            this.tbMessages.Size = new System.Drawing.Size(313, 101);
             this.tbMessages.TabIndex = 131;
             this.tbMessages.Text = "";
             // 
@@ -141,7 +121,7 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(639, 4);
+            this.label13.Location = new System.Drawing.Point(733, 22);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(55, 13);
             this.label13.TabIndex = 130;
@@ -149,7 +129,7 @@
             // 
             // btnCrtMu3FrmPlyLst
             // 
-            this.btnCrtMu3FrmPlyLst.Location = new System.Drawing.Point(801, 285);
+            this.btnCrtMu3FrmPlyLst.Location = new System.Drawing.Point(749, 244);
             this.btnCrtMu3FrmPlyLst.Name = "btnCrtMu3FrmPlyLst";
             this.btnCrtMu3FrmPlyLst.Size = new System.Drawing.Size(156, 23);
             this.btnCrtMu3FrmPlyLst.TabIndex = 132;
@@ -157,59 +137,91 @@
             this.btnCrtMu3FrmPlyLst.UseVisualStyleBackColor = true;
             this.btnCrtMu3FrmPlyLst.Click += new System.EventHandler(this.btnCrtMu3FrmPlyLst_Click);
             // 
-            // ucGetFilePath1
+            // tbLibraryMusicPath
             // 
-            this.ucGetFilePath1.DialogTitle = null;
-            this.ucGetFilePath1.FileName = "";
-            this.ucGetFilePath1.Location = new System.Drawing.Point(12, 22);
-            this.ucGetFilePath1.Name = "ucGetFilePath1";
-            this.ucGetFilePath1.Size = new System.Drawing.Size(623, 39);
-            this.ucGetFilePath1.TabIndex = 0;
+            this.tbLibraryMusicPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbLibraryMusicPath.Location = new System.Drawing.Point(153, 104);
+            this.tbLibraryMusicPath.Multiline = true;
+            this.tbLibraryMusicPath.Name = "tbLibraryMusicPath";
+            this.tbLibraryMusicPath.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.tbLibraryMusicPath.Size = new System.Drawing.Size(575, 20);
+            this.tbLibraryMusicPath.TabIndex = 133;
+            this.tbLibraryMusicPath.Text = "C:\\Barry Hill\\My Music\\Music";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(48, 107);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 13);
+            this.label2.TabIndex = 134;
+            this.label2.Text = "Library Music Path";
             // 
             // iTunesSongsBindingSource
             // 
             this.iTunesSongsBindingSource.DataSource = typeof(MP3OrganizerBusinessLogic.iTunesSongs);
             // 
-            // tbDriveLetter
+            // ddtbITunesLibraryFile
             // 
-            this.tbDriveLetter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDriveLetter.Location = new System.Drawing.Point(129, 111);
-            this.tbDriveLetter.Multiline = true;
-            this.tbDriveLetter.Name = "tbDriveLetter";
-            this.tbDriveLetter.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbDriveLetter.Size = new System.Drawing.Size(506, 38);
-            this.tbDriveLetter.TabIndex = 133;
-            this.tbDriveLetter.Text = "C";
+            this.ddtbITunesLibraryFile.AllowDrop = true;
+            this.ddtbITunesLibraryFile.ButtonText = "Get iTunes Library File";
+            this.ddtbITunesLibraryFile.FileDialogTitle = null;
+            this.ddtbITunesLibraryFile.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.ddtbITunesLibraryFile.ItemFilters = null;
+            this.ddtbITunesLibraryFile.ItemText = "";
+            this.ddtbITunesLibraryFile.LeftRight = 60;
+            this.ddtbITunesLibraryFile.Location = new System.Drawing.Point(12, 22);
+            this.ddtbITunesLibraryFile.Name = "ddtbITunesLibraryFile";
+            this.ddtbITunesLibraryFile.Size = new System.Drawing.Size(716, 29);
+            this.ddtbITunesLibraryFile.TabIndex = 135;
             // 
-            // label2
+            // dddtbOutputPath
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 134;
-            this.label2.Text = "Drive Letter";
+            this.dddtbOutputPath.AllowDrop = true;
+            this.dddtbOutputPath.ButtonText = "Output Path";
+            this.dddtbOutputPath.FileDialogTitle = null;
+            this.dddtbOutputPath.ItemFilters = null;
+            this.dddtbOutputPath.ItemText = "";
+            this.dddtbOutputPath.LeftRight = 60;
+            this.dddtbOutputPath.Location = new System.Drawing.Point(6, 48);
+            this.dddtbOutputPath.Name = "dddtbOutputPath";
+            this.dddtbOutputPath.Size = new System.Drawing.Size(722, 27);
+            this.dddtbOutputPath.TabIndex = 136;
+            // 
+            // dddMusicDirPath
+            // 
+            this.dddMusicDirPath.AllowDrop = true;
+            this.dddMusicDirPath.ButtonText = "Music Dir Path";
+            this.dddMusicDirPath.FileDialogTitle = null;
+            this.dddMusicDirPath.ItemFilters = null;
+            this.dddMusicDirPath.ItemText = "C:\\Barry Hill\\My Music\\Music";
+            this.dddMusicDirPath.LeftRight = 60;
+            this.dddMusicDirPath.Location = new System.Drawing.Point(6, 71);
+            this.dddMusicDirPath.Name = "dddMusicDirPath";
+            this.dddMusicDirPath.Size = new System.Drawing.Size(722, 27);
+            this.dddMusicDirPath.TabIndex = 138;
             // 
             // FrmiTunesLibraryReader
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1061, 711);
+            this.ClientSize = new System.Drawing.Size(1061, 671);
+            this.Controls.Add(this.dddMusicDirPath);
+            this.Controls.Add(this.dddtbOutputPath);
+            this.Controls.Add(this.ddtbITunesLibraryFile);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbDriveLetter);
+            this.Controls.Add(this.tbLibraryMusicPath);
             this.Controls.Add(this.btnCrtMu3FrmPlyLst);
             this.Controls.Add(this.tbMessages);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.btnExportPlayLists);
             this.Controls.Add(this.btnExportSongList);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbOutputFilePath);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnReadLibraryFile);
-            this.Controls.Add(this.ucGetFilePath1);
             this.Name = "FrmiTunesLibraryReader";
             this.Text = "FrmiTunesLibraryReader";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -222,21 +234,20 @@
         }
 
         #endregion
-
-        private BCHControls.UCGetFilePath ucGetFilePath1;
         private System.Windows.Forms.Button btnReadLibraryFile;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.BindingSource iTunesSongsBindingSource;
-        private System.Windows.Forms.TextBox tbOutputFilePath;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExportSongList;
         private System.Windows.Forms.Button btnExportPlayLists;
         private System.Windows.Forms.RichTextBox tbMessages;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnCrtMu3FrmPlyLst;
-        private System.Windows.Forms.TextBox tbDriveLetter;
+        private System.Windows.Forms.TextBox tbLibraryMusicPath;
         private System.Windows.Forms.Label label2;
+        private BCHControls.UCDragDropTextBox ddtbITunesLibraryFile;
+        private BCHControls.UCDragDropDirTextBox dddtbOutputPath;
+        private BCHControls.UCDragDropDirTextBox dddMusicDirPath;
     }
 }

@@ -21,9 +21,6 @@ namespace MP3OrganizerUI.iTunes
         {
             InitializeComponent();
 
-            ucGetFilePath1.SetControlFromConfig("iTunesLibraryFile", 0, "", 2, true);
-
-            tbOutputFilePath.Text = BCHUtilities.GetConfigValue("iTunesPlayListFolder", 0, "", 2, false);
         }
 
 
@@ -97,7 +94,7 @@ namespace MP3OrganizerUI.iTunes
 
             OperationResult op = new OperationResult();
 
-            string path = this.tbOutputFilePath.Text;
+            string path = this.dddtbOutputPath.ItemText;
             string fName = Path.Combine(path, "iTunesSongs.txt");
 
             BCHFileIO.WriteFullFile(fName, list, ref op);
@@ -127,7 +124,7 @@ namespace MP3OrganizerUI.iTunes
 
             foreach (var kv in pls)
             {
-                string path = this.tbOutputFilePath.Text;
+                string path = this.dddtbOutputPath.ItemText;
                 string fName = Path.Combine(path, kv.Item1 + ".txt");
 
                 BCHFileIO.WriteFullFile(fName, kv.Item2, ref op);
@@ -166,12 +163,12 @@ namespace MP3OrganizerUI.iTunes
                 {
                     List<string> songs = GetPlayListSongPathsList(pl);
 
-                    string path = this.tbOutputFilePath.Text;
+                    string path = this.dddtbOutputPath.ItemText;
                     string fName = Path.Combine(path, pl.Name + ".m3u");
 
-                    if (!string.IsNullOrWhiteSpace(tbDriveLetter.Text))
+                    if (!string.IsNullOrWhiteSpace(dddMusicDirPath.ItemText))
                     {
-                        songs = ReplaceDrive(tbDriveLetter.Text, songs);
+                        songs = FormatSongsMusicDir(tbLibraryMusicPath.Text, songs, dddMusicDirPath.ItemText);
                     }
 
                     BCHFileIO.WriteFullFile(fName, songs, ref op);
@@ -203,13 +200,43 @@ namespace MP3OrganizerUI.iTunes
             return songsNew;
         }
 
+        private List<string> FormatSongsMusicDir(string libDir, List<string> songs, string musicDir)
+        {
+            List<string> songsNew = new List<string>();
+            string newSong;
+
+            string libDirFormated = libDir.Replace("/", "\\");
+            libDirFormated = libDir.EndsWith("\\") ? libDir.TrimEnd("\\".ToCharArray()) : libDir;
+
+            string musicDirFormated = "";
+            if (!string.IsNullOrWhiteSpace(musicDir))
+            {
+                musicDirFormated = musicDirFormated.EndsWith("\\") ? musicDirFormated.TrimEnd("\\".ToCharArray()) : musicDirFormated; 
+            }
+
+            foreach (var song in songs)
+            {
+                newSong = song.Replace("/", "\\");
+                if(!string.IsNullOrWhiteSpace(musicDir))
+                {
+                    newSong = newSong.Replace(libDir, "");
+                    newSong = $"{musicDir}{newSong}";
+                }
+                
+                songsNew.Add(newSong);
+            }
+            return songsNew;
+        }
+
+
+
         #endregion
 
         #region Methods
 
         protected void GetiTunesLibXml()
         {
-            string fileName = ucGetFilePath1.FileName;
+            string fileName = ddtbITunesLibraryFile.ItemText;
 
             iTunesSongs songs = new iTunesSongs();
 

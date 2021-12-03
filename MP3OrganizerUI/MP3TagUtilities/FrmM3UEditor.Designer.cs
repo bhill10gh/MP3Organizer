@@ -43,37 +43,34 @@
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlM3UPlayList = new System.Windows.Forms.Panel();
-            this.btnSortByDirArtSng = new System.Windows.Forms.Button();
-            this.rbPlainM3U = new System.Windows.Forms.RadioButton();
-            this.rbDoMediaPlayerFormat = new System.Windows.Forms.RadioButton();
-            this.rbDoArchosM3UFormat = new System.Windows.Forms.RadioButton();
             this.btnChngRootDir = new System.Windows.Forms.Button();
-            this.btnCnvrtBckToPC = new System.Windows.Forms.Button();
+            this.btnSortByDirArtSng = new System.Windows.Forms.Button();
             this.btnSortByDir = new System.Windows.Forms.Button();
             this.btnSortBySong = new System.Windows.Forms.Button();
             this.btnSortByArtist = new System.Windows.Forms.Button();
-            this.ckbDoArchosFormat = new System.Windows.Forms.CheckBox();
-            this.tbArchosMusicRootDir = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.uftM3U = new BCHControls.UCFromToDragDropFiles();
+            this.tbM3UFileName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlAddFiles = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.ucdfs = new BCHControls.UCDirFileSearch();
             this.btnCloseFloPnl = new System.Windows.Forms.Button();
             this.pnlChangePath = new System.Windows.Forms.Panel();
             this.btnGetDir = new System.Windows.Forms.Button();
             this.lbMusicDirs = new System.Windows.Forms.ListBox();
             this.btnGetMusicRootFolder = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.rbPlainM3U = new System.Windows.Forms.RadioButton();
+            this.rbDoMediaPlayerFormat = new System.Windows.Forms.RadioButton();
+            this.rbDoArchosM3UFormat = new System.Windows.Forms.RadioButton();
+            this.btnCnvrtBckToPC = new System.Windows.Forms.Button();
+            this.ckbDoArchosFormat = new System.Windows.Forms.CheckBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnGetM3UPath = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbM3UFileName = new System.Windows.Forms.TextBox();
-            this.tbM3UDir = new System.Windows.Forms.TextBox();
+            this.dddtbM3uFile = new BCHControls.UCDragDropTextBox();
+            this.dddtbMusicDir = new BCHControls.UCDragDropDirTextBox();
+            this.dddtbM3uPath = new BCHControls.UCDragDropDirTextBox();
+            this.uftM3U = new BCHControls.UCFromToDragDropFiles();
+            this.ucdfs = new BCHControls.UCDirFileSearch();
             this.flpMain.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             this.menuStrip2.SuspendLayout();
@@ -102,7 +99,7 @@
             this.pnlMenu.Controls.Add(this.menuStrip2);
             this.pnlMenu.Location = new System.Drawing.Point(5, 5);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(683, 26);
+            this.pnlMenu.Size = new System.Drawing.Size(738, 26);
             this.pnlMenu.TabIndex = 0;
             // 
             // menuStrip2
@@ -166,28 +163,36 @@
             // pnlM3UPlayList
             // 
             this.pnlM3UPlayList.AllowDrop = true;
-            this.pnlM3UPlayList.Controls.Add(this.btnSortByDirArtSng);
+            this.pnlM3UPlayList.Controls.Add(this.dddtbM3uFile);
             this.pnlM3UPlayList.Controls.Add(this.btnChngRootDir);
+            this.pnlM3UPlayList.Controls.Add(this.dddtbMusicDir);
+            this.pnlM3UPlayList.Controls.Add(this.dddtbM3uPath);
+            this.pnlM3UPlayList.Controls.Add(this.btnSortByDirArtSng);
             this.pnlM3UPlayList.Controls.Add(this.btnSortByDir);
             this.pnlM3UPlayList.Controls.Add(this.btnSortBySong);
             this.pnlM3UPlayList.Controls.Add(this.btnSortByArtist);
-            this.pnlM3UPlayList.Controls.Add(this.tbArchosMusicRootDir);
-            this.pnlM3UPlayList.Controls.Add(this.label1);
             this.pnlM3UPlayList.Controls.Add(this.uftM3U);
             this.pnlM3UPlayList.Controls.Add(this.tbM3UFileName);
-            this.pnlM3UPlayList.Controls.Add(this.label5);
-            this.pnlM3UPlayList.Controls.Add(this.tbM3UDir);
-            this.pnlM3UPlayList.Controls.Add(this.btnGetM3UPath);
             this.pnlM3UPlayList.Controls.Add(this.label4);
-            this.pnlM3UPlayList.Controls.Add(this.label2);
             this.pnlM3UPlayList.Location = new System.Drawing.Point(5, 37);
             this.pnlM3UPlayList.Name = "pnlM3UPlayList";
-            this.pnlM3UPlayList.Size = new System.Drawing.Size(757, 310);
+            this.pnlM3UPlayList.Size = new System.Drawing.Size(757, 323);
             this.pnlM3UPlayList.TabIndex = 6;
+            // 
+            // btnChngRootDir
+            // 
+            this.btnChngRootDir.Location = new System.Drawing.Point(558, 293);
+            this.btnChngRootDir.Name = "btnChngRootDir";
+            this.btnChngRootDir.Size = new System.Drawing.Size(76, 23);
+            this.btnChngRootDir.TabIndex = 22;
+            this.btnChngRootDir.Text = "Change Dir";
+            this.btnChngRootDir.UseVisualStyleBackColor = true;
+            this.btnChngRootDir.Visible = false;
+            this.btnChngRootDir.Click += new System.EventHandler(this.btnChngRootDir_Click);
             // 
             // btnSortByDirArtSng
             // 
-            this.btnSortByDirArtSng.Location = new System.Drawing.Point(331, 284);
+            this.btnSortByDirArtSng.Location = new System.Drawing.Point(250, 253);
             this.btnSortByDirArtSng.Name = "btnSortByDirArtSng";
             this.btnSortByDirArtSng.Size = new System.Drawing.Size(113, 23);
             this.btnSortByDirArtSng.TabIndex = 26;
@@ -195,64 +200,9 @@
             this.btnSortByDirArtSng.UseVisualStyleBackColor = true;
             this.btnSortByDirArtSng.Click += new System.EventHandler(this.btnSortByDirArtSng_Click);
             // 
-            // rbPlainM3U
-            // 
-            this.rbPlainM3U.AutoSize = true;
-            this.rbPlainM3U.Checked = true;
-            this.rbPlainM3U.Location = new System.Drawing.Point(868, 378);
-            this.rbPlainM3U.Name = "rbPlainM3U";
-            this.rbPlainM3U.Size = new System.Drawing.Size(71, 17);
-            this.rbPlainM3U.TabIndex = 25;
-            this.rbPlainM3U.TabStop = true;
-            this.rbPlainM3U.Text = "PlainM3U";
-            this.rbPlainM3U.UseVisualStyleBackColor = true;
-            this.rbPlainM3U.Visible = false;
-            // 
-            // rbDoMediaPlayerFormat
-            // 
-            this.rbDoMediaPlayerFormat.AutoSize = true;
-            this.rbDoMediaPlayerFormat.Location = new System.Drawing.Point(868, 355);
-            this.rbDoMediaPlayerFormat.Name = "rbDoMediaPlayerFormat";
-            this.rbDoMediaPlayerFormat.Size = new System.Drawing.Size(138, 17);
-            this.rbDoMediaPlayerFormat.TabIndex = 24;
-            this.rbDoMediaPlayerFormat.Text = "Do Media Player Format";
-            this.rbDoMediaPlayerFormat.UseVisualStyleBackColor = true;
-            this.rbDoMediaPlayerFormat.Visible = false;
-            // 
-            // rbDoArchosM3UFormat
-            // 
-            this.rbDoArchosM3UFormat.AutoSize = true;
-            this.rbDoArchosM3UFormat.Location = new System.Drawing.Point(619, 342);
-            this.rbDoArchosM3UFormat.Name = "rbDoArchosM3UFormat";
-            this.rbDoArchosM3UFormat.Size = new System.Drawing.Size(136, 17);
-            this.rbDoArchosM3UFormat.TabIndex = 23;
-            this.rbDoArchosM3UFormat.Text = "Do Archos M3U Format";
-            this.rbDoArchosM3UFormat.UseVisualStyleBackColor = true;
-            // 
-            // btnChngRootDir
-            // 
-            this.btnChngRootDir.Location = new System.Drawing.Point(8, 282);
-            this.btnChngRootDir.Name = "btnChngRootDir";
-            this.btnChngRootDir.Size = new System.Drawing.Size(76, 23);
-            this.btnChngRootDir.TabIndex = 22;
-            this.btnChngRootDir.Text = "Change Dir";
-            this.btnChngRootDir.UseVisualStyleBackColor = true;
-            this.btnChngRootDir.Click += new System.EventHandler(this.btnChngRootDir_Click);
-            // 
-            // btnCnvrtBckToPC
-            // 
-            this.btnCnvrtBckToPC.Location = new System.Drawing.Point(841, 285);
-            this.btnCnvrtBckToPC.Name = "btnCnvrtBckToPC";
-            this.btnCnvrtBckToPC.Size = new System.Drawing.Size(131, 23);
-            this.btnCnvrtBckToPC.TabIndex = 21;
-            this.btnCnvrtBckToPC.Text = "Convert Back To PC";
-            this.btnCnvrtBckToPC.UseVisualStyleBackColor = true;
-            this.btnCnvrtBckToPC.Visible = false;
-            this.btnCnvrtBckToPC.Click += new System.EventHandler(this.btnCnvrtBckToPC_Click);
-            // 
             // btnSortByDir
             // 
-            this.btnSortByDir.Location = new System.Drawing.Point(257, 284);
+            this.btnSortByDir.Location = new System.Drawing.Point(176, 253);
             this.btnSortByDir.Name = "btnSortByDir";
             this.btnSortByDir.Size = new System.Drawing.Size(68, 23);
             this.btnSortByDir.TabIndex = 20;
@@ -262,7 +212,7 @@
             // 
             // btnSortBySong
             // 
-            this.btnSortBySong.Location = new System.Drawing.Point(174, 284);
+            this.btnSortBySong.Location = new System.Drawing.Point(93, 253);
             this.btnSortBySong.Name = "btnSortBySong";
             this.btnSortBySong.Size = new System.Drawing.Size(77, 23);
             this.btnSortBySong.TabIndex = 19;
@@ -272,7 +222,7 @@
             // 
             // btnSortByArtist
             // 
-            this.btnSortByArtist.Location = new System.Drawing.Point(90, 282);
+            this.btnSortByArtist.Location = new System.Drawing.Point(9, 253);
             this.btnSortByArtist.Name = "btnSortByArtist";
             this.btnSortByArtist.Size = new System.Drawing.Size(78, 23);
             this.btnSortByArtist.TabIndex = 18;
@@ -280,52 +230,28 @@
             this.btnSortByArtist.UseVisualStyleBackColor = true;
             this.btnSortByArtist.Click += new System.EventHandler(this.btnSortByArtist_Click);
             // 
-            // ckbDoArchosFormat
+            // tbM3UFileName
             // 
-            this.ckbDoArchosFormat.AutoSize = true;
-            this.ckbDoArchosFormat.Location = new System.Drawing.Point(841, 333);
-            this.ckbDoArchosFormat.Name = "ckbDoArchosFormat";
-            this.ckbDoArchosFormat.Size = new System.Drawing.Size(137, 17);
-            this.ckbDoArchosFormat.TabIndex = 16;
-            this.ckbDoArchosFormat.Text = "Do Archos M3U Format";
-            this.ckbDoArchosFormat.UseVisualStyleBackColor = true;
-            this.ckbDoArchosFormat.Visible = false;
+            this.tbM3UFileName.Location = new System.Drawing.Point(124, 58);
+            this.tbM3UFileName.Name = "tbM3UFileName";
+            this.tbM3UFileName.Size = new System.Drawing.Size(597, 20);
+            this.tbM3UFileName.TabIndex = 12;
             // 
-            // tbArchosMusicRootDir
+            // label4
             // 
-            this.tbArchosMusicRootDir.AllowDrop = true;
-            this.tbArchosMusicRootDir.Location = new System.Drawing.Point(9, 256);
-            this.tbArchosMusicRootDir.Name = "tbArchosMusicRootDir";
-            this.tbArchosMusicRootDir.Size = new System.Drawing.Size(712, 20);
-            this.tbArchosMusicRootDir.TabIndex = 15;
-            this.tbArchosMusicRootDir.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbArchosMusicRootDir_DragDrop);
-            this.tbArchosMusicRootDir.DragEnter += new System.Windows.Forms.DragEventHandler(this.tbArchosMusicRootDir_DragEnter);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 241);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Root Music Dir";
-            // 
-            // uftM3U
-            // 
-            this.uftM3U.FileTypes = ((System.Collections.Generic.List<string>)(resources.GetObject("uftM3U.FileTypes")));
-            this.uftM3U.FromAllowDrop = true;
-            this.uftM3U.Location = new System.Drawing.Point(5, 71);
-            this.uftM3U.Name = "uftM3U";
-            this.uftM3U.ShoMoveButtons = true;
-            this.uftM3U.Size = new System.Drawing.Size(735, 175);
-            this.uftM3U.TabIndex = 13;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "M3U File Name";
             // 
             // pnlAddFiles
             // 
             this.pnlAddFiles.Controls.Add(this.btnCancel);
             this.pnlAddFiles.Controls.Add(this.ucdfs);
             this.pnlAddFiles.Controls.Add(this.btnCloseFloPnl);
-            this.pnlAddFiles.Location = new System.Drawing.Point(5, 353);
+            this.pnlAddFiles.Location = new System.Drawing.Point(5, 366);
             this.pnlAddFiles.Name = "pnlAddFiles";
             this.pnlAddFiles.Size = new System.Drawing.Size(686, 365);
             this.pnlAddFiles.TabIndex = 8;
@@ -340,18 +266,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCloseFloPnl_Click);
-            // 
-            // ucdfs
-            // 
-            this.ucdfs.AutoScroll = true;
-            this.ucdfs.FileList = ((System.Collections.Generic.List<string>)(resources.GetObject("ucdfs.FileList")));
-            this.ucdfs.FileTypeEnabled = true;
-            this.ucdfs.FileTypeList = ((System.Collections.Generic.List<string>)(resources.GetObject("ucdfs.FileTypeList")));
-            this.ucdfs.Location = new System.Drawing.Point(3, 32);
-            this.ucdfs.Name = "ucdfs";
-            this.ucdfs.SearchString = "";
-            this.ucdfs.Size = new System.Drawing.Size(662, 536);
-            this.ucdfs.TabIndex = 6;
             // 
             // btnCloseFloPnl
             // 
@@ -369,7 +283,7 @@
             this.pnlChangePath.Controls.Add(this.lbMusicDirs);
             this.pnlChangePath.Controls.Add(this.btnGetMusicRootFolder);
             this.pnlChangePath.Controls.Add(this.textBox1);
-            this.pnlChangePath.Location = new System.Drawing.Point(5, 724);
+            this.pnlChangePath.Location = new System.Drawing.Point(5, 737);
             this.pnlChangePath.Name = "pnlChangePath";
             this.pnlChangePath.Size = new System.Drawing.Size(699, 125);
             this.pnlChangePath.TabIndex = 9;
@@ -412,69 +326,130 @@
             this.textBox1.Size = new System.Drawing.Size(201, 33);
             this.textBox1.TabIndex = 11;
             // 
+            // rbPlainM3U
+            // 
+            this.rbPlainM3U.AutoSize = true;
+            this.rbPlainM3U.Checked = true;
+            this.rbPlainM3U.Location = new System.Drawing.Point(868, 378);
+            this.rbPlainM3U.Name = "rbPlainM3U";
+            this.rbPlainM3U.Size = new System.Drawing.Size(71, 17);
+            this.rbPlainM3U.TabIndex = 25;
+            this.rbPlainM3U.TabStop = true;
+            this.rbPlainM3U.Text = "PlainM3U";
+            this.rbPlainM3U.UseVisualStyleBackColor = true;
+            this.rbPlainM3U.Visible = false;
+            // 
+            // rbDoMediaPlayerFormat
+            // 
+            this.rbDoMediaPlayerFormat.AutoSize = true;
+            this.rbDoMediaPlayerFormat.Location = new System.Drawing.Point(868, 355);
+            this.rbDoMediaPlayerFormat.Name = "rbDoMediaPlayerFormat";
+            this.rbDoMediaPlayerFormat.Size = new System.Drawing.Size(138, 17);
+            this.rbDoMediaPlayerFormat.TabIndex = 24;
+            this.rbDoMediaPlayerFormat.Text = "Do Media Player Format";
+            this.rbDoMediaPlayerFormat.UseVisualStyleBackColor = true;
+            this.rbDoMediaPlayerFormat.Visible = false;
+            // 
+            // rbDoArchosM3UFormat
+            // 
+            this.rbDoArchosM3UFormat.AutoSize = true;
+            this.rbDoArchosM3UFormat.Location = new System.Drawing.Point(619, 342);
+            this.rbDoArchosM3UFormat.Name = "rbDoArchosM3UFormat";
+            this.rbDoArchosM3UFormat.Size = new System.Drawing.Size(136, 17);
+            this.rbDoArchosM3UFormat.TabIndex = 23;
+            this.rbDoArchosM3UFormat.Text = "Do Archos M3U Format";
+            this.rbDoArchosM3UFormat.UseVisualStyleBackColor = true;
+            // 
+            // btnCnvrtBckToPC
+            // 
+            this.btnCnvrtBckToPC.Location = new System.Drawing.Point(841, 285);
+            this.btnCnvrtBckToPC.Name = "btnCnvrtBckToPC";
+            this.btnCnvrtBckToPC.Size = new System.Drawing.Size(131, 23);
+            this.btnCnvrtBckToPC.TabIndex = 21;
+            this.btnCnvrtBckToPC.Text = "Convert Back To PC";
+            this.btnCnvrtBckToPC.UseVisualStyleBackColor = true;
+            this.btnCnvrtBckToPC.Visible = false;
+            this.btnCnvrtBckToPC.Click += new System.EventHandler(this.btnCnvrtBckToPC_Click);
+            // 
+            // ckbDoArchosFormat
+            // 
+            this.ckbDoArchosFormat.AutoSize = true;
+            this.ckbDoArchosFormat.Location = new System.Drawing.Point(841, 333);
+            this.ckbDoArchosFormat.Name = "ckbDoArchosFormat";
+            this.ckbDoArchosFormat.Size = new System.Drawing.Size(137, 17);
+            this.ckbDoArchosFormat.TabIndex = 16;
+            this.ckbDoArchosFormat.Text = "Do Archos M3U Format";
+            this.ckbDoArchosFormat.UseVisualStyleBackColor = true;
+            this.ckbDoArchosFormat.Visible = false;
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label2
+            // dddtbM3uFile
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "M3U List";
+            this.dddtbM3uFile.AllowDrop = true;
+            this.dddtbM3uFile.ButtonText = "Get M3U File";
+            this.dddtbM3uFile.FileDialogTitle = null;
+            this.dddtbM3uFile.ItemFilters = "m3u;mu3";
+            this.dddtbM3uFile.ItemText = "";
+            this.dddtbM3uFile.LeftRight = 40;
+            this.dddtbM3uFile.Location = new System.Drawing.Point(0, 27);
+            this.dddtbM3uFile.Name = "dddtbM3uFile";
+            this.dddtbM3uFile.Size = new System.Drawing.Size(721, 29);
+            this.dddtbM3uFile.TabIndex = 29;
             // 
-            // btnGetM3UPath
+            // dddtbMusicDir
             // 
-            this.btnGetM3UPath.Location = new System.Drawing.Point(0, 29);
-            this.btnGetM3UPath.Name = "btnGetM3UPath";
-            this.btnGetM3UPath.Size = new System.Drawing.Size(87, 23);
-            this.btnGetM3UPath.TabIndex = 9;
-            this.btnGetM3UPath.Text = "Get M3U Path";
-            this.btnGetM3UPath.UseVisualStyleBackColor = true;
-            this.btnGetM3UPath.Click += new System.EventHandler(this.btnGetM3UPath_Click);
+            this.dddtbMusicDir.ButtonText = "Mp3 Music Path";
+            this.dddtbMusicDir.FileDialogTitle = null;
+            this.dddtbMusicDir.ItemFilters = null;
+            this.dddtbMusicDir.ItemText = "";
+            this.dddtbMusicDir.LeftRight = 40;
+            this.dddtbMusicDir.Location = new System.Drawing.Point(3, 293);
+            this.dddtbMusicDir.Name = "dddtbMusicDir";
+            this.dddtbMusicDir.Size = new System.Drawing.Size(726, 23);
+            this.dddtbMusicDir.TabIndex = 28;
+            this.dddtbMusicDir.Visible = false;
             // 
-            // label4
+            // dddtbM3uPath
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(517, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "M3U File Name";
+            this.dddtbM3uPath.AllowDrop = true;
+            this.dddtbM3uPath.ButtonText = "Get M3U Path";
+            this.dddtbM3uPath.FileDialogTitle = null;
+            this.dddtbM3uPath.ItemFilters = null;
+            this.dddtbM3uPath.ItemText = "";
+            this.dddtbM3uPath.LeftRight = 40;
+            this.dddtbM3uPath.Location = new System.Drawing.Point(-5, 3);
+            this.dddtbM3uPath.Name = "dddtbM3uPath";
+            this.dddtbM3uPath.Size = new System.Drawing.Size(726, 27);
+            this.dddtbM3uPath.TabIndex = 27;
             // 
-            // label5
+            // uftM3U
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(87, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "M3U Path";
+            this.uftM3U.FileTypes = ((System.Collections.Generic.List<string>)(resources.GetObject("uftM3U.FileTypes")));
+            this.uftM3U.FromAllowDrop = true;
+            this.uftM3U.Location = new System.Drawing.Point(5, 92);
+            this.uftM3U.Name = "uftM3U";
+            this.uftM3U.ShoMoveButtons = true;
+            this.uftM3U.Size = new System.Drawing.Size(735, 155);
+            this.uftM3U.TabIndex = 13;
             // 
-            // tbM3UFileName
+            // ucdfs
             // 
-            this.tbM3UFileName.Location = new System.Drawing.Point(520, 29);
-            this.tbM3UFileName.Name = "tbM3UFileName";
-            this.tbM3UFileName.Size = new System.Drawing.Size(201, 20);
-            this.tbM3UFileName.TabIndex = 12;
-            // 
-            // tbM3UDir
-            // 
-            this.tbM3UDir.AllowDrop = true;
-            this.tbM3UDir.Location = new System.Drawing.Point(90, 29);
-            this.tbM3UDir.Multiline = true;
-            this.tbM3UDir.Name = "tbM3UDir";
-            this.tbM3UDir.ReadOnly = true;
-            this.tbM3UDir.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbM3UDir.Size = new System.Drawing.Size(424, 33);
-            this.tbM3UDir.TabIndex = 10;
-            this.tbM3UDir.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbM3UDir_DragDrop);
-            this.tbM3UDir.DragEnter += new System.Windows.Forms.DragEventHandler(this.tbM3UDir_DragEnter);
+            this.ucdfs.AutoScroll = true;
+            this.ucdfs.FileList = ((System.Collections.Generic.List<string>)(resources.GetObject("ucdfs.FileList")));
+            this.ucdfs.FileTypeEnabled = true;
+            this.ucdfs.FileTypeList = ((System.Collections.Generic.List<string>)(resources.GetObject("ucdfs.FileTypeList")));
+            this.ucdfs.Location = new System.Drawing.Point(3, 32);
+            this.ucdfs.Name = "ucdfs";
+            this.ucdfs.SearchString = "";
+            this.ucdfs.Size = new System.Drawing.Size(662, 536);
+            this.ucdfs.TabIndex = 6;
             // 
             // FrmM3UEditor
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 651);
@@ -519,8 +494,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.CheckBox ckbDoArchosFormat;
-        private System.Windows.Forms.TextBox tbArchosMusicRootDir;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSortBySong;
         private System.Windows.Forms.Button btnSortByArtist;
         private System.Windows.Forms.Button btnSortByDir;
@@ -541,10 +514,9 @@
         private System.Windows.Forms.ToolStripMenuItem openWPLToolStripMenuItem;
         private System.Windows.Forms.Button btnSortByDirArtSng;
         private System.Windows.Forms.TextBox tbM3UFileName;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbM3UDir;
-        private System.Windows.Forms.Button btnGetM3UPath;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
+        private BCHControls.UCDragDropDirTextBox dddtbM3uPath;
+        private BCHControls.UCDragDropDirTextBox dddtbMusicDir;
+        private BCHControls.UCDragDropTextBox dddtbM3uFile;
     }
 }
