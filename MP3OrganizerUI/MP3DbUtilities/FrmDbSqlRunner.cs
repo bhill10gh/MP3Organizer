@@ -12,88 +12,14 @@ using BCHControls;
 using BCHFramework;
 using MP3OrganizerBusinessLogic;
 using MP3OrganizerUI.Controls;
+using System.IO;
 
 namespace MP3OrganizerUI
 {
     public partial class FrmDbSqlRunner : Form
     {
-        public FrmDbSqlRunner()
-        {
-            InitializeComponent();
 
-            OperationResult op = new OperationResult();
-
-            SetConrol(ref op);
-
-            ucResultDisplay1.AddOperationResult(ref op, true, true, true);
-        }
-
-        private void SetConrol(ref OperationResult op)
-        {
-            ucDatabaseFile1.SetControl();
-
-            if (ucDatabaseFile1.MP3DBExists)
-            {
-
-                LoadDbTableListBox(ref op);
-            }
-        }
-
-        private void LoadDbTableListBox(ref OperationResult op)
-        {
-            try
-            {
-                MP3DBManager mdbmgr = new MP3DBManager();
-                mdbmgr.SetDataStore(ucDatabaseFile1.MP3DBFileName, ref op);
-
-                //string sql = 
-                //    "SELECT MSysObjects.Name AS TableName " +
-                //    "FROM MSysObjects " +
-                //    "WHERE (((Left([Name],1))<>\"~\") " +
-                //    "AND ((Left([Name],4))<>\"MSys\")  " +
-                //    "AND ((MSysObjects.Type) In (1,4,6)))  " +
-                //    "order by MSysObjects.Name " +
-                //    "";
-
-                lbTables.Items.Clear();
-
-
-                DataTable dt = mdbmgr.GetDbTables(ref op);
-
-                BCHWinFormUtilities.DataTableToListBox(dt, lbTables, "TABLE_NAME");
-
-                lbTables.SelectedIndex = 0;
-
-                LoadDbColumnListBox(lbTables.SelectedItem.ToString(), ref op);
-                
-            }
-            catch (Exception ex)
-            {
-                op.AddException(ex);
-                return;
-            }
-        }
-
-        private void LoadDbColumnListBox(string tableName,  ref OperationResult op)
-        {
-            try
-            {
-                MP3DBManager mdbmgr = new MP3DBManager();
-                mdbmgr.SetDataStore(ucDatabaseFile1.MP3DBFileName, ref op);
-
-                lbColumns.Items.Clear();
-
-                DataTable dt = mdbmgr.GetDbTableColumns(tableName, ref op);
-
-                BCHWinFormUtilities.DataTableToListBox(dt, lbColumns, "ColumnName");
-
-            }
-            catch (Exception ex)
-            {
-                op.AddException(ex);
-                return;
-            }
-        }
+        #region Events
 
         private void lbTables_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -135,11 +61,14 @@ namespace MP3OrganizerUI
         {
             OperationResult op = new OperationResult();
 
+            lblResults.Text = "Results (0)";
+            rtbMessages.Text = "";
+
             dgvSqlResults.DataSource = null;
             try
             {
                 MP3DBManager mdbmgr = new MP3DBManager();
-                mdbmgr.SetDataStore(ucDatabaseFile1.MP3DBFileName, ref op);
+                mdbmgr.SetDataStore(ddtbMp3DbFile.ItemText, ref op);
 
                 Dictionary<string, string> parms = new Dictionary<string, string>();
 
@@ -147,30 +76,145 @@ namespace MP3OrganizerUI
                 parms.Add("Sql", sql);
 
                 DataTable dt = mdbmgr.RunSqlScript(ref parms, DAL.SqlScriptEnum.DynamicSQL, ref op);
+                int count = 0;
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
+                    count = dt.Rows.Count;
                     dgvSqlResults.DataSource = dt;
+                    lblResults.Text = $"Results ({count})";
                 }
 
                 if (op.Success)
                 {
                     op.AddInformation("SQL Excution Successfull");
+                    rtbMessages.Text = op.GetAllInfos("\n");
+                }
+                else
+                {
+                    rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
                 }
 
             }
             catch (Exception ex)
             {
                 op.AddException(ex);
+                rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
             }
-
-            ucResultDisplay1.AddOperationResult(ref op, true, true, true);
         }
 
-        private void dgvSqlResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnRefreshDb_Click(object sender, EventArgs e)
         {
+            SetConrol();
+        }
+
+        #endregion
+
+
+        #region Methods
+
+        public FrmDbSqlRunner()
+        {
+            InitializeComponent();
+
+            OperationResult op = new OperationResult();
+
+            ddtbMp3DbFile.AfterTextDragEvent += AfterFileTextDrop;
 
         }
+
+        private void SetConrol()
+        {
+            rtbMessages.Text = "";
+            OperationResult op = new OperationResult();
+            if (MP3DBExists())
+            {
+                LoadDbTableListBox(ref op);
+                if(!op.Success)
+                {
+                    rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
+                }
+            }
+            else
+            {
+                rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
+            }
+        }
+
+        private void LoadDbTableListBox(ref OperationResult op)
+        {
+            try
+            {
+                MP3DBManager mdbmgr = new MP3DBManager();
+                mdbmgr.SetDataStore(ddtbMp3DbFile.ItemText, ref op);
+
+                //string sql = 
+                //    "SELECT MSysObjects.Name AS TableName " +
+                //    "FROM MSysObjects " +
+                //    "WHERE (((Left([Name],1))<>\"~\") " +
+                //    "AND ((Left([Name],4))<>\"MSys\")  " +
+                //    "AND ((MSysObjects.Type) In (1,4,6)))  " +
+                //    "order by MSysObjects.Name " +
+                //    "";
+
+                lbTables.Items.Clear();
+
+
+                DataTable dt = mdbmgr.GetDbTables(ref op);
+
+                BCHWinFormUtilities.DataTableToListBox(dt, lbTables, "TABLE_NAME");
+
+                lbTables.SelectedIndex = 0;
+
+                LoadDbColumnListBox(lbTables.SelectedItem.ToString(), ref op);
+                if(!op.Success)
+                {
+                    rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                op.AddException(ex);
+                rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
+                return;
+            }
+        }
+
+        private void LoadDbColumnListBox(string tableName, ref OperationResult op)
+        {
+            try
+            {
+                MP3DBManager mdbmgr = new MP3DBManager();
+                mdbmgr.SetDataStore(ddtbMp3DbFile.ItemText, ref op);
+
+                lbColumns.Items.Clear();
+
+                DataTable dt = mdbmgr.GetDbTableColumns(tableName, ref op);
+
+                BCHWinFormUtilities.DataTableToListBox(dt, lbColumns, "ColumnName");
+
+            }
+            catch (Exception ex)
+            {
+                op.AddException(ex);
+                rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
+                return;
+            }
+        }
+
+        private bool MP3DBExists()
+        {
+            return File.Exists(ddtbMp3DbFile.ItemText);
+        }
+
+        private void AfterFileTextDrop(string fName)
+        {
+            SetConrol();
+        }
+
+        #endregion
 
         #region From Clauses
 
@@ -188,18 +232,10 @@ inner join tbArtist as a on a.Mp3Info_Id = m.Mp3Info_Id)
 inner join  tbFileInfo as f on f.FileInfo_Id = m.FileInfo_Id";
 
 
+
+
         #endregion
 
-        private void ucDatabaseFile1_DragDrop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop)) 
-                e.Effect = DragDropEffects.Copy;
-        }
-
-        private void ucDatabaseFile1_DragEnter(object sender, DragEventArgs e)
-        {
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            ucDatabaseFile1.MP3DBFileName = files[0];
-        }
+        
     }
 }

@@ -232,6 +232,12 @@
     <Compile Include="iTunes\FrmiTunesLibraryReader.Designer.cs">
       <DependentUpon>FrmiTunesLibraryReader.cs</DependentUpon>
     </Compile>
+    <Compile Include="MP3DbUtilities\FrmMP3DatabaseApp2_0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmMP3DatabaseApp2_0.Designer.cs">
+      <DependentUpon>FrmMP3DatabaseApp2_0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mp3FileUtilities\FrmFileUtils.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="iTunes\FrmiTunesLibraryReader.resx">
       <DependentUpon>FrmiTunesLibraryReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3DbUtilities\FrmMP3DatabaseApp2_0.resx">
+      <DependentUpon>FrmMP3DatabaseApp2_0.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mp3FileUtilities\FrmFileUtils.resx">
       <DependentUpon>FrmFileUtils.cs</DependentUpon>

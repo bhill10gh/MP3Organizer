@@ -44,9 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
-            this.tbMP3RootDir = new System.Windows.Forms.TextBox();
-            this.btnGetMP3RootDir = new System.Windows.Forms.Button();
-            this.ucDatabaseFile1 = new MP3OrganizerUI.Controls.UCDatabaseFile();
+            this.ddtbMp3DbFile = new BCHControls.UCDragDropTextBox();
+            this.dddtbGetMp3RootDir = new BCHControls.UCDragDropDirTextBox();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -57,14 +56,14 @@
             // 
             this.lbMP3s.FormattingEnabled = true;
             this.lbMP3s.HorizontalScrollbar = true;
-            this.lbMP3s.Location = new System.Drawing.Point(141, 103);
+            this.lbMP3s.Location = new System.Drawing.Point(121, 79);
             this.lbMP3s.Name = "lbMP3s";
-            this.lbMP3s.Size = new System.Drawing.Size(428, 121);
+            this.lbMP3s.Size = new System.Drawing.Size(448, 173);
             this.lbMP3s.TabIndex = 18;
             // 
             // btnGetMP3s
             // 
-            this.btnGetMP3s.Location = new System.Drawing.Point(3, 103);
+            this.btnGetMP3s.Location = new System.Drawing.Point(6, 79);
             this.btnGetMP3s.Name = "btnGetMP3s";
             this.btnGetMP3s.Size = new System.Drawing.Size(112, 23);
             this.btnGetMP3s.TabIndex = 19;
@@ -75,7 +74,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 133);
+            this.label1.Location = new System.Drawing.Point(3, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 20;
@@ -84,7 +83,7 @@
             // lblMP3Count
             // 
             this.lblMP3Count.AutoSize = true;
-            this.lblMP3Count.Location = new System.Drawing.Point(72, 133);
+            this.lblMP3Count.Location = new System.Drawing.Point(72, 109);
             this.lblMP3Count.Name = "lblMP3Count";
             this.lblMP3Count.Size = new System.Drawing.Size(35, 13);
             this.lblMP3Count.TabIndex = 21;
@@ -95,7 +94,7 @@
             this.ckbUseFolderInfo.AutoSize = true;
             this.ckbUseFolderInfo.Checked = true;
             this.ckbUseFolderInfo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbUseFolderInfo.Location = new System.Drawing.Point(3, 163);
+            this.ckbUseFolderInfo.Location = new System.Drawing.Point(6, 125);
             this.ckbUseFolderInfo.Name = "ckbUseFolderInfo";
             this.ckbUseFolderInfo.Size = new System.Drawing.Size(98, 17);
             this.ckbUseFolderInfo.TabIndex = 22;
@@ -104,7 +103,7 @@
             // 
             // btnLoadMP3DB
             // 
-            this.btnLoadMP3DB.Location = new System.Drawing.Point(3, 186);
+            this.btnLoadMP3DB.Location = new System.Drawing.Point(6, 148);
             this.btnLoadMP3DB.Name = "btnLoadMP3DB";
             this.btnLoadMP3DB.Size = new System.Drawing.Size(112, 23);
             this.btnLoadMP3DB.TabIndex = 23;
@@ -114,7 +113,7 @@
             // 
             // btnDeleteAllMp3s
             // 
-            this.btnDeleteAllMp3s.Location = new System.Drawing.Point(3, 213);
+            this.btnDeleteAllMp3s.Location = new System.Drawing.Point(6, 175);
             this.btnDeleteAllMp3s.Name = "btnDeleteAllMp3s";
             this.btnDeleteAllMp3s.Size = new System.Drawing.Size(112, 23);
             this.btnDeleteAllMp3s.TabIndex = 24;
@@ -134,17 +133,17 @@
             // 
             // tbProgress
             // 
-            this.tbProgress.Location = new System.Drawing.Point(444, 226);
+            this.tbProgress.Location = new System.Drawing.Point(381, 258);
             this.tbProgress.Name = "tbProgress";
             this.tbProgress.ReadOnly = true;
             this.tbProgress.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbProgress.Size = new System.Drawing.Size(125, 20);
+            this.tbProgress.Size = new System.Drawing.Size(188, 20);
             this.tbProgress.TabIndex = 30;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(138, 237);
+            this.label2.Location = new System.Drawing.Point(3, 258);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 29;
@@ -152,14 +151,14 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(184, 237);
+            this.progressBar1.Location = new System.Drawing.Point(121, 258);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(254, 23);
             this.progressBar1.TabIndex = 28;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 242);
+            this.button1.Location = new System.Drawing.Point(6, 204);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 45);
             this.button1.TabIndex = 31;
@@ -167,41 +166,40 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnCmpctRprDB_Click);
             // 
-            // tbMP3RootDir
+            // ddtbMp3DbFile
             // 
-            this.tbMP3RootDir.Location = new System.Drawing.Point(138, 64);
-            this.tbMP3RootDir.Multiline = true;
-            this.tbMP3RootDir.Name = "tbMP3RootDir";
-            this.tbMP3RootDir.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbMP3RootDir.Size = new System.Drawing.Size(431, 33);
-            this.tbMP3RootDir.TabIndex = 15;
-            this.tbMP3RootDir.TextChanged += new System.EventHandler(this.tbMP3RootDir_TextChanged);
+            this.ddtbMp3DbFile.AllowDrop = true;
+            this.ddtbMp3DbFile.ButtonText = "Get Mp3 Db File";
+            this.ddtbMp3DbFile.FileDialogTitle = null;
+            this.ddtbMp3DbFile.ItemFilters = "mdb";
+            this.ddtbMp3DbFile.ItemText = "";
+            this.ddtbMp3DbFile.LeftRight = 40;
+            this.ddtbMp3DbFile.Location = new System.Drawing.Point(3, 25);
+            this.ddtbMp3DbFile.Name = "ddtbMp3DbFile";
+            this.ddtbMp3DbFile.Size = new System.Drawing.Size(574, 29);
+            this.ddtbMp3DbFile.TabIndex = 33;
             // 
-            // btnGetMP3RootDir
+            // dddtbGetMp3RootDir
             // 
-            this.btnGetMP3RootDir.Location = new System.Drawing.Point(6, 62);
-            this.btnGetMP3RootDir.Name = "btnGetMP3RootDir";
-            this.btnGetMP3RootDir.Size = new System.Drawing.Size(112, 23);
-            this.btnGetMP3RootDir.TabIndex = 16;
-            this.btnGetMP3RootDir.Text = "Get MP3 Root Dir";
-            this.btnGetMP3RootDir.UseVisualStyleBackColor = true;
-            this.btnGetMP3RootDir.Click += new System.EventHandler(this.btnGetMP3RootDir_Click);
-            // 
-            // ucDatabaseFile1
-            // 
-            this.ucDatabaseFile1.Location = new System.Drawing.Point(3, 13);
-            this.ucDatabaseFile1.MP3DBExists = false;
-            this.ucDatabaseFile1.MP3DBFileName = "";
-            this.ucDatabaseFile1.Name = "ucDatabaseFile1";
-            this.ucDatabaseFile1.Size = new System.Drawing.Size(574, 45);
-            this.ucDatabaseFile1.TabIndex = 32;
+            this.dddtbGetMp3RootDir.AllowDrop = true;
+            this.dddtbGetMp3RootDir.ButtonText = "Get Mp3 Root Dir";
+            this.dddtbGetMp3RootDir.FileDialogTitle = null;
+            this.dddtbGetMp3RootDir.ItemFilters = null;
+            this.dddtbGetMp3RootDir.ItemText = "";
+            this.dddtbGetMp3RootDir.LeftRight = 40;
+            this.dddtbGetMp3RootDir.Location = new System.Drawing.Point(-3, 50);
+            this.dddtbGetMp3RootDir.Name = "dddtbGetMp3RootDir";
+            this.dddtbGetMp3RootDir.Size = new System.Drawing.Size(580, 27);
+            this.dddtbGetMp3RootDir.TabIndex = 35;
             // 
             // FrmLoadMP3DB
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 491);
-            this.Controls.Add(this.ucDatabaseFile1);
+            this.ClientSize = new System.Drawing.Size(608, 292);
+            this.Controls.Add(this.dddtbGetMp3RootDir);
+            this.Controls.Add(this.ddtbMp3DbFile);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbProgress);
             this.Controls.Add(this.label2);
@@ -213,8 +211,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGetMP3s);
             this.Controls.Add(this.lbMP3s);
-            this.Controls.Add(this.btnGetMP3RootDir);
-            this.Controls.Add(this.tbMP3RootDir);
             this.Name = "FrmLoadMP3DB";
             this.Text = "FrmLoadMP3DB";
             this.ResumeLayout(false);
@@ -239,8 +235,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tbMP3RootDir;
-        private System.Windows.Forms.Button btnGetMP3RootDir;
-        private Controls.UCDatabaseFile ucDatabaseFile1;
+        private BCHControls.UCDragDropTextBox ddtbMp3DbFile;
+        private BCHControls.UCDragDropDirTextBox dddtbGetMp3RootDir;
     }
 }

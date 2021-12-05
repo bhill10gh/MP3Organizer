@@ -67,106 +67,72 @@ namespace MP3OrganizerUI
             }
         }
 
-        private void testFormToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form1 f1 = new Form1();
-            f1.MdiParent = this;
-            f1.Show();
-        }
-
         private void MDIMain_Load(object sender, EventArgs e)
         {
             
         }
 
-        private void m3UEditorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmM3UEditor me = new FrmM3UEditor();
-            me.MdiParent = this;
-            me.Show();
-        }
-
-        private void mP3ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmMp3TagEditor me = new FrmMp3TagEditor();
-            me.MdiParent = this;
-            me.Show();
-        }
-
-        private void mP3TagEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mP3BatchTagEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmBatchMp3TagEditor me = new FrmBatchMp3TagEditor();
             me.MdiParent = this;
             me.Show();
         }
 
-        private void unformattedMp3FilesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mP3TagEditorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmBCHUnformatedMp3Files uf = new FrmBCHUnformatedMp3Files();
-            uf.MdiParent = this;
-            uf.Show();
+            FrmMp3TagEditor me = new FrmMp3TagEditor();
+            me.MdiParent = this;
+            me.Show();
         }
 
-        private void mP3DatabaseAppToolStripMenuItem_Click(object sender, EventArgs e)
+        private void unformattedMp3FilesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MDIMP3DBApp mmda = new MDIMP3DBApp();
-            mmda.Show();
+            FrmBatchMp3TagEditor me = new FrmBatchMp3TagEditor();
+            me.MdiParent = this;
+            me.Show();
         }
 
-        private void loadMP3DBToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmLoadMP3DB lmdb = new FrmLoadMP3DB();
-            lmdb.MdiParent = this;
-            lmdb.Show();
-        }
-
-        private void mP3DatabaseSearchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmMP3DatabaseApp mdbs = new FrmMP3DatabaseApp();
-            mdbs.MdiParent = this;
-            mdbs.Show();
-        }
-
-        private void copyFolderStructureToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmCopyFolderStructure frm = new FrmCopyFolderStructure();
-            frm.MdiParent = this;
-            frm.Show();
-        }
-
-        private void copyFilesToSameFolderStructureToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmCopyFilesToSameFolderStructure frm = new FrmCopyFilesToSameFolderStructure();
-            frm.MdiParent = this;
-            frm.Show();
-        }
-
-        private void sQLRunnerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmDbSqlRunner dsr = new FrmDbSqlRunner();
-            dsr.MdiParent = this;
-            dsr.Show();
-        }
-
-        private void iTunesLibFileReaderToolStripMenuItem_Click(object sender, EventArgs e)
+        private void iTunesLibFileReaderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmiTunesLibraryReader filr = new FrmiTunesLibraryReader();
             filr.MdiParent = this;
             filr.Show();
         }
 
-        private void copyIPhoneBackupFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void loadMP3DBToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmCopyiPhoneBackupFIles fc = new FrmCopyiPhoneBackupFIles();
-            fc.MdiParent = this;
-            fc.Show();
+            FrmLoadMP3DB lmdb = new FrmLoadMP3DB();
+            lmdb.MdiParent = this;
+            lmdb.Show();
         }
 
-        private void fileUtilityToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mP3DatabaseSearchToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            FrmFileUtils fu = new FrmFileUtils();
+            FrmMP3DatabaseApp2_0 fu = new FrmMP3DatabaseApp2_0();
             fu.MdiParent = this;
             fu.Show();
+        }
+
+        private void sQLDBRunnerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDbSqlRunner dsr = new FrmDbSqlRunner();
+            dsr.MdiParent = this;
+            dsr.Show();
+        }
+
+        private void copyFolderStructureToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmCopyFolderStructure frm = new FrmCopyFolderStructure();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void copyFilesToSameFolderStructureToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmCopyFilesToSameFolderStructure frm = new FrmCopyFilesToSameFolderStructure();
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

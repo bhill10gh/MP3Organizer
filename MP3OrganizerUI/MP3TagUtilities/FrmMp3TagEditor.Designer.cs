@@ -60,10 +60,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tbTrack3v2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.tbMP3File = new System.Windows.Forms.TextBox();
-            this.btnGetMP3File = new System.Windows.Forms.Button();
-            this.btnGetRootDir = new System.Windows.Forms.Button();
-            this.tbRootDir = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.btnGetMP3TagData = new System.Windows.Forms.Button();
             this.btnEditTag = new System.Windows.Forms.Button();
@@ -84,6 +80,8 @@
             this.tbCalcAlbum = new System.Windows.Forms.TextBox();
             this.btnGetMusicInfo = new System.Windows.Forms.Button();
             this.btnPopWithNameInfo = new System.Windows.Forms.Button();
+            this.dddtbGetRootDir = new BCHControls.UCDragDropDirTextBox();
+            this.ddtbMp3File = new BCHControls.UCDragDropTextBox();
             this.gb3v1.SuspendLayout();
             this.gb3v2.SuspendLayout();
             this.gbMP3InfoFromFileName.SuspendLayout();
@@ -106,7 +104,7 @@
             this.gb3v1.Controls.Add(this.label2);
             this.gb3v1.Controls.Add(this.tbTrack3v1);
             this.gb3v1.Controls.Add(this.label1);
-            this.gb3v1.Location = new System.Drawing.Point(12, 107);
+            this.gb3v1.Location = new System.Drawing.Point(13, 91);
             this.gb3v1.Name = "gb3v1";
             this.gb3v1.Size = new System.Drawing.Size(293, 260);
             this.gb3v1.TabIndex = 0;
@@ -258,7 +256,7 @@
             this.gb3v2.Controls.Add(this.label13);
             this.gb3v2.Controls.Add(this.tbTrack3v2);
             this.gb3v2.Controls.Add(this.label14);
-            this.gb3v2.Location = new System.Drawing.Point(321, 107);
+            this.gb3v2.Location = new System.Drawing.Point(319, 91);
             this.gb3v2.Name = "gb3v2";
             this.gb3v2.Size = new System.Drawing.Size(293, 260);
             this.gb3v2.TabIndex = 1;
@@ -393,49 +391,9 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Track:";
             // 
-            // tbMP3File
-            // 
-            this.tbMP3File.Location = new System.Drawing.Point(114, 28);
-            this.tbMP3File.Multiline = true;
-            this.tbMP3File.Name = "tbMP3File";
-            this.tbMP3File.ReadOnly = true;
-            this.tbMP3File.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbMP3File.Size = new System.Drawing.Size(191, 35);
-            this.tbMP3File.TabIndex = 2;
-            // 
-            // btnGetMP3File
-            // 
-            this.btnGetMP3File.Location = new System.Drawing.Point(12, 28);
-            this.btnGetMP3File.Name = "btnGetMP3File";
-            this.btnGetMP3File.Size = new System.Drawing.Size(93, 23);
-            this.btnGetMP3File.TabIndex = 3;
-            this.btnGetMP3File.Text = "Get MP3 File";
-            this.btnGetMP3File.UseVisualStyleBackColor = true;
-            this.btnGetMP3File.Click += new System.EventHandler(this.btnGetMP3File_Click);
-            // 
-            // btnGetRootDir
-            // 
-            this.btnGetRootDir.Location = new System.Drawing.Point(311, 28);
-            this.btnGetRootDir.Name = "btnGetRootDir";
-            this.btnGetRootDir.Size = new System.Drawing.Size(93, 23);
-            this.btnGetRootDir.TabIndex = 5;
-            this.btnGetRootDir.Text = "Get Root Dir";
-            this.btnGetRootDir.UseVisualStyleBackColor = true;
-            this.btnGetRootDir.Click += new System.EventHandler(this.btnGetRootDir_Click);
-            // 
-            // tbRootDir
-            // 
-            this.tbRootDir.Location = new System.Drawing.Point(413, 28);
-            this.tbRootDir.Multiline = true;
-            this.tbRootDir.Name = "tbRootDir";
-            this.tbRootDir.ReadOnly = true;
-            this.tbRootDir.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbRootDir.Size = new System.Drawing.Size(191, 35);
-            this.tbRootDir.TabIndex = 4;
-            // 
             // btnGetMP3TagData
             // 
-            this.btnGetMP3TagData.Location = new System.Drawing.Point(12, 78);
+            this.btnGetMP3TagData.Location = new System.Drawing.Point(19, 65);
             this.btnGetMP3TagData.Name = "btnGetMP3TagData";
             this.btnGetMP3TagData.Size = new System.Drawing.Size(110, 23);
             this.btnGetMP3TagData.TabIndex = 7;
@@ -445,7 +403,7 @@
             // 
             // btnEditTag
             // 
-            this.btnEditTag.Location = new System.Drawing.Point(137, 78);
+            this.btnEditTag.Location = new System.Drawing.Point(144, 65);
             this.btnEditTag.Name = "btnEditTag";
             this.btnEditTag.Size = new System.Drawing.Size(110, 23);
             this.btnEditTag.TabIndex = 8;
@@ -474,7 +432,7 @@
             this.gbMP3InfoFromFileName.Controls.Add(this.tbCalcAlbum);
             this.gbMP3InfoFromFileName.Controls.Add(this.btnGetMusicInfo);
             this.gbMP3InfoFromFileName.Controls.Add(this.btnPopWithNameInfo);
-            this.gbMP3InfoFromFileName.Location = new System.Drawing.Point(12, 373);
+            this.gbMP3InfoFromFileName.Location = new System.Drawing.Point(13, 357);
             this.gbMP3InfoFromFileName.Name = "gbMP3InfoFromFileName";
             this.gbMP3InfoFromFileName.Size = new System.Drawing.Size(576, 148);
             this.gbMP3InfoFromFileName.TabIndex = 9;
@@ -625,18 +583,43 @@
             this.btnPopWithNameInfo.UseVisualStyleBackColor = true;
             this.btnPopWithNameInfo.Click += new System.EventHandler(this.btnPopWithNameInfo_Click);
             // 
+            // dddtbGetRootDir
+            // 
+            this.dddtbGetRootDir.AllowDrop = true;
+            this.dddtbGetRootDir.ButtonText = "Get Root Dir";
+            this.dddtbGetRootDir.FileDialogTitle = null;
+            this.dddtbGetRootDir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dddtbGetRootDir.ItemFilters = null;
+            this.dddtbGetRootDir.ItemText = "";
+            this.dddtbGetRootDir.LeftRight = 30;
+            this.dddtbGetRootDir.Location = new System.Drawing.Point(10, 32);
+            this.dddtbGetRootDir.Name = "dddtbGetRootDir";
+            this.dddtbGetRootDir.Size = new System.Drawing.Size(598, 27);
+            this.dddtbGetRootDir.TabIndex = 10;
+            // 
+            // ddtbMp3File
+            // 
+            this.ddtbMp3File.AllowDrop = true;
+            this.ddtbMp3File.ButtonText = "Get MP3 File";
+            this.ddtbMp3File.FileDialogTitle = null;
+            this.ddtbMp3File.ItemFilters = "mp3";
+            this.ddtbMp3File.ItemText = "";
+            this.ddtbMp3File.LeftRight = 30;
+            this.ddtbMp3File.Location = new System.Drawing.Point(17, 4);
+            this.ddtbMp3File.Name = "ddtbMp3File";
+            this.ddtbMp3File.Size = new System.Drawing.Size(592, 29);
+            this.ddtbMp3File.TabIndex = 11;
+            // 
             // FrmMp3TagEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 525);
+            this.ClientSize = new System.Drawing.Size(639, 519);
+            this.Controls.Add(this.ddtbMp3File);
+            this.Controls.Add(this.dddtbGetRootDir);
             this.Controls.Add(this.gbMP3InfoFromFileName);
             this.Controls.Add(this.btnEditTag);
             this.Controls.Add(this.btnGetMP3TagData);
-            this.Controls.Add(this.btnGetRootDir);
-            this.Controls.Add(this.tbRootDir);
-            this.Controls.Add(this.btnGetMP3File);
-            this.Controls.Add(this.tbMP3File);
             this.Controls.Add(this.gb3v2);
             this.Controls.Add(this.gb3v1);
             this.Name = "FrmMp3TagEditor";
@@ -648,7 +631,6 @@
             this.gbMP3InfoFromFileName.ResumeLayout(false);
             this.gbMP3InfoFromFileName.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -682,10 +664,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbTrack3v2;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tbMP3File;
-        private System.Windows.Forms.Button btnGetMP3File;
-        private System.Windows.Forms.Button btnGetRootDir;
-        private System.Windows.Forms.TextBox tbRootDir;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button btnGetMP3TagData;
         private System.Windows.Forms.Button btnEditTag;
@@ -710,6 +688,7 @@
         private System.Windows.Forms.CheckBox ckbUseDirForInfo;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox tbCalcTrack;
-
+        private BCHControls.UCDragDropDirTextBox dddtbGetRootDir;
+        private BCHControls.UCDragDropTextBox ddtbMp3File;
     }
 }

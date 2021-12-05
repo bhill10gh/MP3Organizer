@@ -29,18 +29,9 @@ namespace MP3OrganizerUI
 
         #region Events
 
-
-        private void btnGetRootDir_Click(object sender, EventArgs e)
-        {
-            folderBrowserDialog1.Description = "Select a Music Root Dir.";
-            folderBrowserDialog1.ShowDialog();
-
-            tbRootDir.Text = folderBrowserDialog1.SelectedPath;
-        }
-
         private void btnGetMP3TagData_Click(object sender, EventArgs e)
         {
-            if (!Path.GetExtension(tbMP3File.Text).ToLower().EndsWith(".mp3"))
+            if (!Path.GetExtension(ddtbMp3File.ItemText).ToLower().EndsWith(".mp3"))
             {
                 MessageBox.Show("Please enter a valid MP3 file", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -51,7 +42,7 @@ namespace MP3OrganizerUI
 
         private void btnEditTag_Click(object sender, EventArgs e)
         {
-            if (!Path.GetExtension(tbMP3File.Text).ToLower().EndsWith(".mp3"))
+            if (!Path.GetExtension(ddtbMp3File.ItemText).ToLower().EndsWith(".mp3"))
             {
                 MessageBox.Show("Please enter a valid MP3 file", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -59,22 +50,7 @@ namespace MP3OrganizerUI
 
             SaveMp3IdInfo();
         }
-
-        private void btnGetMP3File_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.Title = "Select an MP3 file.";
-            openFileDialog1.ShowDialog();
-
-            string fileName = openFileDialog1.FileName;
-            if(!Path.GetExtension(fileName).ToLower().EndsWith(".mp3"))
-            {
-                MessageBox.Show("Please enter a valid MP3 file","Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-
-
-            tbMP3File.Text = fileName ;
-        }
+               
 
         private void btnCopyFrom3v2_Click(object sender, EventArgs e)
         {
@@ -102,14 +78,14 @@ namespace MP3OrganizerUI
 
         private void btnGetMusicInfo_Click(object sender, EventArgs e)
         {
-            if (!Path.GetExtension(tbMP3File.Text).ToLower().EndsWith(".mp3"))
+            if (!Path.GetExtension(ddtbMp3File.ItemText).ToLower().EndsWith(".mp3"))
             {
                 MessageBox.Show("Please enter a valid MP3 file", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
 
-            if (tbRootDir.Text.Trim().Length < 1)
+            if (dddtbGetRootDir.ItemText.Trim().Length < 1)
             {
                 MessageBox.Show("You must choose a music root folder!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -117,8 +93,8 @@ namespace MP3OrganizerUI
 
             OperationResult op = new OperationResult();
 
-            string mscRtDir = tbRootDir.Text;
-            string fileNamePath = tbMP3File.Text;
+            string mscRtDir = dddtbGetRootDir.ItemText;
+            string fileNamePath = ddtbMp3File.ItemText;
 
             try
             {
@@ -152,14 +128,14 @@ namespace MP3OrganizerUI
         {
             OperationResult op = new OperationResult();
 
-            if (!Path.GetExtension(tbMP3File.Text).ToLower().EndsWith(".mp3"))
+            if (!Path.GetExtension(ddtbMp3File.ItemText).ToLower().EndsWith(".mp3"))
             {
                 MessageBox.Show("Please enter a valid MP3 file", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MP3FileDataType me = ckbUseDirForInfo.Checked ? BCHMP3Utilities.ConvertFileNameToMP3InfoBCHFrmtWithDirInfo(tbMP3File.Text, 
-                tbRootDir.Text, ref op) : BCHMP3Utilities.ConvertFileNameToMP3InfoBCHFrmt(tbMP3File.Text, ref op);
+            MP3FileDataType me = ckbUseDirForInfo.Checked ? BCHMP3Utilities.ConvertFileNameToMP3InfoBCHFrmtWithDirInfo(ddtbMp3File.ItemText, 
+                dddtbGetRootDir.ItemText, ref op) : BCHMP3Utilities.ConvertFileNameToMP3InfoBCHFrmt(ddtbMp3File.ItemText, ref op);
 
             if (!op.Success)
             {
@@ -191,7 +167,7 @@ namespace MP3OrganizerUI
 
         private void GetMp3IdInfo()
         {
-            ID3Info id3 = new ID3Info(tbMP3File.Text,true);
+            ID3Info id3 = new ID3Info(ddtbMp3File.ItemText, true);
             
 
             tbTrack3v1.Text = id3.ID3v1Info.TrackNumber.ToString();            
@@ -216,7 +192,7 @@ namespace MP3OrganizerUI
 
         private void SaveMp3IdInfo()
         {
-            ID3Info id3 = new ID3Info(tbMP3File.Text, true);
+            ID3Info id3 = new ID3Info(ddtbMp3File.ItemText, true);
 
 
             try

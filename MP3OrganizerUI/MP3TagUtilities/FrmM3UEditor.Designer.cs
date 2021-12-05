@@ -431,7 +431,7 @@
             this.uftM3U.FromAllowDrop = true;
             this.uftM3U.Location = new System.Drawing.Point(5, 92);
             this.uftM3U.Name = "uftM3U";
-            this.uftM3U.ShoMoveButtons = true;
+            this.uftM3U.ShowMoveButtons = true;
             this.uftM3U.Size = new System.Drawing.Size(735, 155);
             this.uftM3U.TabIndex = 13;
             // 

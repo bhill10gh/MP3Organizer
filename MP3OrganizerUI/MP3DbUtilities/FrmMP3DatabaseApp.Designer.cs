@@ -36,8 +36,6 @@
             this.ucAddToListBox1 = new BCHControls.UCAddToListBox();
             this.ucatArtists = new BCHControls.UCAddToListBox();
             this.ucatTitle = new BCHControls.UCAddToListBox();
-            this.tbMP3DBFile = new System.Windows.Forms.TextBox();
-            this.btnGetMP3DBFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnSearch = new System.Windows.Forms.Button();
             this.gbAndOr = new System.Windows.Forms.GroupBox();
@@ -48,6 +46,8 @@
             this.btnCreatePdbTableFile = new System.Windows.Forms.Button();
             this.btnCreateM3U = new System.Windows.Forms.Button();
             this.rtbMessages = new System.Windows.Forms.RichTextBox();
+            this.ddtbMp3DbFile = new BCHControls.UCDragDropTextBox();
+            this.btnRefreshDb = new System.Windows.Forms.Button();
             this.gbSearch.SuspendLayout();
             this.gbAndOr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -62,7 +62,7 @@
             this.gbSearch.Controls.Add(this.ucAddToListBox1);
             this.gbSearch.Controls.Add(this.ucatArtists);
             this.gbSearch.Controls.Add(this.ucatTitle);
-            this.gbSearch.Location = new System.Drawing.Point(12, 77);
+            this.gbSearch.Location = new System.Drawing.Point(12, 45);
             this.gbSearch.Name = "gbSearch";
             this.gbSearch.Size = new System.Drawing.Size(952, 471);
             this.gbSearch.TabIndex = 0;
@@ -145,26 +145,6 @@
             this.ucatTitle.Size = new System.Drawing.Size(300, 225);
             this.ucatTitle.TabIndex = 0;
             this.ucatTitle.Title = "Title Search";
-            // 
-            // tbMP3DBFile
-            // 
-            this.tbMP3DBFile.Location = new System.Drawing.Point(150, 14);
-            this.tbMP3DBFile.Multiline = true;
-            this.tbMP3DBFile.Name = "tbMP3DBFile";
-            this.tbMP3DBFile.ReadOnly = true;
-            this.tbMP3DBFile.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbMP3DBFile.Size = new System.Drawing.Size(670, 33);
-            this.tbMP3DBFile.TabIndex = 19;
-            // 
-            // btnGetMP3DBFile
-            // 
-            this.btnGetMP3DBFile.Location = new System.Drawing.Point(12, 12);
-            this.btnGetMP3DBFile.Name = "btnGetMP3DBFile";
-            this.btnGetMP3DBFile.Size = new System.Drawing.Size(112, 23);
-            this.btnGetMP3DBFile.TabIndex = 18;
-            this.btnGetMP3DBFile.Text = "Get MP3 DB File";
-            this.btnGetMP3DBFile.UseVisualStyleBackColor = true;
-            this.btnGetMP3DBFile.Click += new System.EventHandler(this.btnGetMP3DBFile_Click);
             // 
             // openFileDialog1
             // 
@@ -265,11 +245,36 @@
             this.rtbMessages.TabIndex = 27;
             this.rtbMessages.Text = "";
             // 
+            // ddtbMp3DbFile
+            // 
+            this.ddtbMp3DbFile.AllowDrop = true;
+            this.ddtbMp3DbFile.ButtonText = "Get Mp3 Db File";
+            this.ddtbMp3DbFile.FileDialogTitle = null;
+            this.ddtbMp3DbFile.ItemFilters = "mdb";
+            this.ddtbMp3DbFile.ItemText = "";
+            this.ddtbMp3DbFile.LeftRight = 40;
+            this.ddtbMp3DbFile.Location = new System.Drawing.Point(20, 12);
+            this.ddtbMp3DbFile.Name = "ddtbMp3DbFile";
+            this.ddtbMp3DbFile.Size = new System.Drawing.Size(804, 29);
+            this.ddtbMp3DbFile.TabIndex = 35;
+            // 
+            // btnRefreshDb
+            // 
+            this.btnRefreshDb.Location = new System.Drawing.Point(830, 16);
+            this.btnRefreshDb.Name = "btnRefreshDb";
+            this.btnRefreshDb.Size = new System.Drawing.Size(113, 23);
+            this.btnRefreshDb.TabIndex = 36;
+            this.btnRefreshDb.Text = "Refresh Db File";
+            this.btnRefreshDb.UseVisualStyleBackColor = true;
+            this.btnRefreshDb.Click += new System.EventHandler(this.btnRefreshDb_Click);
+            // 
             // FrmMP3DatabaseApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 917);
+            this.Controls.Add(this.btnRefreshDb);
+            this.Controls.Add(this.ddtbMp3DbFile);
             this.Controls.Add(this.rtbMessages);
             this.Controls.Add(this.btnCreateM3U);
             this.Controls.Add(this.btnCreatePdbTableFile);
@@ -277,8 +282,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.gbAndOr);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.tbMP3DBFile);
-            this.Controls.Add(this.btnGetMP3DBFile);
             this.Controls.Add(this.gbSearch);
             this.Name = "FrmMP3DatabaseApp";
             this.Text = "FrmMP3DatabaseApp";
@@ -300,8 +303,6 @@
         private BCHControls.UCAddToListBox ucatGenre;
         private BCHControls.UCAddToListBox ucatFileName;
         private BCHControls.UCAddToListBox ucatArtists;
-        private System.Windows.Forms.TextBox tbMP3DBFile;
-        private System.Windows.Forms.Button btnGetMP3DBFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnSearch;
         private BCHControls.UCAddToListBox ucAddToListBox1;
@@ -313,5 +314,7 @@
         private System.Windows.Forms.Button btnCreatePdbTableFile;
         private System.Windows.Forms.Button btnCreateM3U;
         private System.Windows.Forms.RichTextBox rtbMessages;
+        private BCHControls.UCDragDropTextBox ddtbMp3DbFile;
+        private System.Windows.Forms.Button btnRefreshDb;
     }
 }

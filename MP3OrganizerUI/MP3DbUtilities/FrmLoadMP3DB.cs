@@ -41,23 +41,14 @@ namespace MP3OrganizerUI
         {
             InitializeComponent();
             
-            tbMP3RootDir.Text =  BCHUtilities.GetConfigValue("MP3RootDir", 0, string.Empty, 0, false, true);
-
-            ucDatabaseFile1.SetControl();
+            //tbMP3RootDir.Text =  BCHUtilities.GetConfigValue("MP3RootDir", 0, string.Empty, 0, false, true);
         }
 
         #region Events
 
-        private void btnGetMP3RootDir_Click(object sender, EventArgs e)
-        {
-            folderBrowserDialog1.ShowDialog();
-            tbMP3RootDir.Text = folderBrowserDialog1.SelectedPath;
-        }
-       
-
         private void btnGetMP3s_Click(object sender, EventArgs e)
         {
-            if (tbMP3RootDir.Text.Trim().Length < 1)
+            if (dddtbGetMp3RootDir.ItemText.Trim().Length < 1)
             {
                 MessageBox.Show("You must enter an MP3 Root Dir!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -66,7 +57,7 @@ namespace MP3OrganizerUI
             FileSearch fs = new FileSearch();
 
             fs.FileFilters.Add("mp3");
-            fs.StartDir = tbMP3RootDir.Text.Trim();
+            fs.StartDir = dddtbGetMp3RootDir.ItemText.Trim();
 
             OperationResult op = new OperationResult();
 
@@ -87,13 +78,13 @@ namespace MP3OrganizerUI
 
         private void btnLoadMP3DB_Click(object sender, EventArgs e)
         {
-            if (!ucDatabaseFile1.MP3DBExists)
+            if (!MP3DBExists())
             {
                 MessageBox.Show("You must choose an Access 2000 to 2003 version database (mdb) file!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (tbMP3RootDir.Text.Trim().Length < 1)
+            if (dddtbGetMp3RootDir.ItemText.Trim().Length < 1)
             {
                 MessageBox.Show("You must enter an MP3 Root Dir!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -111,7 +102,7 @@ namespace MP3OrganizerUI
 
         private void btnDeleteAllMp3s_Click(object sender, EventArgs e)
         {
-            if (!ucDatabaseFile1.MP3DBExists)
+            if (!MP3DBExists())
             {
                 MessageBox.Show("You must choose an Access 2000 to 2003 version database (mdb) file!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -193,11 +184,11 @@ namespace MP3OrganizerUI
             try
             {
                 MP3DBManager mdbmgr = new MP3DBManager();
-                mdbmgr.SetDataStore(ucDatabaseFile1.MP3DBFileName, ref op);
+                mdbmgr.SetDataStore(ddtbMp3DbFile.ItemText, ref op);
                 mdbmgr.onCountChange += SetCount;
 
                 List<string> mp3List = BCHWinFormUtilities.ListBoxToList(lbMP3s);
-                string mp3RtDir = tbMP3RootDir.Text;
+                string mp3RtDir = dddtbGetMp3RootDir.ItemText;
                 mdbmgr.InsertMP3s(mp3List, mp3RtDir, ckbUseFolderInfo.Checked, ref op);
 
 
@@ -216,7 +207,7 @@ namespace MP3OrganizerUI
             try
             {
                 MP3DBManager mdbmgr = new MP3DBManager();
-                mdbmgr.SetDataStore(ucDatabaseFile1.MP3DBFileName, ref op);
+                mdbmgr.SetDataStore(ddtbMp3DbFile.ItemText, ref op);
                 mdbmgr.DeleteallMP3s(ref op);
             }
             catch (Exception ex)
@@ -267,25 +258,21 @@ namespace MP3OrganizerUI
 
             MP3DBManager mdbmgr = new MP3DBManager();
 
-            mdbmgr.SetDataStore(ucDatabaseFile1.MP3DBFileName, ref op);
+            mdbmgr.SetDataStore(ddtbMp3DbFile.ItemText, ref op);
 
-            string msg = "Delete MP3 Complete.";
+            string msg = "Db Compact Complete.";
             MessageBoxIcon mbi = op.Success ? MessageBoxIcon.Information : MessageBoxIcon.Error;
             string msgBxMsg = op.Success ? msg : msg + "\n" + "There were errors!\n" + op.GetAllErrorsAndExceptions("\n");
             string msgCap = op.Success ? "INFORMATION" : "ERROR!";
             MessageBox.Show(msgBxMsg, msgCap, MessageBoxButtons.OK, mbi);
         }
 
+        private bool MP3DBExists()
+        {
+            return File.Exists(ddtbMp3DbFile.ItemText);
+        }
+
+
         #endregion
-
-        private void tbMP3RootDir_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbMP3DBFile_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
