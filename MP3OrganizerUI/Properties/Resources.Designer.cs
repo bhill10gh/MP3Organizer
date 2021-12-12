@@ -83,6 +83,16 @@ namespace MP3OrganizerUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon headphoneplaybutton {
+            get {
+                object obj = ResourceManager.GetObject("headphoneplaybutton", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon Left_arrow_01 {
             get {
                 object obj = ResourceManager.GetObject("Left_arrow_01", resourceCulture);

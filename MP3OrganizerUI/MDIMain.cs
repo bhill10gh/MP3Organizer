@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 using CopyFolderStructure;
 using MP3OrganizerUI.iTunes;
+using MP3OrganizerUI.MP3DbUtilities;
 using MP3OrganizerUI.Mp3FileUtilities;
 
 namespace MP3OrganizerUI
@@ -133,6 +134,22 @@ namespace MP3OrganizerUI
             FrmCopyFilesToSameFolderStructure frm = new FrmCopyFilesToSameFolderStructure();
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void createPrivateGeneralDBFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMp3DbFileCreater frm = new FrmMp3DbFileCreater();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void createSqliteDbToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            FrmCreateSqliteDb frm = new FrmCreateSqliteDb();
+            frm.MdiParent = this;
+            frm.Show();
+
         }
     }
 }

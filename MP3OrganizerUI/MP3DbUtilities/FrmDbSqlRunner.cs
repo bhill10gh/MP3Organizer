@@ -30,7 +30,10 @@ namespace MP3OrganizerUI
 
         private void lbColumns_DoubleClick(object sender, EventArgs e)
         {
-            rtbSql.Text += " " + lbColumns.SelectedItem.ToString();
+            string selCol = lbColumns.SelectedItem.ToString();
+            string selTable = lbTables.SelectedItem.ToString();
+            string selItem = $"{selTable}.{selCol}";
+            rtbSql.SelectedText = selItem;
         }
 
         private void lbTables_DoubleClick(object sender, EventArgs e)
@@ -108,6 +111,12 @@ namespace MP3OrganizerUI
             SetConrol();
         }
 
+        private void lbSqlStatements_DoubleClick(object sender, EventArgs e)
+        {
+            string selItem = $"{lbSqlStatements.SelectedItem} \n";
+            rtbSql.SelectedText = selItem;
+        }
+
         #endregion
 
 
@@ -120,6 +129,10 @@ namespace MP3OrganizerUI
             OperationResult op = new OperationResult();
 
             ddtbMp3DbFile.AfterTextDragEvent += AfterFileTextDrop;
+
+            lbSqlStatements.Items.Add("Select \n");
+            lbSqlStatements.Items.Add("From \n");
+            lbSqlStatements.Items.Add("Where \n");
 
         }
 
@@ -230,6 +243,7 @@ inner join tbFileInfo as f on f.FileInfo_Id = m.FileInfo_Id";
 from (tbMp3Info as m
 inner join tbArtist as a on a.Mp3Info_Id = m.Mp3Info_Id)
 inner join  tbFileInfo as f on f.FileInfo_Id = m.FileInfo_Id";
+
 
 
 

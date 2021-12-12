@@ -34,6 +34,21 @@
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mP3ToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mP3TaggingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mP3BatchTagEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mP3TagEditorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.unformattedMp3FilesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mP3DatabaseUtilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadMP3DBToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mP3DatabaseSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sQLDBRunnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createPrivateGeneralDBFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPhoneAppsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iTunesLibFileReaderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyIPhoneBackupFilesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mP3FolderUtilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyFolderStructureToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyFilesToSameFolderStructureToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,20 +65,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.mP3TaggingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iPhoneAppsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iTunesLibFileReaderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mP3BatchTagEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mP3TagEditorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mP3FolderUtilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyFolderStructureToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyFilesToSameFolderStructureToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.unformattedMp3FilesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyIPhoneBackupFilesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mP3DatabaseUtilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadMP3DBToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mP3DatabaseSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sQLDBRunnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createSqliteDbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -108,6 +110,122 @@
             this.mP3ToolsToolStripMenuItem.Name = "mP3ToolsToolStripMenuItem";
             this.mP3ToolsToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.mP3ToolsToolStripMenuItem.Text = "&MP3 Tools";
+            // 
+            // mP3TaggingToolStripMenuItem
+            // 
+            this.mP3TaggingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mP3BatchTagEditorToolStripMenuItem,
+            this.mP3TagEditorToolStripMenuItem1,
+            this.unformattedMp3FilesToolStripMenuItem1});
+            this.mP3TaggingToolStripMenuItem.Name = "mP3TaggingToolStripMenuItem";
+            this.mP3TaggingToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.mP3TaggingToolStripMenuItem.Text = "MP3 Tagging";
+            // 
+            // mP3BatchTagEditorToolStripMenuItem
+            // 
+            this.mP3BatchTagEditorToolStripMenuItem.Name = "mP3BatchTagEditorToolStripMenuItem";
+            this.mP3BatchTagEditorToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.mP3BatchTagEditorToolStripMenuItem.Text = "M&P3 &Batch Tag Editor";
+            this.mP3BatchTagEditorToolStripMenuItem.Click += new System.EventHandler(this.mP3BatchTagEditorToolStripMenuItem_Click);
+            // 
+            // mP3TagEditorToolStripMenuItem1
+            // 
+            this.mP3TagEditorToolStripMenuItem1.Name = "mP3TagEditorToolStripMenuItem1";
+            this.mP3TagEditorToolStripMenuItem1.Size = new System.Drawing.Size(195, 22);
+            this.mP3TagEditorToolStripMenuItem1.Text = "MP3 &Tag Editor";
+            this.mP3TagEditorToolStripMenuItem1.Click += new System.EventHandler(this.mP3TagEditorToolStripMenuItem1_Click);
+            // 
+            // unformattedMp3FilesToolStripMenuItem1
+            // 
+            this.unformattedMp3FilesToolStripMenuItem1.Name = "unformattedMp3FilesToolStripMenuItem1";
+            this.unformattedMp3FilesToolStripMenuItem1.Size = new System.Drawing.Size(195, 22);
+            this.unformattedMp3FilesToolStripMenuItem1.Text = "&Unformatted Mp3 Files";
+            this.unformattedMp3FilesToolStripMenuItem1.Click += new System.EventHandler(this.unformattedMp3FilesToolStripMenuItem1_Click);
+            // 
+            // mP3DatabaseUtilitiesToolStripMenuItem
+            // 
+            this.mP3DatabaseUtilitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadMP3DBToolStripMenuItem1,
+            this.mP3DatabaseSearchToolStripMenuItem,
+            this.sQLDBRunnerToolStripMenuItem,
+            this.createPrivateGeneralDBFileToolStripMenuItem,
+            this.createSqliteDbToolStripMenuItem});
+            this.mP3DatabaseUtilitiesToolStripMenuItem.Name = "mP3DatabaseUtilitiesToolStripMenuItem";
+            this.mP3DatabaseUtilitiesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.mP3DatabaseUtilitiesToolStripMenuItem.Text = "MP3 Database Utilities";
+            // 
+            // loadMP3DBToolStripMenuItem1
+            // 
+            this.loadMP3DBToolStripMenuItem1.Name = "loadMP3DBToolStripMenuItem1";
+            this.loadMP3DBToolStripMenuItem1.Size = new System.Drawing.Size(231, 22);
+            this.loadMP3DBToolStripMenuItem1.Text = "&Load MP3 DB";
+            this.loadMP3DBToolStripMenuItem1.Click += new System.EventHandler(this.loadMP3DBToolStripMenuItem1_Click);
+            // 
+            // mP3DatabaseSearchToolStripMenuItem
+            // 
+            this.mP3DatabaseSearchToolStripMenuItem.Name = "mP3DatabaseSearchToolStripMenuItem";
+            this.mP3DatabaseSearchToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.mP3DatabaseSearchToolStripMenuItem.Text = "MP3 Database Search";
+            this.mP3DatabaseSearchToolStripMenuItem.Click += new System.EventHandler(this.mP3DatabaseSearchToolStripMenuItem_Click_1);
+            // 
+            // sQLDBRunnerToolStripMenuItem
+            // 
+            this.sQLDBRunnerToolStripMenuItem.Name = "sQLDBRunnerToolStripMenuItem";
+            this.sQLDBRunnerToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.sQLDBRunnerToolStripMenuItem.Text = "SQL DB Runner";
+            this.sQLDBRunnerToolStripMenuItem.Click += new System.EventHandler(this.sQLDBRunnerToolStripMenuItem_Click);
+            // 
+            // createPrivateGeneralDBFileToolStripMenuItem
+            // 
+            this.createPrivateGeneralDBFileToolStripMenuItem.Name = "createPrivateGeneralDBFileToolStripMenuItem";
+            this.createPrivateGeneralDBFileToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.createPrivateGeneralDBFileToolStripMenuItem.Text = "Create Private/General DB File";
+            this.createPrivateGeneralDBFileToolStripMenuItem.Click += new System.EventHandler(this.createPrivateGeneralDBFileToolStripMenuItem_Click);
+            // 
+            // iPhoneAppsToolStripMenuItem
+            // 
+            this.iPhoneAppsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iTunesLibFileReaderToolStripMenuItem1,
+            this.copyIPhoneBackupFilesToolStripMenuItem1});
+            this.iPhoneAppsToolStripMenuItem.Name = "iPhoneAppsToolStripMenuItem";
+            this.iPhoneAppsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.iPhoneAppsToolStripMenuItem.Text = "iPhone Apps";
+            // 
+            // iTunesLibFileReaderToolStripMenuItem1
+            // 
+            this.iTunesLibFileReaderToolStripMenuItem1.Name = "iTunesLibFileReaderToolStripMenuItem1";
+            this.iTunesLibFileReaderToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
+            this.iTunesLibFileReaderToolStripMenuItem1.Text = "iTunes Lib File Reader";
+            this.iTunesLibFileReaderToolStripMenuItem1.Click += new System.EventHandler(this.iTunesLibFileReaderToolStripMenuItem1_Click);
+            // 
+            // copyIPhoneBackupFilesToolStripMenuItem1
+            // 
+            this.copyIPhoneBackupFilesToolStripMenuItem1.Name = "copyIPhoneBackupFilesToolStripMenuItem1";
+            this.copyIPhoneBackupFilesToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
+            this.copyIPhoneBackupFilesToolStripMenuItem1.Text = "Copy iPhone Backup Files";
+            // 
+            // mP3FolderUtilitiesToolStripMenuItem
+            // 
+            this.mP3FolderUtilitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyFolderStructureToolStripMenuItem1,
+            this.copyFilesToSameFolderStructureToolStripMenuItem2});
+            this.mP3FolderUtilitiesToolStripMenuItem.Name = "mP3FolderUtilitiesToolStripMenuItem";
+            this.mP3FolderUtilitiesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.mP3FolderUtilitiesToolStripMenuItem.Text = "MP3 Folder Utilities";
+            // 
+            // copyFolderStructureToolStripMenuItem1
+            // 
+            this.copyFolderStructureToolStripMenuItem1.Name = "copyFolderStructureToolStripMenuItem1";
+            this.copyFolderStructureToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
+            this.copyFolderStructureToolStripMenuItem1.Text = "Copy Folder Structure";
+            this.copyFolderStructureToolStripMenuItem1.Click += new System.EventHandler(this.copyFolderStructureToolStripMenuItem1_Click);
+            // 
+            // copyFilesToSameFolderStructureToolStripMenuItem2
+            // 
+            this.copyFilesToSameFolderStructureToolStripMenuItem2.Name = "copyFilesToSameFolderStructureToolStripMenuItem2";
+            this.copyFilesToSameFolderStructureToolStripMenuItem2.Size = new System.Drawing.Size(262, 22);
+            this.copyFilesToSameFolderStructureToolStripMenuItem2.Text = "Copy Files To Same Folder Structure";
+            this.copyFilesToSameFolderStructureToolStripMenuItem2.Click += new System.EventHandler(this.copyFilesToSameFolderStructureToolStripMenuItem2_Click);
             // 
             // windowsMenu
             // 
@@ -228,112 +346,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // mP3TaggingToolStripMenuItem
+            // createSqliteDbToolStripMenuItem
             // 
-            this.mP3TaggingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mP3BatchTagEditorToolStripMenuItem,
-            this.mP3TagEditorToolStripMenuItem1,
-            this.unformattedMp3FilesToolStripMenuItem1});
-            this.mP3TaggingToolStripMenuItem.Name = "mP3TaggingToolStripMenuItem";
-            this.mP3TaggingToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.mP3TaggingToolStripMenuItem.Text = "MP3 Tagging";
-            // 
-            // iPhoneAppsToolStripMenuItem
-            // 
-            this.iPhoneAppsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iTunesLibFileReaderToolStripMenuItem1,
-            this.copyIPhoneBackupFilesToolStripMenuItem1});
-            this.iPhoneAppsToolStripMenuItem.Name = "iPhoneAppsToolStripMenuItem";
-            this.iPhoneAppsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.iPhoneAppsToolStripMenuItem.Text = "iPhone Apps";
-            // 
-            // iTunesLibFileReaderToolStripMenuItem1
-            // 
-            this.iTunesLibFileReaderToolStripMenuItem1.Name = "iTunesLibFileReaderToolStripMenuItem1";
-            this.iTunesLibFileReaderToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
-            this.iTunesLibFileReaderToolStripMenuItem1.Text = "iTunes Lib File Reader";
-            this.iTunesLibFileReaderToolStripMenuItem1.Click += new System.EventHandler(this.iTunesLibFileReaderToolStripMenuItem1_Click);
-            // 
-            // mP3BatchTagEditorToolStripMenuItem
-            // 
-            this.mP3BatchTagEditorToolStripMenuItem.Name = "mP3BatchTagEditorToolStripMenuItem";
-            this.mP3BatchTagEditorToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.mP3BatchTagEditorToolStripMenuItem.Text = "M&P3 &Batch Tag Editor";
-            this.mP3BatchTagEditorToolStripMenuItem.Click += new System.EventHandler(this.mP3BatchTagEditorToolStripMenuItem_Click);
-            // 
-            // mP3TagEditorToolStripMenuItem1
-            // 
-            this.mP3TagEditorToolStripMenuItem1.Name = "mP3TagEditorToolStripMenuItem1";
-            this.mP3TagEditorToolStripMenuItem1.Size = new System.Drawing.Size(195, 22);
-            this.mP3TagEditorToolStripMenuItem1.Text = "MP3 &Tag Editor";
-            this.mP3TagEditorToolStripMenuItem1.Click += new System.EventHandler(this.mP3TagEditorToolStripMenuItem1_Click);
-            // 
-            // mP3FolderUtilitiesToolStripMenuItem
-            // 
-            this.mP3FolderUtilitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyFolderStructureToolStripMenuItem1,
-            this.copyFilesToSameFolderStructureToolStripMenuItem2});
-            this.mP3FolderUtilitiesToolStripMenuItem.Name = "mP3FolderUtilitiesToolStripMenuItem";
-            this.mP3FolderUtilitiesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.mP3FolderUtilitiesToolStripMenuItem.Text = "MP3 Folder Utilities";
-            // 
-            // copyFolderStructureToolStripMenuItem1
-            // 
-            this.copyFolderStructureToolStripMenuItem1.Name = "copyFolderStructureToolStripMenuItem1";
-            this.copyFolderStructureToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
-            this.copyFolderStructureToolStripMenuItem1.Text = "Copy Folder Structure";
-            this.copyFolderStructureToolStripMenuItem1.Click += new System.EventHandler(this.copyFolderStructureToolStripMenuItem1_Click);
-            // 
-            // copyFilesToSameFolderStructureToolStripMenuItem2
-            // 
-            this.copyFilesToSameFolderStructureToolStripMenuItem2.Name = "copyFilesToSameFolderStructureToolStripMenuItem2";
-            this.copyFilesToSameFolderStructureToolStripMenuItem2.Size = new System.Drawing.Size(262, 22);
-            this.copyFilesToSameFolderStructureToolStripMenuItem2.Text = "Copy Files To Same Folder Structure";
-            this.copyFilesToSameFolderStructureToolStripMenuItem2.Click += new System.EventHandler(this.copyFilesToSameFolderStructureToolStripMenuItem2_Click);
-            // 
-            // unformattedMp3FilesToolStripMenuItem1
-            // 
-            this.unformattedMp3FilesToolStripMenuItem1.Name = "unformattedMp3FilesToolStripMenuItem1";
-            this.unformattedMp3FilesToolStripMenuItem1.Size = new System.Drawing.Size(195, 22);
-            this.unformattedMp3FilesToolStripMenuItem1.Text = "&Unformatted Mp3 Files";
-            this.unformattedMp3FilesToolStripMenuItem1.Click += new System.EventHandler(this.unformattedMp3FilesToolStripMenuItem1_Click);
-            // 
-            // copyIPhoneBackupFilesToolStripMenuItem1
-            // 
-            this.copyIPhoneBackupFilesToolStripMenuItem1.Name = "copyIPhoneBackupFilesToolStripMenuItem1";
-            this.copyIPhoneBackupFilesToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
-            this.copyIPhoneBackupFilesToolStripMenuItem1.Text = "Copy iPhone Backup Files";
-            // 
-            // mP3DatabaseUtilitiesToolStripMenuItem
-            // 
-            this.mP3DatabaseUtilitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadMP3DBToolStripMenuItem1,
-            this.mP3DatabaseSearchToolStripMenuItem,
-            this.sQLDBRunnerToolStripMenuItem});
-            this.mP3DatabaseUtilitiesToolStripMenuItem.Name = "mP3DatabaseUtilitiesToolStripMenuItem";
-            this.mP3DatabaseUtilitiesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.mP3DatabaseUtilitiesToolStripMenuItem.Text = "MP3 Database Utilities";
-            // 
-            // loadMP3DBToolStripMenuItem1
-            // 
-            this.loadMP3DBToolStripMenuItem1.Name = "loadMP3DBToolStripMenuItem1";
-            this.loadMP3DBToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.loadMP3DBToolStripMenuItem1.Text = "&Load MP3 DB";
-            this.loadMP3DBToolStripMenuItem1.Click += new System.EventHandler(this.loadMP3DBToolStripMenuItem1_Click);
-            // 
-            // mP3DatabaseSearchToolStripMenuItem
-            // 
-            this.mP3DatabaseSearchToolStripMenuItem.Name = "mP3DatabaseSearchToolStripMenuItem";
-            this.mP3DatabaseSearchToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.mP3DatabaseSearchToolStripMenuItem.Text = "MP3 Database Search";
-            this.mP3DatabaseSearchToolStripMenuItem.Click += new System.EventHandler(this.mP3DatabaseSearchToolStripMenuItem_Click_1);
-            // 
-            // sQLDBRunnerToolStripMenuItem
-            // 
-            this.sQLDBRunnerToolStripMenuItem.Name = "sQLDBRunnerToolStripMenuItem";
-            this.sQLDBRunnerToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.sQLDBRunnerToolStripMenuItem.Text = "SQL DB Runner";
-            this.sQLDBRunnerToolStripMenuItem.Click += new System.EventHandler(this.sQLDBRunnerToolStripMenuItem_Click);
+            this.createSqliteDbToolStripMenuItem.Name = "createSqliteDbToolStripMenuItem";
+            this.createSqliteDbToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.createSqliteDbToolStripMenuItem.Text = "Create Sqlite Db";
+            this.createSqliteDbToolStripMenuItem.Click += new System.EventHandler(this.createSqliteDbToolStripMenuItem_Click);
             // 
             // MDIMain
             // 
@@ -392,6 +410,8 @@
         private System.Windows.Forms.ToolStripMenuItem loadMP3DBToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mP3DatabaseSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sQLDBRunnerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createPrivateGeneralDBFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createSqliteDbToolStripMenuItem;
     }
 }
 
