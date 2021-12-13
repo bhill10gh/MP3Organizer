@@ -151,5 +151,13 @@ namespace MP3OrganizerUI
             frm.Show();
 
         }
+
+        private void testLoadingNonFileNameFormatsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TestUnformatedFile frm = new TestUnformatedFile();
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
     }
 }

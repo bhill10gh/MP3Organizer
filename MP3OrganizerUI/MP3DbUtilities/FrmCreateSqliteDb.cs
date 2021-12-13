@@ -1,4 +1,5 @@
 ﻿using BCHFramework;
+using SqliteDAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,15 +34,12 @@ namespace MP3OrganizerUI.MP3DbUtilities
 
         #endregion
 
-
-
-
         #region Events
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             progressBar1.Value = this.CurrentCount;
-            tbProgress.Text = this.CurrentCount + " of " + lbMP3s.Items.Count.ToString();
+            tbProgress.Text = this.CurrentCount + " of " + ddlbMp3s.LbList.Count.ToString();
             this.Refresh();
         }
 
@@ -49,7 +47,15 @@ namespace MP3OrganizerUI.MP3DbUtilities
         {
             this.Op = new OperationResult();
             OperationResult op = new OperationResult();
-            LoadSqliteDb(ref op);
+            if(rbtnBHFileNameFormat.Checked)
+            {
+                LoadSqliteDb(ref op);
+            }
+            else
+            {
+
+            }
+            
             this.Op.AddOperationResult(ref op);            
         }
 
@@ -71,13 +77,13 @@ namespace MP3OrganizerUI.MP3DbUtilities
 
             string msg =
                 "DB Load complete!\n" +
-                "Number of mp3 files:   " + lbMP3s.Items.Count + "\n" +
+                "Number of mp3 files:   " + ddlbMp3s.LbList.Count + "\n" +
                 "Total execution time (s):  " + ts.Seconds.ToString();
             CompletedMessage.Add("DB Load complete");
-            CompletedMessage.Add("Number of mp3 files:   " + lbMP3s.Items.Count);
+            CompletedMessage.Add("Number of mp3 files:   " + ddlbMp3s.LbList.Count);
             CompletedMessage.Add("Total execution time (s):  " + ts.Seconds.ToString());
             rtbMessages.Text = BCHUtilities.ListToString(CompletedMessage, "\n");
-            progressBar1.Value = lbMP3s.Items.Count;
+            progressBar1.Value = ddlbMp3s.LbList.Count;
 
             rtbMessages.Text = Op.GetAllMessages("\n");
         }
@@ -94,7 +100,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
 
             timer1.Interval = 1000;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = lbMP3s.Items.Count;
+            progressBar1.Maximum = ddlbMp3s.LbList.Count;
             this.CurrentCount = 0;
 
             StartTime = DateTime.Now;
@@ -113,21 +119,31 @@ namespace MP3OrganizerUI.MP3DbUtilities
             }
             else
             {
-                lblMp3Count.Text = "Mp3 Count: " + lbMP3s.Items.Count;
+                lblMp3Count.Text = "Mp3 Count: " + ddlbMp3s.LbList.Count;
                 rtbMessages.Text = "Success";
             }
         }
 
+        private void lbMP3s_DragDrop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void lbMP3s_DragEnter(object sender, DragEventArgs e)
+        {
+
+        }
+
         #endregion
-
-
-
 
         #region Methods
 
         public FrmCreateSqliteDb()
         {
             InitializeComponent();
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
+            ddtbDbFile.AfterTextDragEvent += AfterDbFileAdd;
         }
 
         private void GetMp3songs(ref OperationResult op)
@@ -151,12 +167,13 @@ namespace MP3OrganizerUI.MP3DbUtilities
                 return;
             }
 
-            BCHWinFormUtilities.ListToListBox(mp3Files, lbMP3s, true);   
+            //BCHWinFormUtilities.ListToListBox(mp3Files, lbMP3s, true);
+            ddlbMp3s.AddFiles(mp3Files, true);
         }
 
         private void LoadSqliteDb(ref OperationResult op)
         {
-            if (lbMP3s.Items.Count < 1)
+            if (ddlbMp3s.LbList.Count < 1)
             {
                 op.AddError($"No mp3 songs.");
                 return;
@@ -211,7 +228,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                 sqlite_cmd.CommandText = createMp3InfoTableSql;
                 sqlite_cmd.ExecuteNonQuery();
 
-                InsertMP3s(BCHWinFormUtilities.ListBoxToList(lbMP3s), dddtbGetMp3RootDir.ItemText, sqlite_conn, true, ref op);
+                InsertMP3s(ddlbMp3s.LbList, dddtbGetMp3RootDir.ItemText, sqlite_conn, true, ref op);
                 if (!op.Success)
                 {
                     return;
@@ -351,9 +368,21 @@ namespace MP3OrganizerUI.MP3DbUtilities
             }
         }
 
+        private void AfterDbFileAdd(string fname)
+        {
+            tbSqliteDbFileName.Text = Path.GetFileName(fname);
+            dddtbGetDbDir.ItemText = Path.GetDirectoryName(fname);
+        }
+
 
         #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Mp3Repository mp3Repository = new Mp3Repository(Path.Combine(dddtbGetDbDir.ItemText, tbSqliteDbFileName.Text));
 
+            var relsult = mp3Repository.GetAllMp3FileInfo();
+
+        }
     }
 }

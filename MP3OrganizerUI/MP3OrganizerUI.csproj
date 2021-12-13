@@ -259,17 +259,29 @@
     <Compile Include="MP3DbUtilities\FrmCreateSqliteDb.Designer.cs">
       <DependentUpon>FrmCreateSqliteDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="MP3DbUtilities\FrmCreateSqliteDbNoFileNameFormat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmCreateSqliteDbNoFileNameFormat.Designer.cs">
+      <DependentUpon>FrmCreateSqliteDbNoFileNameFormat.cs</DependentUpon>
+    </Compile>
     <Compile Include="MP3DbUtilities\FrmMP3DatabaseApp2_0.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MP3DbUtilities\FrmMP3DatabaseApp2_0.Designer.cs">
       <DependentUpon>FrmMP3DatabaseApp2_0.cs</DependentUpon>
     </Compile>
-    <Compile Include="MP3DbUtilities\FrmMp3DbFileCreater.cs">
+    <Compile Include="Depricated\FrmMp3DbFileCreater.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MP3DbUtilities\FrmMp3DbFileCreater.Designer.cs">
+    <Compile Include="Depricated\FrmMp3DbFileCreater.Designer.cs">
       <DependentUpon>FrmMp3DbFileCreater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\TestUnformatedFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\TestUnformatedFile.Designer.cs">
+      <DependentUpon>TestUnformatedFile.cs</DependentUpon>
     </Compile>
     <Compile Include="Mp3FileUtilities\FrmFileUtils.cs">
       <SubType>Form</SubType>
@@ -319,10 +331,10 @@
     <Compile Include="MP3DbUtilities\FrmLoadMP3DB.Designer.cs">
       <DependentUpon>FrmLoadMP3DB.cs</DependentUpon>
     </Compile>
-    <Compile Include="MP3DbUtilities\FrmMP3DatabaseApp.cs">
+    <Compile Include="Depricated\FrmMP3DatabaseApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MP3DbUtilities\FrmMP3DatabaseApp.Designer.cs">
+    <Compile Include="Depricated\FrmMP3DatabaseApp.Designer.cs">
       <DependentUpon>FrmMP3DatabaseApp.cs</DependentUpon>
     </Compile>
     <Compile Include="MP3TagUtilities\FrmMp3TagEditor.cs">
@@ -363,11 +375,17 @@
     <EmbeddedResource Include="MP3DbUtilities\FrmCreateSqliteDb.resx">
       <DependentUpon>FrmCreateSqliteDb.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MP3DbUtilities\FrmCreateSqliteDbNoFileNameFormat.resx">
+      <DependentUpon>FrmCreateSqliteDbNoFileNameFormat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MP3DbUtilities\FrmMP3DatabaseApp2_0.resx">
       <DependentUpon>FrmMP3DatabaseApp2_0.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MP3DbUtilities\FrmMp3DbFileCreater.resx">
+    <EmbeddedResource Include="Depricated\FrmMp3DbFileCreater.resx">
       <DependentUpon>FrmMp3DbFileCreater.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\TestUnformatedFile.resx">
+      <DependentUpon>TestUnformatedFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mp3FileUtilities\FrmFileUtils.resx">
       <DependentUpon>FrmFileUtils.cs</DependentUpon>
@@ -393,7 +411,7 @@
     <EmbeddedResource Include="MP3DbUtilities\FrmLoadMP3DB.resx">
       <DependentUpon>FrmLoadMP3DB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MP3DbUtilities\FrmMP3DatabaseApp.resx">
+    <EmbeddedResource Include="Depricated\FrmMP3DatabaseApp.resx">
       <DependentUpon>FrmMP3DatabaseApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MP3TagUtilities\FrmMp3TagEditor.resx">
@@ -458,6 +476,10 @@
     <ProjectReference Include="..\Schema\Schema.csproj">
       <Project>{27a50076-105f-4d19-b6b8-00b630c20f31}</Project>
       <Name>Schema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqliteDAL\SqliteDAL.csproj">
+      <Project>{f4086f64-d775-4a01-83bb-0d23f88a1494}</Project>
+      <Name>SqliteDAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -580,7 +602,8 @@ foreach (var item in filesToCleanup)
   <PropertyGroup>
     <PostBuildEvent>copy $(SolutionDir)DAL\SqlScripts.xml $(TargetDir)
 copy $(SolutionDir)Library.xml $(TargetDir)
-copy $(SolutionDir)MP3DB.mdb $(TargetDir)</PostBuildEvent>
+copy $(SolutionDir)MP3DB.mdb $(TargetDir)
+copy $(SolutionDir)SqliteDAL\Resources\MP3DB.db</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.6.6.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.6.0\build\Fody.targets')" />
   <Import Project="..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" />
