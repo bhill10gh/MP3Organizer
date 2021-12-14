@@ -18,7 +18,7 @@ namespace SqliteDAL
         public bool HasMp3InfoTable { get; set; }
         public bool HasArtistTable { get; set; }
 
-        public bool AnyMissngTablds(ref OperationResult op)
+        public bool AnyMissngTablds(ref OperationResult op) 
         {
             if (!HasFileInfoTable || !HasMp3InfoTable || !HasArtistTable)
             {
