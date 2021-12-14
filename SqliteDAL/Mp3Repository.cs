@@ -14,7 +14,7 @@ namespace SqliteDAL
 {
     public class Mp3TableStatusGroup
     {
-        public bool HasFileInfoTable { get; set; }
+        public bool HasFileInfoTable { get; set; } 
         public bool HasMp3InfoTable { get; set; }
         public bool HasArtistTable { get; set; }
 
