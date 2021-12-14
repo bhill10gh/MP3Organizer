@@ -32,6 +32,8 @@ namespace MP3OrganizerUI.MP3DbUtilities
 
         private List<string> Mp3Files { get; set; }
 
+        private Mp3Repository mp3Repository { get; set; }
+
         #endregion
 
         #region Events
@@ -47,15 +49,9 @@ namespace MP3OrganizerUI.MP3DbUtilities
         {
             this.Op = new OperationResult();
             OperationResult op = new OperationResult();
-            if(rbtnBHFileNameFormat.Checked)
-            {
-                LoadSqliteDb(ref op);
-            }
-            else
-            {
 
-            }
-            
+            LoadSqliteDb(ref op);
+
             this.Op.AddOperationResult(ref op);            
         }
 
@@ -90,13 +86,46 @@ namespace MP3OrganizerUI.MP3DbUtilities
 
         private void btnLoadSqliteDb_Click(object sender, EventArgs e)
         {
+            OperationResult op = new OperationResult();
             rtbMessages.Text = "";
 
-            if (dddtbGetMp3RootDir.ItemText.Trim().Length < 1)
+            if (ddlbMp3s.LbList.Count < 1)
+            {
+                rtbMessages.Text = "No mp3s to process!";
+                return;
+            }
+
+            if (!Directory.Exists(dddtbGetMp3RootDir.ItemText) && rbtnBHFileNameFormat.Checked)
             {
                 rtbMessages.Text = "You must enter an MP3 Root Dir!";
                 return;
             }
+
+            try
+            {
+                string dbFname = Path.Combine(dddtbGetDbDir.ItemText, tbSqliteDbFileName.Text);
+
+                CreateMp3Repository(dbFname, ref op);
+                if (!op.Success)
+                {
+                    rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
+                }
+
+                if (ckbMakeDbCopyIfExist.Checked)
+                {
+                    CreateCopyOfDb(dbFname, ref op);
+                    if (!op.Success)
+                    {
+                        rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                op.AddException(ex);
+                return;
+            }        
 
             timer1.Interval = 1000;
             progressBar1.Minimum = 0;
@@ -124,16 +153,6 @@ namespace MP3OrganizerUI.MP3DbUtilities
             }
         }
 
-        private void lbMP3s_DragDrop(object sender, DragEventArgs e)
-        {
-
-        }
-
-        private void lbMP3s_DragEnter(object sender, DragEventArgs e)
-        {
-
-        }
-
         #endregion
 
         #region Methods
@@ -155,7 +174,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
             }
 
             List<string> extentionFilters = new List<string> { ".mp3" };
-            List<string> mp3Files = BCHFileIO.GetAllFilesInDir(dddtbGetMp3RootDir.ItemText, ref extentionFilters, true, ref op);
+            List<string> mp3Files = BCHFileIO.GetAllFilesInDir(dddtbGetMp3RootDir.ItemText, ref extentionFilters, false, ref op);
             if(!op.Success)
             {
                 return;
@@ -167,8 +186,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                 return;
             }
 
-            //BCHWinFormUtilities.ListToListBox(mp3Files, lbMP3s, true);
-            ddlbMp3s.AddFiles(mp3Files, true);
+            ddlbMp3s.AddFiles(mp3Files, false);
         }
 
         private void LoadSqliteDb(ref OperationResult op)
@@ -179,56 +197,23 @@ namespace MP3OrganizerUI.MP3DbUtilities
                 return;
             }
 
-            if (!Directory.Exists(dddtbGetDbDir.ItemText))
-            {
-                op.AddError($"\"{dddtbGetDbDir.ItemText}\" does not exists.");
-                return;
-            }
-
-            string dbName = tbSqliteDbFileName.Text;
-            
-            if (File.Exists(dbName))
-            {
-                op.AddError($"\"{dbName}\" already exists.  Choose another name.");
-                return;
-            }
-
-            if (dbName.IndexOfAny(Path.GetInvalidFileNameChars()) > 0)
-            {
-                op.AddError($"\"{dbName}\" has invalid characters.  Choose another name.");
-                return;
-            }
-            dbName = Path.Combine(dddtbGetDbDir.ItemText, dbName);
-
-            dbName = dbName.EndsWith(".db") ? dbName : dbName + ".db";
-
-            SQLiteConnection sqlite_conn;
-            sqlite_conn = CreateConnection(dbName, ref op);
-            if (!op.Success)
-            {
-                return;
-            }
-
-            string createArtistTableSql = "CREATE TABLE [tbArtist]([Artist_Id][INTEGER] PRIMARY KEY, [Mp3Info_Id] [INTEGER] NOT NULL, [Artist_Name] [nvarchar](255) NOT NULL)";
-            string createFileInfoTableSql = "CREATE TABLE [tbFileInfo]([FileInfo_Id][INTEGER] PRIMARY KEY, [File_Name] [nvarchar](250) NOT NULL, [Path] [nvarchar](255) NOT NULL)";
-            string createMp3InfoTableSql = "CREATE TABLE [tbMp3Info]( [Mp3Info_Id] [INTEGER] PRIMARY KEY, [FileInfo_Id] [INTEGER] NOT NULL, [Song_Title] [nvarchar](255) NOT NULL, [Album] [nvarchar](255) NULL, [Genre] [nvarchar](255) NULL, [Comments] [nvarchar](255) NULL, [Track] [INTEGER] NULL, [Song_Numeraton] [nvarchar](255) NULL) ";
-
             try
             {
-                SQLiteCommand sqlite_cmd;
-                sqlite_cmd = sqlite_conn.CreateCommand();
-                sqlite_cmd.CommandText = createArtistTableSql;
-                sqlite_cmd.ExecuteNonQuery();
+                MakeDatabaseReady(ref op);
+                if (!op.Success)
+                {
+                    return;
+                }
 
-                sqlite_cmd = sqlite_conn.CreateCommand();
-                sqlite_cmd.CommandText = createFileInfoTableSql;
-                sqlite_cmd.ExecuteNonQuery();
+                if (rbtnBHFileNameFormat.Checked)
+                {
+                    InsertMP3s(ddlbMp3s.LbList, dddtbGetMp3RootDir.ItemText, true, ref op);
+                }
+                else
+                {
+                    InsertMP3s(ddlbMp3s.LbList, ref op);
+                }
 
-                sqlite_cmd = sqlite_conn.CreateCommand();
-                sqlite_cmd.CommandText = createMp3InfoTableSql;
-                sqlite_cmd.ExecuteNonQuery();
-
-                InsertMP3s(ddlbMp3s.LbList, dddtbGetMp3RootDir.ItemText, sqlite_conn, true, ref op);
                 if (!op.Success)
                 {
                     return;
@@ -241,22 +226,57 @@ namespace MP3OrganizerUI.MP3DbUtilities
             }
         }
 
-        private SQLiteConnection CreateConnection(string dbFileName, ref OperationResult op)
+        private void MakeDatabaseReady(ref OperationResult op)
         {
-
-            SQLiteConnection sqlite_conn;
-            // Create a new database connection:
-            sqlite_conn = new SQLiteConnection($"Data Source={dbFileName}; Version = 3; New = True; Compress = True; ");
-            // Open the connection:
             try
             {
-                sqlite_conn.Open();
+                if (!ckbAddToDb.Checked)
+                {
+                    mp3Repository.DropAllTables(ref op);
+                    if (!op.Success)
+                    {
+                        return;
+                    }
+
+                    mp3Repository.CreateDatabaseTables(ref op);
+                    if (!op.Success)
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    Mp3TableStatusGroup mp3TableStatusGroup = mp3Repository.CheckIfAllTablesExists(ref op);
+                    if (!op.Success)
+                    {
+                        return;
+                    }
+
+                    bool anyMissingTables = mp3TableStatusGroup.AnyMissngTablds(ref op);
+                    if (!op.Success)
+                    {
+                        return;
+                    }
+                    if (anyMissingTables)
+                    {
+                        mp3Repository.DropAllTables(ref op);
+                        if (!op.Success)
+                        {
+                            return;
+                        }
+                        mp3Repository.CreateDatabaseTables(ref op);
+                        if (!op.Success)
+                        {
+                            return;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
+
                 op.AddException(ex);
             }
-            return sqlite_conn;
         }
 
         private void SetCount(int cnt)
@@ -264,7 +284,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
             CurrentCount = cnt;
         }
 
-        private void InsertMP3s(List<string> mp3List, string mp3RtDir, SQLiteConnection conn, bool useFolderInfo, ref OperationResult op)
+        private void InsertMP3s(List<string> mp3List, string mp3RtDir, bool useFolderInfo, ref OperationResult op)
         {
             try
             {
@@ -287,8 +307,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                         continue;
                     }
 
-
-                    InsertMP3IntoTables(mp3, conn, ref _op);
+                    mp3Repository.InsertMp3(mp3, ref op);
 
                     if (!_op.Success)
                     {
@@ -305,67 +324,41 @@ namespace MP3OrganizerUI.MP3DbUtilities
 
         }
 
-        public void InsertMP3IntoTables(MP3FileDataType mp3, SQLiteConnection conn, ref OperationResult op)
+        private void InsertMP3s(List<string> mp3List, ref OperationResult op)
         {
             try
             {
-                SQLiteDataAdapter sQLiteDataAdapter;
-                SQLiteCommand sqlite_cmd;
+                int cnt = 0;
 
-                sqlite_cmd = conn.CreateCommand();
-                sqlite_cmd.CommandText = $"INSERT INTO tbFileInfo (File_Name, Path) VALUES ('{mp3.FileName.Replace("'", "''")}', '{mp3.FilePath.Replace("'", "''")}')";
-                sqlite_cmd.ExecuteNonQuery();
-
-                sqlite_cmd = conn.CreateCommand();
-                sqlite_cmd.CommandText = $"SELECT FileInfo_Id FROM tbFileInfo WHERE Path = '{mp3.FilePath.Replace("'", "''")}' AND File_Name = '{mp3.FileName.Replace("'", "''")}'";
-                sQLiteDataAdapter = new SQLiteDataAdapter(sqlite_cmd);
-                DataTable dt = new DataTable();
-                sQLiteDataAdapter.Fill(dt);
-
-                if(dt == null || dt.Rows.Count != 1)
+                foreach (string mp3Item in mp3List)
                 {
-                    op.AddError("Failed trying to get FileIfno Row.");
-                    return;
+                    cnt++;
+                    SetCount(cnt);
+
+                    OperationResult _op = new OperationResult();
+                    MP3FileDataType mp3 = BCHMP3Utilities.UseFileTagsToGetInfo(mp3Item, ref _op);
+
+                    if (!_op.Success)
+                    {
+                        op.AddOperationResult(ref _op);
+                        return;
+                    }
+
+                    mp3Repository.InsertMp3(mp3, ref op);
+
+                    if (!_op.Success)
+                    {
+                        op.AddOperationResult(ref _op);
+                        return;
+                    }
                 }
-
-                int fileInfoId = Int32.Parse(dt.Rows[0][0].ToString());
-
-                sqlite_cmd = conn.CreateCommand();
-                sqlite_cmd.CommandText = $"INSERT INTO tbMp3Info (FileInfo_Id, Song_Title, Album, Genre, Comments, Track,Song_Numeraton ) " + 
-                    $"VALUES ({fileInfoId}, '{mp3.SongTitle.Replace("'", "''")}', '{mp3.Album.Replace("'", "''")}', '{mp3.Genre.Replace("'", "''")}', '{mp3.Comments?.Replace("'", "''")}', {mp3.Track}, '{mp3.SongTitleAndNumeration.Replace("'", "''")}')";
-                sqlite_cmd.ExecuteNonQuery();
-
-                sqlite_cmd = conn.CreateCommand();
-                sqlite_cmd.CommandText = $"SELECT Mp3Info_Id FROM tbMp3Info WHERE FileInfo_Id = {fileInfoId}";
-                sQLiteDataAdapter = new SQLiteDataAdapter(sqlite_cmd);
-                dt = new DataTable();
-                sQLiteDataAdapter.Fill(dt);
-
-                if (dt == null || dt.Rows.Count != 1)
-                {
-                    op.AddError("Failed trying to get Mp3Info Row.");
-                    return;
-                }
-
-                int mp3InfoId = Int32.Parse(dt.Rows[0][0].ToString());
-
-                foreach (var artist in mp3.Artists)
-                {
-                    sqlite_cmd = conn.CreateCommand();
-                    sqlite_cmd.CommandText = $"INSERT INTO tbArtist (Mp3Info_Id, Artist_Name) VALUES ({mp3InfoId}, '{artist.Replace("'", "''")}')";
-                    sqlite_cmd.ExecuteNonQuery();
-                }
-
-
-
-
             }
             catch (Exception ex)
             {
 
                 op.AddException(ex);
-                throw;
             }
+
         }
 
         private void AfterDbFileAdd(string fname)
@@ -375,11 +368,47 @@ namespace MP3OrganizerUI.MP3DbUtilities
         }
 
 
+        private void CreateMp3Repository (string dbName, ref OperationResult op)
+        {
+            try
+            {
+                dbName = dbName.EndsWith(".db") ? dbName : dbName + ".db";
+                if (!op.Success)
+                {
+                    return;
+                }
+
+                mp3Repository = new Mp3Repository(dbName, ref op);
+            }
+            catch (Exception ex)
+            {
+
+                op.AddException(ex);
+            }
+        }
+
+        private void CreateCopyOfDb(string dbName, ref OperationResult op)
+        {
+            try
+            {
+                if(File.Exists(dbName))
+                {
+                    BCHFileIO.CopyFile(dbName, true, ref op);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                op.AddException(ex);
+            }
+        }
+
         #endregion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Mp3Repository mp3Repository = new Mp3Repository(Path.Combine(dddtbGetDbDir.ItemText, tbSqliteDbFileName.Text));
+            OperationResult op = new OperationResult();
+            Mp3Repository mp3Repository = new Mp3Repository(Path.Combine(dddtbGetDbDir.ItemText, tbSqliteDbFileName.Text), ref op);
 
             var relsult = mp3Repository.GetAllMp3FileInfo();
 

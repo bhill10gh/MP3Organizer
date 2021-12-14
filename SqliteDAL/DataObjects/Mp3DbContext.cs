@@ -14,6 +14,7 @@ namespace SqliteDAL.DataContextObjects
     public class Mp3DbContext : DbContext
     {
         private string _dbFileName;
+        private static DbConnection _connection;
         public Mp3DbContext(string dbFileName) : base(GetConnection(dbFileName), false)
         {
             _dbFileName = dbFileName;
@@ -32,6 +33,7 @@ namespace SqliteDAL.DataContextObjects
             var factory = DbProviderFactories.GetFactory(connection.ProviderName);
             var dbCon = factory.CreateConnection();
             dbCon.ConnectionString = $"data source={dbFileName};initial catalog=tbFileInfo;App=EntityFramework;";// connection.ConnectionString;
+            _connection = dbCon;
             return dbCon;
         }
 

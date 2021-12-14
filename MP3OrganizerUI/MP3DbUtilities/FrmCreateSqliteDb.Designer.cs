@@ -46,13 +46,18 @@ namespace MP3OrganizerUI.MP3DbUtilities
             this.dddtbGetDbDir = new BCHControls.UCDragDropDirTextBox();
             this.dddtbGetMp3RootDir = new BCHControls.UCDragDropDirTextBox();
             this.gbMp3Source = new System.Windows.Forms.GroupBox();
-            this.rbtnBHFileNameFormat = new System.Windows.Forms.RadioButton();
             this.rbtnNonFileNameFormat = new System.Windows.Forms.RadioButton();
+            this.rbtnBHFileNameFormat = new System.Windows.Forms.RadioButton();
             this.ckbAddToDb = new System.Windows.Forms.CheckBox();
             this.ddlbMp3s = new BCHControls.UCDragDropListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.ddtbDbFile = new BCHControls.UCDragDropTextBox();
+            this.gbDirOrFileList = new System.Windows.Forms.GroupBox();
+            this.rbtnUseFileList = new System.Windows.Forms.RadioButton();
+            this.rbtnUseDir = new System.Windows.Forms.RadioButton();
+            this.ckbMakeDbCopyIfExist = new System.Windows.Forms.CheckBox();
             this.gbMp3Source.SuspendLayout();
+            this.gbDirOrFileList.SuspendLayout();
             this.SuspendLayout();
             // 
             // backgroundWorker1
@@ -91,7 +96,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
             // 
             // btnLoadSqliteDb
             // 
-            this.btnLoadSqliteDb.Location = new System.Drawing.Point(5, 440);
+            this.btnLoadSqliteDb.Location = new System.Drawing.Point(5, 404);
             this.btnLoadSqliteDb.Name = "btnLoadSqliteDb";
             this.btnLoadSqliteDb.Size = new System.Drawing.Size(115, 23);
             this.btnLoadSqliteDb.TabIndex = 40;
@@ -103,7 +108,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
             // 
             this.tbSqliteDbFileName.Location = new System.Drawing.Point(122, 145);
             this.tbSqliteDbFileName.Name = "tbSqliteDbFileName";
-            this.tbSqliteDbFileName.Size = new System.Drawing.Size(554, 20);
+            this.tbSqliteDbFileName.Size = new System.Drawing.Size(553, 20);
             this.tbSqliteDbFileName.TabIndex = 41;
             this.tbSqliteDbFileName.Text = "MP3DB";
             // 
@@ -118,9 +123,9 @@ namespace MP3OrganizerUI.MP3DbUtilities
             // 
             // btnGetMp3s
             // 
-            this.btnGetMp3s.Location = new System.Drawing.Point(5, 396);
+            this.btnGetMp3s.Location = new System.Drawing.Point(3, 199);
             this.btnGetMp3s.Name = "btnGetMp3s";
-            this.btnGetMp3s.Size = new System.Drawing.Size(115, 23);
+            this.btnGetMp3s.Size = new System.Drawing.Size(101, 23);
             this.btnGetMp3s.TabIndex = 45;
             this.btnGetMp3s.Text = "Get Mp3 Songs";
             this.btnGetMp3s.UseVisualStyleBackColor = true;
@@ -161,7 +166,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
             this.dddtbGetDbDir.ItemFilters = null;
             this.dddtbGetDbDir.ItemText = "";
             this.dddtbGetDbDir.LeftRight = 40;
-            this.dddtbGetDbDir.Location = new System.Drawing.Point(-4, 118);
+            this.dddtbGetDbDir.Location = new System.Drawing.Point(-5, 118);
             this.dddtbGetDbDir.Name = "dddtbGetDbDir";
             this.dddtbGetDbDir.Size = new System.Drawing.Size(680, 27);
             this.dddtbGetDbDir.TabIndex = 43;
@@ -183,12 +188,22 @@ namespace MP3OrganizerUI.MP3DbUtilities
             // 
             this.gbMp3Source.Controls.Add(this.rbtnNonFileNameFormat);
             this.gbMp3Source.Controls.Add(this.rbtnBHFileNameFormat);
-            this.gbMp3Source.Location = new System.Drawing.Point(130, 396);
+            this.gbMp3Source.Location = new System.Drawing.Point(5, 352);
             this.gbMp3Source.Name = "gbMp3Source";
             this.gbMp3Source.Size = new System.Drawing.Size(283, 46);
             this.gbMp3Source.TabIndex = 50;
             this.gbMp3Source.TabStop = false;
             this.gbMp3Source.Text = "Mp3 File Name Format Type";
+            // 
+            // rbtnNonFileNameFormat
+            // 
+            this.rbtnNonFileNameFormat.AutoSize = true;
+            this.rbtnNonFileNameFormat.Location = new System.Drawing.Point(138, 19);
+            this.rbtnNonFileNameFormat.Name = "rbtnNonFileNameFormat";
+            this.rbtnNonFileNameFormat.Size = new System.Drawing.Size(130, 17);
+            this.rbtnNonFileNameFormat.TabIndex = 1;
+            this.rbtnNonFileNameFormat.Text = "Non File Name Format";
+            this.rbtnNonFileNameFormat.UseVisualStyleBackColor = true;
             // 
             // rbtnBHFileNameFormat
             // 
@@ -202,20 +217,10 @@ namespace MP3OrganizerUI.MP3DbUtilities
             this.rbtnBHFileNameFormat.Text = "BH File Name Format";
             this.rbtnBHFileNameFormat.UseVisualStyleBackColor = true;
             // 
-            // rbtnNonFileNameFormat
-            // 
-            this.rbtnNonFileNameFormat.AutoSize = true;
-            this.rbtnNonFileNameFormat.Location = new System.Drawing.Point(138, 19);
-            this.rbtnNonFileNameFormat.Name = "rbtnNonFileNameFormat";
-            this.rbtnNonFileNameFormat.Size = new System.Drawing.Size(130, 17);
-            this.rbtnNonFileNameFormat.TabIndex = 1;
-            this.rbtnNonFileNameFormat.Text = "Non File Name Format";
-            this.rbtnNonFileNameFormat.UseVisualStyleBackColor = true;
-            // 
             // ckbAddToDb
             // 
             this.ckbAddToDb.AutoSize = true;
-            this.ckbAddToDb.Location = new System.Drawing.Point(419, 416);
+            this.ckbAddToDb.Location = new System.Drawing.Point(460, 361);
             this.ckbAddToDb.Name = "ckbAddToDb";
             this.ckbAddToDb.Size = new System.Drawing.Size(118, 17);
             this.ckbAddToDb.TabIndex = 51;
@@ -230,12 +235,12 @@ namespace MP3OrganizerUI.MP3DbUtilities
             this.ddlbMp3s.FileFilter = ((System.Collections.Generic.List<string>)(resources.GetObject("ddlbMp3s.FileFilter")));
             this.ddlbMp3s.IsCaseSensitive = false;
             this.ddlbMp3s.LbTitle = "List";
-            this.ddlbMp3s.Location = new System.Drawing.Point(82, 225);
+            this.ddlbMp3s.Location = new System.Drawing.Point(108, 199);
             this.ddlbMp3s.Name = "ddlbMp3s";
             this.ddlbMp3s.ShowCountLbl = true;
             this.ddlbMp3s.ShowDeleteButtons = true;
-            this.ddlbMp3s.ShowMoveButtons = true;
-            this.ddlbMp3s.Size = new System.Drawing.Size(584, 147);
+            this.ddlbMp3s.ShowMoveButtons = false;
+            this.ddlbMp3s.Size = new System.Drawing.Size(574, 147);
             this.ddlbMp3s.TabIndex = 52;
             // 
             // button1
@@ -256,16 +261,63 @@ namespace MP3OrganizerUI.MP3DbUtilities
             this.ddtbDbFile.ItemFilters = null;
             this.ddtbDbFile.ItemText = "";
             this.ddtbDbFile.LeftRight = 40;
-            this.ddtbDbFile.Location = new System.Drawing.Point(5, 171);
+            this.ddtbDbFile.Location = new System.Drawing.Point(0, 171);
             this.ddtbDbFile.Name = "ddtbDbFile";
-            this.ddtbDbFile.Size = new System.Drawing.Size(671, 29);
+            this.ddtbDbFile.Size = new System.Drawing.Size(676, 29);
             this.ddtbDbFile.TabIndex = 54;
+            // 
+            // gbDirOrFileList
+            // 
+            this.gbDirOrFileList.Controls.Add(this.rbtnUseFileList);
+            this.gbDirOrFileList.Controls.Add(this.rbtnUseDir);
+            this.gbDirOrFileList.Location = new System.Drawing.Point(294, 355);
+            this.gbDirOrFileList.Name = "gbDirOrFileList";
+            this.gbDirOrFileList.Size = new System.Drawing.Size(160, 46);
+            this.gbDirOrFileList.TabIndex = 55;
+            this.gbDirOrFileList.TabStop = false;
+            this.gbDirOrFileList.Text = "Use Dir or File List";
+            // 
+            // rbtnUseFileList
+            // 
+            this.rbtnUseFileList.AutoSize = true;
+            this.rbtnUseFileList.Location = new System.Drawing.Point(73, 19);
+            this.rbtnUseFileList.Name = "rbtnUseFileList";
+            this.rbtnUseFileList.Size = new System.Drawing.Size(82, 17);
+            this.rbtnUseFileList.TabIndex = 1;
+            this.rbtnUseFileList.Text = "Use File List";
+            this.rbtnUseFileList.UseVisualStyleBackColor = true;
+            // 
+            // rbtnUseDir
+            // 
+            this.rbtnUseDir.AutoSize = true;
+            this.rbtnUseDir.Checked = true;
+            this.rbtnUseDir.Location = new System.Drawing.Point(7, 19);
+            this.rbtnUseDir.Name = "rbtnUseDir";
+            this.rbtnUseDir.Size = new System.Drawing.Size(60, 17);
+            this.rbtnUseDir.TabIndex = 0;
+            this.rbtnUseDir.TabStop = true;
+            this.rbtnUseDir.Text = "Use Dir";
+            this.rbtnUseDir.UseVisualStyleBackColor = true;
+            // 
+            // ckbMakeDbCopyIfExist
+            // 
+            this.ckbMakeDbCopyIfExist.AutoSize = true;
+            this.ckbMakeDbCopyIfExist.Checked = true;
+            this.ckbMakeDbCopyIfExist.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbMakeDbCopyIfExist.Location = new System.Drawing.Point(460, 384);
+            this.ckbMakeDbCopyIfExist.Name = "ckbMakeDbCopyIfExist";
+            this.ckbMakeDbCopyIfExist.Size = new System.Drawing.Size(154, 17);
+            this.ckbMakeDbCopyIfExist.TabIndex = 56;
+            this.ckbMakeDbCopyIfExist.Text = "Make a copy of Db if exists";
+            this.ckbMakeDbCopyIfExist.UseVisualStyleBackColor = true;
             // 
             // FrmCreateSqliteDb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 504);
+            this.ClientSize = new System.Drawing.Size(694, 504);
+            this.Controls.Add(this.ckbMakeDbCopyIfExist);
+            this.Controls.Add(this.gbDirOrFileList);
             this.Controls.Add(this.ddtbDbFile);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ddlbMp3s);
@@ -289,6 +341,8 @@ namespace MP3OrganizerUI.MP3DbUtilities
             this.Text = "FrmCreateSqliteDb";
             this.gbMp3Source.ResumeLayout(false);
             this.gbMp3Source.PerformLayout();
+            this.gbDirOrFileList.ResumeLayout(false);
+            this.gbDirOrFileList.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +371,9 @@ namespace MP3OrganizerUI.MP3DbUtilities
         private BCHControls.UCDragDropListBox ddlbMp3s;
         private System.Windows.Forms.Button button1;
         private BCHControls.UCDragDropTextBox ddtbDbFile;
+        private System.Windows.Forms.GroupBox gbDirOrFileList;
+        private System.Windows.Forms.RadioButton rbtnUseFileList;
+        private System.Windows.Forms.RadioButton rbtnUseDir;
+        private System.Windows.Forms.CheckBox ckbMakeDbCopyIfExist;
     }
 }
