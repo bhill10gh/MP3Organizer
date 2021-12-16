@@ -89,7 +89,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
             OperationResult op = new OperationResult();
             rtbMessages.Text = "";
 
-            if (ddlbMp3s.LbList.Count < 1)
+            if (ddlbMp3s.LbList.Count < 1 && rbtnUseFileList.Checked)
             {
                 rtbMessages.Text = "No mp3s to process!";
                 return;
@@ -163,6 +163,17 @@ namespace MP3OrganizerUI.MP3DbUtilities
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
             ddtbDbFile.AfterTextDragEvent += AfterDbFileAdd;
+            ddlbMp3s.AfterDragAndDropListBoxEvent += DdlbMp3s_AfterDragAndDropListBoxEvent;
+            ddlbMp3s.DragAndDropDropListBoxFailedEvent += DdlbMp3s_DragAndDropDropListBoxFailedEvent;
+        }
+
+        private void DdlbMp3s_DragAndDropDropListBoxFailedEvent(OperationResult op)
+        {
+            rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
+        }
+
+        private void DdlbMp3s_AfterDragAndDropListBoxEvent(List<string> files)
+        {
         }
 
         private void GetMp3songs(ref OperationResult op)
@@ -174,7 +185,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
             }
 
             List<string> extentionFilters = new List<string> { ".mp3" };
-            List<string> mp3Files = BCHFileIO.GetAllFilesInDir(dddtbGetMp3RootDir.ItemText, ref extentionFilters, false, ref op);
+            List<string> mp3Files = BCHFileIO.GetAllFilesInDir(dddtbGetMp3RootDir.ItemText, ref extentionFilters, true, ref op);
             if(!op.Success)
             {
                 return;
@@ -208,16 +219,21 @@ namespace MP3OrganizerUI.MP3DbUtilities
                 if (rbtnBHFileNameFormat.Checked)
                 {
                     InsertMP3s(ddlbMp3s.LbList, dddtbGetMp3RootDir.ItemText, true, ref op);
+                    if (!op.Success)
+                    {
+                        return;
+                    }
                 }
                 else
                 {
                     InsertMP3s(ddlbMp3s.LbList, ref op);
+                    if (!op.Success)
+                    {
+                        return;
+                    }
                 }
 
-                if (!op.Success)
-                {
-                    return;
-                }
+                
             }
             catch (Exception ex)
             {
@@ -304,7 +320,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                     if (!_op.Success)
                     {
                         op.AddOperationResult(ref _op);
-                        continue;
+                        return;
                     }
 
                     mp3Repository.InsertMp3(mp3, ref op);
@@ -312,7 +328,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                     if (!_op.Success)
                     {
                         op.AddOperationResult(ref _op);
-                        continue;
+                        return;
                     }
                 }
             }
@@ -336,6 +352,10 @@ namespace MP3OrganizerUI.MP3DbUtilities
                     SetCount(cnt);
 
                     OperationResult _op = new OperationResult();
+                    if(!mp3Item.EndsWith(".mp3"))
+                    {
+                        continue;
+                    }    
                     MP3FileDataType mp3 = BCHMP3Utilities.UseFileTagsToGetInfo(mp3Item, ref _op);
 
                     if (!_op.Success)
@@ -365,6 +385,13 @@ namespace MP3OrganizerUI.MP3DbUtilities
         {
             tbSqliteDbFileName.Text = Path.GetFileName(fname);
             dddtbGetDbDir.ItemText = Path.GetDirectoryName(fname);
+            OperationResult op = new OperationResult();
+
+            GetMp3songs(ref op);
+            if (!op.Success)
+            {
+                rtbMessages.Text = op.GetAllErrorsAndExceptions("\n");
+            }
         }
 
 

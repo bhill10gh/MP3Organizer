@@ -193,6 +193,10 @@ namespace SqliteDAL
 
         public void InsertMp3(MP3FileDataType mP3FileDataType, ref OperationResult op)
         {
+            if (!mP3FileDataType.FileName.EndsWith("mp3", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return;
+            }
             using (DbContextTransaction transaction = _mp3Context.Database.BeginTransaction())
             {
                 try
@@ -224,7 +228,7 @@ namespace SqliteDAL
                     {
                         tbArtist tbArtist = new tbArtist
                         {
-                            Artist_Name = mP3FileDataType.Album,
+                            Artist_Name = artist,
                             Mp3Info_Id = miId
                         };
                         _mp3Context.tbArtist.Add(tbArtist);

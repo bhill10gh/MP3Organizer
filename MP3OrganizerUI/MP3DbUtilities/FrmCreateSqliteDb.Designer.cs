@@ -30,7 +30,6 @@ namespace MP3OrganizerUI.MP3DbUtilities
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCreateSqliteDb));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tbProgress = new System.Windows.Forms.TextBox();
@@ -49,13 +48,13 @@ namespace MP3OrganizerUI.MP3DbUtilities
             this.rbtnNonFileNameFormat = new System.Windows.Forms.RadioButton();
             this.rbtnBHFileNameFormat = new System.Windows.Forms.RadioButton();
             this.ckbAddToDb = new System.Windows.Forms.CheckBox();
-            this.ddlbMp3s = new BCHControls.UCDragDropListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.ddtbDbFile = new BCHControls.UCDragDropTextBox();
             this.gbDirOrFileList = new System.Windows.Forms.GroupBox();
             this.rbtnUseFileList = new System.Windows.Forms.RadioButton();
             this.rbtnUseDir = new System.Windows.Forms.RadioButton();
             this.ckbMakeDbCopyIfExist = new System.Windows.Forms.CheckBox();
+            this.ddlbMp3s = new BCHControls.UCDragDropListBox();
             this.gbMp3Source.SuspendLayout();
             this.gbDirOrFileList.SuspendLayout();
             this.SuspendLayout();
@@ -227,22 +226,6 @@ namespace MP3OrganizerUI.MP3DbUtilities
             this.ckbAddToDb.Text = "Add To Existing DB";
             this.ckbAddToDb.UseVisualStyleBackColor = true;
             // 
-            // ddlbMp3s
-            // 
-            this.ddlbMp3s.AllowDragDrop = true;
-            this.ddlbMp3s.AllowDrop = true;
-            this.ddlbMp3s.AllowDupes = false;
-            this.ddlbMp3s.FileFilter = ((System.Collections.Generic.List<string>)(resources.GetObject("ddlbMp3s.FileFilter")));
-            this.ddlbMp3s.IsCaseSensitive = false;
-            this.ddlbMp3s.LbTitle = "List";
-            this.ddlbMp3s.Location = new System.Drawing.Point(108, 199);
-            this.ddlbMp3s.Name = "ddlbMp3s";
-            this.ddlbMp3s.ShowCountLbl = true;
-            this.ddlbMp3s.ShowDeleteButtons = true;
-            this.ddlbMp3s.ShowMoveButtons = false;
-            this.ddlbMp3s.Size = new System.Drawing.Size(574, 147);
-            this.ddlbMp3s.TabIndex = 52;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(5, 243);
@@ -311,16 +294,33 @@ namespace MP3OrganizerUI.MP3DbUtilities
             this.ckbMakeDbCopyIfExist.Text = "Make a copy of Db if exists";
             this.ckbMakeDbCopyIfExist.UseVisualStyleBackColor = true;
             // 
+            // ddlbMp3s
+            // 
+            this.ddlbMp3s.AllowDragDrop = true;
+            this.ddlbMp3s.AllowDrop = true;
+            this.ddlbMp3s.AllowDupes = false;
+            this.ddlbMp3s.DoRecursive = false;
+            this.ddlbMp3s.IsCaseSensitive = false;
+            this.ddlbMp3s.ItemFilters = ".mp3";
+            this.ddlbMp3s.LbTitle = "Mp3s";
+            this.ddlbMp3s.Location = new System.Drawing.Point(122, 202);
+            this.ddlbMp3s.Name = "ddlbMp3s";
+            this.ddlbMp3s.ShowCountLbl = true;
+            this.ddlbMp3s.ShowDeleteButtons = true;
+            this.ddlbMp3s.ShowMoveButtons = false;
+            this.ddlbMp3s.Size = new System.Drawing.Size(553, 147);
+            this.ddlbMp3s.TabIndex = 57;
+            // 
             // FrmCreateSqliteDb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 504);
+            this.Controls.Add(this.ddlbMp3s);
             this.Controls.Add(this.ckbMakeDbCopyIfExist);
             this.Controls.Add(this.gbDirOrFileList);
             this.Controls.Add(this.ddtbDbFile);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.ddlbMp3s);
             this.Controls.Add(this.ckbAddToDb);
             this.Controls.Add(this.gbMp3Source);
             this.Controls.Add(this.lblMp3Count);
@@ -368,12 +368,12 @@ namespace MP3OrganizerUI.MP3DbUtilities
         private System.Windows.Forms.RadioButton rbtnNonFileNameFormat;
         private System.Windows.Forms.RadioButton rbtnBHFileNameFormat;
         private System.Windows.Forms.CheckBox ckbAddToDb;
-        private BCHControls.UCDragDropListBox ddlbMp3s;
         private System.Windows.Forms.Button button1;
         private BCHControls.UCDragDropTextBox ddtbDbFile;
         private System.Windows.Forms.GroupBox gbDirOrFileList;
         private System.Windows.Forms.RadioButton rbtnUseFileList;
         private System.Windows.Forms.RadioButton rbtnUseDir;
         private System.Windows.Forms.CheckBox ckbMakeDbCopyIfExist;
+        private BCHControls.UCDragDropListBox ddlbMp3s;
     }
 }
