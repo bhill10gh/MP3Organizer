@@ -32,7 +32,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
 
         private List<string> Mp3Files { get; set; }
 
-        private Mp3Repository mp3Repository { get; set; }
+        private Mp3Repository _mp3Repository { get; set; }
 
         #endregion
 
@@ -248,13 +248,13 @@ namespace MP3OrganizerUI.MP3DbUtilities
             {
                 if (!ckbAddToDb.Checked)
                 {
-                    mp3Repository.DropAllTables(ref op);
+                    _mp3Repository.DropAllTables(ref op);
                     if (!op.Success)
                     {
                         return;
                     }
 
-                    mp3Repository.CreateDatabaseTables(ref op);
+                    _mp3Repository.CreateDatabaseTables(ref op);
                     if (!op.Success)
                     {
                         return;
@@ -262,25 +262,25 @@ namespace MP3OrganizerUI.MP3DbUtilities
                 }
                 else
                 {
-                    Mp3TableStatusGroup mp3TableStatusGroup = mp3Repository.CheckIfAllTablesExists(ref op);
+                    Mp3TableStatusGroup mp3TableStatusGroup = _mp3Repository.CheckIfAllTablesExists(ref op);
                     if (!op.Success)
                     {
                         return;
                     }
 
-                    bool anyMissingTables = mp3TableStatusGroup.AnyMissngTablds(ref op);
+                    bool anyMissingTables = mp3TableStatusGroup.AnyMissngTables(ref op);
                     if (!op.Success)
                     {
                         return;
                     }
                     if (anyMissingTables)
                     {
-                        mp3Repository.DropAllTables(ref op);
+                        _mp3Repository.DropAllTables(ref op);
                         if (!op.Success)
                         {
                             return;
                         }
-                        mp3Repository.CreateDatabaseTables(ref op);
+                        _mp3Repository.CreateDatabaseTables(ref op);
                         if (!op.Success)
                         {
                             return;
@@ -323,7 +323,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                         return;
                     }
 
-                    mp3Repository.InsertMp3(mp3, ref op);
+                    _mp3Repository.InsertMp3(mp3, ref op);
 
                     if (!_op.Success)
                     {
@@ -364,7 +364,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                         return;
                     }
 
-                    mp3Repository.InsertMp3(mp3, ref op);
+                    _mp3Repository.InsertMp3(mp3, ref op);
 
                     if (!_op.Success)
                     {
@@ -400,12 +400,13 @@ namespace MP3OrganizerUI.MP3DbUtilities
             try
             {
                 dbName = dbName.EndsWith(".db") ? dbName : dbName + ".db";
+                op.AddError($"{dbName} is not a Sqlite fil.  Must end with \".db\".");
                 if (!op.Success)
                 {
                     return;
                 }
 
-                mp3Repository = new Mp3Repository(dbName, ref op);
+                _mp3Repository = new Mp3Repository(dbName, ref op);
             }
             catch (Exception ex)
             {
@@ -432,13 +433,5 @@ namespace MP3OrganizerUI.MP3DbUtilities
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OperationResult op = new OperationResult();
-            Mp3Repository mp3Repository = new Mp3Repository(Path.Combine(dddtbGetDbDir.ItemText, tbSqliteDbFileName.Text), ref op);
-
-            var relsult = mp3Repository.GetAllMp3FileInfo();
-
-        }
     }
 }

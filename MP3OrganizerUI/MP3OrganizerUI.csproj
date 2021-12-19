@@ -259,6 +259,18 @@
     <Compile Include="MP3DbUtilities\FrmCreateSqliteDb.Designer.cs">
       <DependentUpon>FrmCreateSqliteDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="MP3DbUtilities\FrmDbSqliteRunner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmDbSqliteRunner.Designer.cs">
+      <DependentUpon>FrmDbSqliteRunner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmMP3SqliteDatabaseApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmMP3SqliteDatabaseApp.Designer.cs">
+      <DependentUpon>FrmMP3SqliteDatabaseApp.cs</DependentUpon>
+    </Compile>
     <Compile Include="MP3DbUtilities\FrmMP3DatabaseApp2_0.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +371,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="iTunes\FrmiTunesLibraryReader.resx">
       <DependentUpon>FrmiTunesLibraryReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3DbUtilities\FrmCreateSqliteDb.resx">
+      <DependentUpon>FrmCreateSqliteDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3DbUtilities\FrmDbSqliteRunner.resx">
+      <DependentUpon>FrmDbSqliteRunner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3DbUtilities\FrmMP3SqliteDatabaseApp.resx">
+      <DependentUpon>FrmMP3SqliteDatabaseApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MP3DbUtilities\FrmMP3DatabaseApp2_0.resx">
       <DependentUpon>FrmMP3DatabaseApp2_0.cs</DependentUpon>

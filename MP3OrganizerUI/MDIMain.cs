@@ -14,7 +14,7 @@ using MP3OrganizerUI.Mp3FileUtilities;
 
 namespace MP3OrganizerUI
 {
-    
+
 
     public partial class MDIMain : Form
     {
@@ -70,7 +70,7 @@ namespace MP3OrganizerUI
 
         private void MDIMain_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void mP3BatchTagEditorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,26 +101,6 @@ namespace MP3OrganizerUI
             filr.Show();
         }
 
-        private void loadMP3DBToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FrmLoadMP3DB lmdb = new FrmLoadMP3DB();
-            lmdb.MdiParent = this;
-            lmdb.Show();
-        }
-
-        private void mP3DatabaseSearchToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            FrmMP3DatabaseApp2_0 fu = new FrmMP3DatabaseApp2_0();
-            fu.MdiParent = this;
-            fu.Show();
-        }
-
-        private void sQLDBRunnerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmDbSqlRunner dsr = new FrmDbSqlRunner();
-            dsr.MdiParent = this;
-            dsr.Show();
-        }
 
         private void copyFolderStructureToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -136,20 +116,46 @@ namespace MP3OrganizerUI
             frm.Show();
         }
 
-        private void createPrivateGeneralDBFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void loadMP3DBToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmMp3DbFileCreater frm = new FrmMp3DbFileCreater();
+            FrmLoadMP3DB lmdb = new FrmLoadMP3DB();
+            lmdb.MdiParent = this;
+            lmdb.Show();
+        }
+
+        private void mP3DatabaseSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMP3DatabaseApp2_0 fu = new FrmMP3DatabaseApp2_0();
+            fu.MdiParent = this;
+            fu.Show();
+        }
+
+        private void sQLDBRunnerToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmDbSqlRunner dsr = new FrmDbSqlRunner();
+            dsr.MdiParent = this;
+            dsr.Show();
+        }
+
+        private void sqlDbRunnerToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FrmDbSqliteRunner frm = new FrmDbSqliteRunner();
             frm.MdiParent = this;
             frm.Show();
         }
 
-        private void createSqliteDbToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createSqliteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             FrmCreateSqliteDb frm = new FrmCreateSqliteDb();
             frm.MdiParent = this;
             frm.Show();
+        }
 
+        private void mp3DatabaseSearchToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmMP3SqliteDatabaseApp frm = new FrmMP3SqliteDatabaseApp();
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

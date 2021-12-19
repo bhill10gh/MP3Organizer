@@ -18,7 +18,7 @@ namespace SqliteDAL
         public bool HasMp3InfoTable { get; set; }
         public bool HasArtistTable { get; set; }
 
-        public bool AnyMissngTablds(ref OperationResult op) 
+        public bool AnyMissngTables(ref OperationResult op) 
         {
             if (!HasFileInfoTable || !HasMp3InfoTable || !HasArtistTable)
             {
@@ -116,11 +116,6 @@ namespace SqliteDAL
                 DataTable dt = new DataTable();
                 sQLiteDataAdapter.Fill(dt);
 
-                if (dt == null || dt.Rows.Count < 1)
-                {
-                    return mp3TableStatusGroup;
-                }
-
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     if (dt.Rows[i][0].ToString() == "tbArtist")
@@ -148,6 +143,7 @@ namespace SqliteDAL
             {
                 _sqliteConnection.Close();
             }
+
             return mp3TableStatusGroup;
         }
 
@@ -184,11 +180,6 @@ namespace SqliteDAL
             {
                 _sqliteConnection.Close();
             }
-        }
-
-        public List<tbFileInfo> GetAllMp3FileInfo()
-        {
-            return (from f in _mp3Context.FileInfo select f).ToList();
         }
 
         public void InsertMp3(MP3FileDataType mP3FileDataType, ref OperationResult op)
@@ -243,6 +234,48 @@ namespace SqliteDAL
                     op.AddException(ex);
                 }
             }
+        }
+
+        public DataTable GetAllTables(ref OperationResult op)
+        {
+            string sql = "SELECT name from sqlite_master WHERE type='table';";
+
+            return RunSql(sql, ref op);
+        }
+        public DataTable GetTableColumns(string tableName, ref OperationResult op)
+        {
+            string sql = $"PRAGMA table_info('{tableName}');";
+
+            return RunSql(sql, ref op);
+        }
+
+        public DataTable RunSql(string sql, ref OperationResult op)
+        {
+            try
+            {
+                _sqliteConnection.Open();
+
+                SQLiteCommand sqlite_cmd;
+                sqlite_cmd = _sqliteConnection.CreateCommand();
+                sqlite_cmd.CommandText = sql;
+                sqlite_cmd.ExecuteNonQuery();
+                SQLiteDataAdapter sQLiteDataAdapter = new SQLiteDataAdapter(sqlite_cmd);
+                DataTable dt = new DataTable();
+                sQLiteDataAdapter.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+
+                op.AddException(ex);
+            }
+            finally
+            {
+                _sqliteConnection.Close();
+            }
+
+            return null;
         }
     }
 }
