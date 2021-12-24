@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using SqliteDAL.DataObjects;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -41,7 +42,13 @@ namespace SqliteDAL.DataContextObjects
 
         public DbSet<tbFileInfo> FileInfo { get; set; }
 
-        public DbSet<tbArtist> tbArtist { get; set; }
+        public DbSet<tbArtist> Artist { get; set; }
+
+        public DbSet<tbItunesPlaylist> ItunesPlaylist { get; set; }
+
+        public DbSet<tbItunesPlaylistSong> ItunesPlaylistSong { get; set; }
+
+        public DbSet<tbItunesSong> ItunesSong { get; set; }
 
     }
 }

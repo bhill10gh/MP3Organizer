@@ -12,6 +12,7 @@ using System.Xml.Linq;
 
 using MP3OrganizerBusinessLogic;
 using BCHFramework;
+using SqliteDAL;
 
 namespace MP3OrganizerUI.iTunes
 {
@@ -19,15 +20,18 @@ namespace MP3OrganizerUI.iTunes
     {
         public FrmiTunesLibraryReader()
         {
-            InitializeComponent();
-
+            InitializeComponent();            
         }
+
+
 
 
         #region Members
 
         iTunesSongs iTuneSongs { get; set; }
         iTunesPlayLists iTunesPlayLists { get; set; }
+
+        private Mp3Repository _mp3Repository { get; set; }
 
         #endregion
 
@@ -65,6 +69,11 @@ namespace MP3OrganizerUI.iTunes
 
             try
             {
+                if(e.RowIndex < 0)
+                {
+                    return;
+                }
+
                 DataGridViewCell cell = dataGridView2.Rows[e.RowIndex].Cells[0];
 
                 string plName = cell.Value.ToString();
@@ -73,6 +82,7 @@ namespace MP3OrganizerUI.iTunes
                 if (pl != null)
                 {
                     dataGridView3.DataSource = pl.Songs.iTunesSongList;
+                    lblLibraryPlaylistSongs.Text = $"Playlist Songs({pl.Songs.iTunesSongList.Count})";
                     dataGridView3.Refresh();
                 }
             }
@@ -190,6 +200,38 @@ namespace MP3OrganizerUI.iTunes
             tbMessages.Text = "Finished";
         }
 
+        private void dataGridView2_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
+
+        private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //try
+            //{
+            //    if (e.RowIndex < 0)
+            //    {
+            //        return;
+            //    }
+
+            //    DataGridViewCell cell = dataGridView4.Rows[e.RowIndex].Cells[0];
+
+            //    string plName = cell.Value.ToString();
+
+            //    iTunesPlayList pl = this.iTunesPlayLists.ITunesPlayLists.Find(s => s.Name == plName);
+            //    if (pl != null)
+            //    {
+            //        dataGridView4.DataSource = pl.Songs.iTunesSongList;
+            //        dataGridView4.Refresh();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    MessageBox.Show(ex.Message, "Error");
+            //}
+        }
+
         private List<string> ReplaceDrive(string drive, List<string> songs)
         {
             List<string> songsNew = new List<string>();
@@ -228,13 +270,118 @@ namespace MP3OrganizerUI.iTunes
             return songsNew;
         }
 
+        private void btnRefreshDb_Click(object sender, EventArgs e)
+        {
+            AfterFileTextDrop(ddtbDbFile.ItemText);
+        }
 
+        private void btnLoadItunesLibraryData_Click(object sender, EventArgs e)
+        {
+            tbMessages.Text = "";
+
+            OperationResult op = new OperationResult();
+
+            try
+            {
+                var iTunesData = GetiTunesLibXml();
+
+                if (!op.Success)
+                {
+                    tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                    return;
+                }
+
+                _mp3Repository = new Mp3Repository(ddtbDbFile.ItemText, ref op);
+                if (!op.Success)
+                {
+                    tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                    return;
+                }
+
+                _mp3Repository.DropAllITunesTables(ref op);
+                if (!op.Success)
+                {
+                    tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                    return;
+                }
+
+                _mp3Repository.CreateItunesTables(ref op);
+                if (!op.Success)
+                {
+                    tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                    return;
+                }
+
+                _mp3Repository.InsertITunesData(iTuneSongs, iTunesPlayLists, ref op);
+                if (!op.Success)
+                {
+                    tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                op.AddException(ex);
+
+                tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                return;
+            }
+
+            if (!op.Success)
+            {
+                tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                return;
+            }
+
+            tbMessages.Text = "Finished";
+        }
+
+        private void btnSyncITunesWithMp3_Click(object sender, EventArgs e)
+        {
+            tbMessages.Text = "";
+
+            OperationResult op = new OperationResult();
+
+            try
+            {
+                _mp3Repository = new Mp3Repository(ddtbDbFile.ItemText, ref op);
+                if (!op.Success)
+                {
+                    tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                    return;
+                }
+               
+                _mp3Repository.SyncITunesDataWithMp3s(ref op);
+                if (!op.Success)
+                {
+                    tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                op.AddException(ex);
+
+                tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                return;
+            }
+
+            if (!op.Success)
+            {
+                tbMessages.Text = op.GetAllErrorsAndExceptionsWthNl();
+                return;
+            }
+
+            tbMessages.Text = "Finished";
+        }
 
         #endregion
 
         #region Methods
 
-        protected void GetiTunesLibXml()
+        protected (iTunesSongs, iTunesPlayLists) GetiTunesLibXml()
         {
             string fileName = ddtbITunesLibraryFile.ItemText;
 
@@ -256,6 +403,10 @@ namespace MP3OrganizerUI.iTunes
             this.iTuneSongs = songs;
             this.iTunesPlayLists = playLists;
 
+            lblLibrarySongs.Text = $"Songs({songs.iTunesSongList.Count})";
+            lblLibraryPlaylists.Text = $"Playlists({listNames.Count})";
+
+            return (songs, playLists);
         }
 
         private string GetSongs(iTunesSongs songs, string plName = "", string delim = "\t")
@@ -289,7 +440,6 @@ namespace MP3OrganizerUI.iTunes
 
             return sb.ToString();
         }
-
 
         private List<string> GetSongsList(iTunesSongs songs, string plName = "", string delim = "\t")
         {
@@ -419,6 +569,45 @@ namespace MP3OrganizerUI.iTunes
             return songs;
         }
 
+        private void AfterFileTextDrop(string dbName)
+        {
+            OperationResult op = new OperationResult();
+            ddtbDbFile.ItemText = dbName;
+            tbMessages.Text = "";
+            CreateMp3Repository(dbName, ref op);
+            if (!op.Success)
+            {
+                tbMessages.Text = op.GetAllErrorsAndExceptions("\n");
+                ddtbDbFile.ItemText = "";
+                return;
+            }
+
+            tbMessages.Text = "Success";
+        }
+
+        private void CreateMp3Repository(string dbName, ref OperationResult op)
+        {
+            try
+            {
+                if (!dbName.EndsWith(".db", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    op.AddError($"{dbName} is not a Sqlite fil.  Must end with \".db\".");
+                    return;
+                }
+                if (!File.Exists(dbName))
+                {
+                    op.AddError($"{dbName} does not exist.");
+                    return;
+                }
+
+                _mp3Repository = new Mp3Repository(dbName, ref op);
+            }
+            catch (Exception ex)
+            {
+
+                op.AddException(ex);
+            }
+        }
 
         #endregion
 
@@ -431,6 +620,7 @@ namespace MP3OrganizerUI.iTunes
             public string Name { get; set; }
         }
 
+        
     }
 
 

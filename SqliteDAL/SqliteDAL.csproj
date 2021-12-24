@@ -90,6 +90,9 @@
     <Compile Include="DataObjects\Mp3DbContext.cs" />
     <Compile Include="DataObjects\tbArtist.cs" />
     <Compile Include="DataObjects\tbFileInfo.cs" />
+    <Compile Include="DataObjects\tbItunesPlaylist.cs" />
+    <Compile Include="DataObjects\tbItunesPlaylistSong.cs" />
+    <Compile Include="DataObjects\tbItunesSong.cs" />
     <Compile Include="DataObjects\tbMp3Info.cs" />
     <Compile Include="Mp3Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +105,10 @@
     <ProjectReference Include="..\..\BCHFramework\BCHFramework\BCHFramework.csproj">
       <Project>{71E3AC7A-B5CA-4FB5-A6EA-036F27ECEDBA}</Project>
       <Name>BCHFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MP3OrganizerBusinessLogic\MP3OrganizerBusinessLogic.csproj">
+      <Project>{E8C84A3C-751E-4553-9255-E08CE9F3B2C3}</Project>
+      <Name>MP3OrganizerBusinessLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -81,7 +81,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
             rtbMessages.Text = BCHUtilities.ListToString(CompletedMessage, "\n");
             progressBar1.Value = ddlbMp3s.LbList.Count;
 
-            rtbMessages.Text = Op.GetAllMessages("\n");
+            rtbMessages.Text += Op.GetAllMessages("\n");
         }
 
         private void btnLoadSqliteDb_Click(object sender, EventArgs e)
@@ -248,7 +248,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
             {
                 if (!ckbAddToDb.Checked)
                 {
-                    _mp3Repository.DropAllTables(ref op);
+                    _mp3Repository.DropAllMp3Tables(ref op);
                     if (!op.Success)
                     {
                         return;
@@ -262,7 +262,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                 }
                 else
                 {
-                    Mp3TableStatusGroup mp3TableStatusGroup = _mp3Repository.CheckIfAllTablesExists(ref op);
+                    Mp3TableStatusGroup mp3TableStatusGroup = _mp3Repository.CheckIfAllMp3TablesExists(ref op);
                     if (!op.Success)
                     {
                         return;
@@ -275,7 +275,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                     }
                     if (anyMissingTables)
                     {
-                        _mp3Repository.DropAllTables(ref op);
+                        _mp3Repository.DropAllMp3Tables(ref op);
                         if (!op.Success)
                         {
                             return;
@@ -399,12 +399,12 @@ namespace MP3OrganizerUI.MP3DbUtilities
         {
             try
             {
-                dbName = dbName.EndsWith(".db") ? dbName : dbName + ".db";
-                op.AddError($"{dbName} is not a Sqlite fil.  Must end with \".db\".");
-                if (!op.Success)
-                {
-                    return;
-                }
+                //dbName = dbName.EndsWith(".db") ? dbName : dbName + ".db";
+                //op.AddError($"{dbName} is not a Sqlite fil.  Must end with \".db\".");
+                //if (!op.Success)
+                //{
+                //    return;
+                //}
 
                 _mp3Repository = new Mp3Repository(dbName, ref op);
             }
