@@ -50,5 +50,7 @@ namespace SqliteDAL.DataContextObjects
 
         public DbSet<tbItunesSong> ItunesSong { get; set; }
 
+        public DbSet<User> User { get; set; }
+
     }
 }

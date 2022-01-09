@@ -730,3 +730,21 @@ CREATE TABLE tbItunesPlaylistSong (
 
 
 }
+
+/*
+ 
+CREATE TABLE "User" (
+	"UserId"	INTEGER NOT NULL,
+	"FirstName"	TEXT NOT NULL,
+	"LastName"	TEXT NOT NULL,
+	"UserName"	TEXT NOT NULL,
+	"Password"	TEXT NOT NULL,
+	PRIMARY KEY("UserId")
+)
+
+
+
+
+
+
+*/
