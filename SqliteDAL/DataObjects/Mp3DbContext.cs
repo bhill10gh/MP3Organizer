@@ -16,6 +16,7 @@ namespace SqliteDAL.DataContextObjects
     {
         private string _dbFileName;
         private static DbConnection _connection;
+
         public Mp3DbContext(string dbFileName) : base(GetConnection(dbFileName), false)
         {
             _dbFileName = dbFileName;

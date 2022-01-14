@@ -86,6 +86,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminRepository.cs" />
+    <Compile Include="DataObjects\AdminDbContext.cs" />
     <Compile Include="DataObjects\SQLiteConfiguration.cs" />
     <Compile Include="DataObjects\Mp3DbContext.cs" />
     <Compile Include="DataObjects\tbArtist.cs" />
@@ -108,9 +110,12 @@
       <Name>BCHFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\MP3OrganizerBusinessLogic\MP3OrganizerBusinessLogic.csproj">
-      <Project>{E8C84A3C-751E-4553-9255-E08CE9F3B2C3}</Project>
+      <Project>{e8c84a3c-751e-4553-9255-e08ce9f3b2c3}</Project>
       <Name>MP3OrganizerBusinessLogic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.6\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.6\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
