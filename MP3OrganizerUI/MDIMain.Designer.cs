@@ -39,12 +39,13 @@
             this.mP3TagEditorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.unformattedMp3FilesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mP3DatabaseUtilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createSqliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sqlDbRunnerToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mp3DatabaseSearchToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.createSqliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accessDatabaseUtilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadMP3DBToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mP3DatabaseSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sQLDBRunnerToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadMP3DBToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.iPhoneAppsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iTunesLibFileReaderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.copyIPhoneBackupFilesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +69,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.mp3DatabaseSearchToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -157,19 +157,26 @@
             this.mP3DatabaseUtilitiesToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.mP3DatabaseUtilitiesToolStripMenuItem.Text = "Sqlite Database Utilities";
             // 
-            // createSqliteToolStripMenuItem
-            // 
-            this.createSqliteToolStripMenuItem.Name = "createSqliteToolStripMenuItem";
-            this.createSqliteToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.createSqliteToolStripMenuItem.Text = "Create Sqlite";
-            this.createSqliteToolStripMenuItem.Click += new System.EventHandler(this.createSqliteToolStripMenuItem_Click);
-            // 
             // sqlDbRunnerToolStripMenuItem3
             // 
             this.sqlDbRunnerToolStripMenuItem3.Name = "sqlDbRunnerToolStripMenuItem3";
             this.sqlDbRunnerToolStripMenuItem3.Size = new System.Drawing.Size(187, 22);
             this.sqlDbRunnerToolStripMenuItem3.Text = "Sql Db Runner";
             this.sqlDbRunnerToolStripMenuItem3.Click += new System.EventHandler(this.sqlDbRunnerToolStripMenuItem3_Click);
+            // 
+            // mp3DatabaseSearchToolStripMenuItem1
+            // 
+            this.mp3DatabaseSearchToolStripMenuItem1.Name = "mp3DatabaseSearchToolStripMenuItem1";
+            this.mp3DatabaseSearchToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.mp3DatabaseSearchToolStripMenuItem1.Text = "Mp3 Database Search";
+            this.mp3DatabaseSearchToolStripMenuItem1.Click += new System.EventHandler(this.mp3DatabaseSearchToolStripMenuItem1_Click);
+            // 
+            // createSqliteToolStripMenuItem
+            // 
+            this.createSqliteToolStripMenuItem.Name = "createSqliteToolStripMenuItem";
+            this.createSqliteToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.createSqliteToolStripMenuItem.Text = "Create Sqlite";
+            this.createSqliteToolStripMenuItem.Click += new System.EventHandler(this.createSqliteToolStripMenuItem_Click);
             // 
             // accessDatabaseUtilitiesToolStripMenuItem
             // 
@@ -180,13 +187,7 @@
             this.accessDatabaseUtilitiesToolStripMenuItem.Name = "accessDatabaseUtilitiesToolStripMenuItem";
             this.accessDatabaseUtilitiesToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.accessDatabaseUtilitiesToolStripMenuItem.Text = "Access Database Utilities";
-            // 
-            // loadMP3DBToolStripMenuItem1
-            // 
-            this.loadMP3DBToolStripMenuItem1.Name = "loadMP3DBToolStripMenuItem1";
-            this.loadMP3DBToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
-            this.loadMP3DBToolStripMenuItem1.Text = "&Load MP3 DB";
-            this.loadMP3DBToolStripMenuItem1.Click += new System.EventHandler(this.loadMP3DBToolStripMenuItem1_Click);
+            this.accessDatabaseUtilitiesToolStripMenuItem.Visible = false;
             // 
             // mP3DatabaseSearchToolStripMenuItem
             // 
@@ -201,6 +202,13 @@
             this.sQLDBRunnerToolStripMenuItem2.Size = new System.Drawing.Size(187, 22);
             this.sQLDBRunnerToolStripMenuItem2.Text = "SQL DB Runner";
             this.sQLDBRunnerToolStripMenuItem2.Click += new System.EventHandler(this.sQLDBRunnerToolStripMenuItem2_Click);
+            // 
+            // loadMP3DBToolStripMenuItem1
+            // 
+            this.loadMP3DBToolStripMenuItem1.Name = "loadMP3DBToolStripMenuItem1";
+            this.loadMP3DBToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+            this.loadMP3DBToolStripMenuItem1.Text = "&Load MP3 DB";
+            this.loadMP3DBToolStripMenuItem1.Click += new System.EventHandler(this.loadMP3DBToolStripMenuItem1_Click);
             // 
             // iPhoneAppsToolStripMenuItem
             // 
@@ -372,13 +380,6 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // mp3DatabaseSearchToolStripMenuItem1
-            // 
-            this.mp3DatabaseSearchToolStripMenuItem1.Name = "mp3DatabaseSearchToolStripMenuItem1";
-            this.mp3DatabaseSearchToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
-            this.mp3DatabaseSearchToolStripMenuItem1.Text = "Mp3 Database Search";
-            this.mp3DatabaseSearchToolStripMenuItem1.Click += new System.EventHandler(this.mp3DatabaseSearchToolStripMenuItem1_Click);
-            // 
             // MDIMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,6 +387,7 @@
             this.ClientSize = new System.Drawing.Size(962, 756);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MDIMain";
