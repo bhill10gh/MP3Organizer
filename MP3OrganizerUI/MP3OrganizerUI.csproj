@@ -253,6 +253,7 @@
     <Compile Include="iTunes\FrmiTunesLibraryReader.Designer.cs">
       <DependentUpon>FrmiTunesLibraryReader.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\YepYepRecord.cs" />
     <Compile Include="MP3DbUtilities\FrmCreateSqliteDb.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +283,12 @@
     </Compile>
     <Compile Include="Depricated\FrmMp3DbFileCreater.Designer.cs">
       <DependentUpon>FrmMp3DbFileCreater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmYepYepUrlManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MP3DbUtilities\FrmYepYepUrlManager.Designer.cs">
+      <DependentUpon>FrmYepYepUrlManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Mp3FileUtilities\FrmFileUtils.cs">
       <SubType>Form</SubType>
@@ -386,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Depricated\FrmMp3DbFileCreater.resx">
       <DependentUpon>FrmMp3DbFileCreater.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MP3DbUtilities\FrmYepYepUrlManager.resx">
+      <DependentUpon>FrmYepYepUrlManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mp3FileUtilities\FrmFileUtils.resx">
       <DependentUpon>FrmFileUtils.cs</DependentUpon>

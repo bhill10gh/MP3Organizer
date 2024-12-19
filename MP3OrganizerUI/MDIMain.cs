@@ -157,5 +157,12 @@ namespace MP3OrganizerUI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void yepYepToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmYepYepUrlManager frm = new FrmYepYepUrlManager();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

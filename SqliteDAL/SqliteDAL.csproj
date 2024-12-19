@@ -97,6 +97,8 @@
     <Compile Include="DataObjects\tbItunesSong.cs" />
     <Compile Include="DataObjects\tbMp3Info.cs" />
     <Compile Include="DataObjects\User.cs" />
+    <Compile Include="DataObjects\YepYep.cs" />
+    <Compile Include="DataObjects\YepYepRepository.cs" />
     <Compile Include="Mp3Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

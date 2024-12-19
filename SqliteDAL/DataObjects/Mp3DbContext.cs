@@ -53,5 +53,9 @@ namespace SqliteDAL.DataContextObjects
 
         public DbSet<User> User { get; set; }
 
+        public DbSet<YepYep> YepYep { get; set; }
+
+
+
     }
 }
