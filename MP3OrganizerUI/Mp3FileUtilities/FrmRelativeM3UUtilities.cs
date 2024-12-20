@@ -111,6 +111,13 @@ namespace MP3OrganizerUI.Mp3FileUtilities
                 {
                     string file = Path.Combine(dddtbM3uPath.ItemText, tbM3uName.Text);
                     BCHFileIO.WriteFullFile(file, ddlbMediaList.LbList, ref op);
+
+                    if(!op.Success)
+                    {
+                        tbMessages.Text = op.GetAllExceptions("\n");
+                        return;
+                    }
+
                     tbMessages.Text = ("M3U file saved!");
                 }
                 catch (Exception ex)
