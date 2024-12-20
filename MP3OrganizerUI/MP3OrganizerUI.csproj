@@ -296,6 +296,12 @@
     <Compile Include="Mp3FileUtilities\FrmFileUtils.Designer.cs">
       <DependentUpon>FrmFileUtils.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mp3FileUtilities\FrmRelativeM3UUtilities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mp3FileUtilities\FrmRelativeM3UUtilities.Designer.cs">
+      <DependentUpon>FrmRelativeM3UUtilities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Other\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mp3FileUtilities\FrmFileUtils.resx">
       <DependentUpon>FrmFileUtils.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mp3FileUtilities\FrmRelativeM3UUtilities.resx">
+      <DependentUpon>FrmRelativeM3UUtilities.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Other\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

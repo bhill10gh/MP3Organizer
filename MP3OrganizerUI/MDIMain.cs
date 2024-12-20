@@ -164,5 +164,12 @@ namespace MP3OrganizerUI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void m3UEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRelativeM3UUtilities frmM3UEditor = new FrmRelativeM3UUtilities();
+            frmM3UEditor.MdiParent = this;
+            frmM3UEditor.Show();
+        }
     }
 }
