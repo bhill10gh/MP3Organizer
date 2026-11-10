@@ -320,7 +320,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                     if (!_op.Success)
                     {
                         op.AddOperationResult(ref _op);
-                        return;
+                        continue;
                     }
 
                     _mp3Repository.InsertMp3(mp3, ref op);
@@ -328,7 +328,7 @@ namespace MP3OrganizerUI.MP3DbUtilities
                     if (!_op.Success)
                     {
                         op.AddOperationResult(ref _op);
-                        return;
+                        continue;
                     }
                 }
             }

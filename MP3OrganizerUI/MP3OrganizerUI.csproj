@@ -619,10 +619,10 @@ foreach (var item in filesToCleanup)
     <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>copy $(SolutionDir)DAL\SqlScripts.xml $(TargetDir)
-copy $(SolutionDir)Library.xml $(TargetDir)
-copy $(SolutionDir)MP3DB.mdb $(TargetDir)
-copy $(SolutionDir)SqliteDAL\Resources\MP3DB.db</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(SolutionDir)DAL\SqlScripts.xml" "$(TargetDir)SqlScripts.xml"
+copy /Y "$(SolutionDir)Library.xml" "$(TargetDir)Library.xml"
+copy /Y "$(SolutionDir)MP3DB.mdb" "$(TargetDir)MP3DB.mdb"
+copy /Y "$(SolutionDir)SqliteDAL\Resources\MP3DB.db" "$(TargetDir)MP3DB.db"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.6.6.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.6.0\build\Fody.targets')" />
   <Import Project="..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" />
